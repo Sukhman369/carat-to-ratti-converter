@@ -38,6 +38,15 @@ const currentPath = Astro.url.pathname;
       >
         Sawa Charts
       </a>
+      <a
+        href="/blog"
+        class:list={[
+          'px-3 py-1.5 rounded-lg transition-colors',
+          currentPath === '/blog' ? 'text-amber-700 bg-amber-50 font-bold border border-amber-200/60' : 'hover:text-amber-600 hover:bg-slate-50'
+        ]}
+      >
+        Blog
+      </a>
     </nav>
 
     <!-- Language Switcher Toggle -->
