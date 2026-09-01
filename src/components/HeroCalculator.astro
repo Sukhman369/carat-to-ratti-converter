@@ -1,0 +1,408 @@
+---
+---
+
+<section id="calculator" class="w-full max-w-4xl mx-auto pt-8 pb-16 px-4 sm:px-6">
+  <!-- Top Eyebrow Badge -->
+  <div class="flex items-center justify-center mb-5">
+    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-panel text-amber-400 text-xs font-semibold tracking-wide uppercase border border-amber-500/20 shadow-sm">
+      <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+      <span data-i18n="badgeReady">Vedic Astrology & Lab Certified Standard</span>
+    </div>
+  </div>
+
+  <!-- Hero Headings -->
+  <div class="text-center space-y-3 mb-10">
+    <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white font-display">
+      <span data-i18n="heroHeading">Ratti ↔ Carat Converter</span>
+    </h1>
+    <p class="text-zinc-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed" data-i18n="heroSubheading">
+      Instant, laboratory-accurate gemstone weight conversion with Pakka Ratti (0.91 ct) precision and Vedic astrological Sawa insights.
+    </p>
+  </div>
+
+  <!-- Calculator Main Glass Panel -->
+  <div class="glass-panel-elevated rounded-3xl p-6 sm:p-8 glow-gold border border-white/10 relative overflow-hidden">
+    <!-- Subtle Ambient Glow -->
+    <div class="absolute -top-24 -right-24 w-72 h-72 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-24 -left-24 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <!-- Standard Selector Bar (Pakka vs Sunee) -->
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pb-6 border-b border-white/10 mb-6">
+      <span class="text-xs font-semibold text-zinc-400 uppercase tracking-wider flex items-center gap-1.5" data-i18n="standardLabel">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="m9 12 2 2 4-4"></path>
+        </svg>
+        Calculation Standard
+      </span>
+
+      <div class="inline-flex p-1 rounded-xl bg-black/40 border border-white/10">
+        <button
+          type="button"
+          id="btn-std-pakka"
+          class="px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all bg-amber-500 text-black shadow-sm"
+          data-standard="pakka"
+        >
+          Pakka Ratti (0.91 Ct)
+        </button>
+        <button
+          type="button"
+          id="btn-std-sunee"
+          class="px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all text-zinc-400 hover:text-white"
+          data-standard="sunee"
+        >
+          Sunee / Trade (0.90 Ct)
+        </button>
+      </div>
+    </div>
+
+    <!-- Interactive Input & Swap Section -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center mb-8">
+      <!-- Input Box -->
+      <div class="md:col-span-5 space-y-2">
+        <label for="gem-input-val" class="block text-xs font-medium text-zinc-400">
+          <span data-i18n="enterWeight">Enter Gemstone Weight</span> (<span id="input-unit-label" class="text-amber-400 font-semibold">Ratti</span>)
+        </label>
+        <div class="relative">
+          <input
+            type="number"
+            id="gem-input-val"
+            value="5.25"
+            step="0.01"
+            min="0"
+            placeholder="e.g. 5.25"
+            class="w-full h-14 pl-4 pr-16 bg-black/50 border border-white/15 focus:border-amber-400/80 focus:ring-2 focus:ring-amber-500/20 rounded-2xl text-2xl font-bold font-mono text-white placeholder-zinc-600 transition-all outline-none"
+          />
+          <div class="absolute right-3.5 top-1/2 -translate-y-1/2 px-2.5 py-1 rounded-md bg-white/10 text-xs font-mono font-bold text-zinc-200">
+            <span id="input-unit-badge">Rt</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Swap Button -->
+      <div class="md:col-span-2 flex justify-center py-2 md:py-0">
+        <button
+          type="button"
+          id="btn-swap-units"
+          class="w-12 h-12 rounded-2xl bg-white/5 hover:bg-amber-500 text-zinc-300 hover:text-black border border-white/10 hover:border-amber-500 flex items-center justify-center transition-all duration-200 shadow-md group active:scale-95"
+          title="Swap conversion direction (Carat ↔ Ratti)"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 transition-transform duration-300 group-hover:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8 3 4 7l4 4"></path>
+            <path d="M4 7h16"></path>
+            <path d="m16 21 4-4-4-4"></path>
+            <path d="M20 17H4"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Output Result Box -->
+      <div class="md:col-span-5 space-y-2">
+        <span class="block text-xs font-medium text-zinc-400">
+          <span data-i18n="calculatedResult">Calculated Equivalent</span> (<span id="output-unit-label" class="text-amber-400 font-semibold">Carats</span>)
+        </span>
+        <div class="w-full h-14 px-4 bg-amber-500/10 border border-amber-500/30 rounded-2xl flex items-center justify-between">
+          <span id="main-result-val" class="text-2xl font-bold font-mono text-amber-300">4.778</span>
+          <span id="output-unit-badge" class="px-2.5 py-1 rounded-md bg-amber-500/20 text-amber-400 text-xs font-mono font-bold">
+            Ct
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sawa Ratti Astrological Indicator Banner -->
+    <div id="sawa-banner" class="p-4 rounded-2xl bg-gradient-to-r from-amber-500/15 via-amber-500/5 to-transparent border border-amber-500/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-8 transition-all">
+      <div class="flex items-center gap-3">
+        <div id="sawa-icon-wrapper" class="w-9 h-9 rounded-xl bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-amber-400 text-base shrink-0">
+          ✨
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span id="sawa-title-text" class="text-sm font-bold text-amber-300">Sawa Paanch Ratti (5.25 Rt)</span>
+            <span id="sawa-status-tag" class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-400 text-black uppercase tracking-wider">Auspicious</span>
+          </div>
+          <p id="sawa-desc-text" class="text-xs text-zinc-400 mt-0.5">
+            Auspicious fraction (+0.25 Ratti). Governed by Jupiter (Guru) · Associated with Yellow Sapphire (Pukhraj).
+          </p>
+        </div>
+      </div>
+      <div class="text-xs font-mono text-zinc-400 shrink-0 hidden md:block">
+        <span class="text-zinc-500">Seed Standard:</span> ~182.0 mg
+      </div>
+    </div>
+
+    <!-- Quick Action Share & Copy Bar -->
+    <div class="flex flex-wrap items-center gap-3 pb-8 border-b border-white/10 mb-8">
+      <button
+        type="button"
+        id="btn-copy-result"
+        class="btn-pill-secondary flex-1 sm:flex-initial"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect>
+          <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>
+        </svg>
+        <span id="copy-btn-text" data-i18n="copyResult">Copy Result</span>
+      </button>
+
+      <a
+        id="btn-share-whatsapp"
+        href="#"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-pill-primary flex-1 sm:flex-initial bg-emerald-500 hover:bg-emerald-400 text-black border-emerald-400/40"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+          <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.112.553 4.094 1.517 5.823l-1.617 5.908 6.079-1.595c1.668.91 3.57 1.432 5.594 1.432 6.627 0 12-5.373 12-12 0-6.627-5.373-12-12-12z"/>
+        </svg>
+        <span data-i18n="shareWhatsApp">Share on WhatsApp</span>
+      </a>
+    </div>
+
+    <!-- 6-Unit Synchronous Multi-Unit Matrix -->
+    <div class="space-y-4">
+      <div class="flex items-center justify-between">
+        <h3 class="text-xs font-semibold text-zinc-300 uppercase tracking-wider" data-i18n="breakdownTitle">
+          Synchronous Multi-Unit Breakdown
+        </h3>
+        <span class="text-[11px] text-zinc-500 font-mono">Live Scientific & Trade Metrics</span>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+        <!-- Carat Metric -->
+        <div class="p-3.5 rounded-xl bg-black/30 border border-white/5 space-y-1">
+          <span class="text-[11px] text-zinc-400 font-medium" data-i18n="unitCarats">Carats (Ct)</span>
+          <div id="grid-val-carats" class="text-lg font-bold font-mono text-white">4.778</div>
+          <span class="text-[10px] text-zinc-500 block">International Lab Unit</span>
+        </div>
+
+        <!-- Ratti Metric -->
+        <div class="p-3.5 rounded-xl bg-black/30 border border-white/5 space-y-1">
+          <span class="text-[11px] text-zinc-400 font-medium" data-i18n="unitRatti">Ratti (Rt)</span>
+          <div id="grid-val-ratti" class="text-lg font-bold font-mono text-amber-400">5.250</div>
+          <span id="grid-ratti-tag" class="text-[10px] text-amber-500/80 block">Pakka Standard</span>
+        </div>
+
+        <!-- Milligrams Metric -->
+        <div class="p-3.5 rounded-xl bg-black/30 border border-white/5 space-y-1">
+          <span class="text-[11px] text-zinc-400 font-medium" data-i18n="unitMg">Milligrams (mg)</span>
+          <div id="grid-val-mg" class="text-lg font-bold font-mono text-white">955.5</div>
+          <span class="text-[10px] text-zinc-500 block">1 Ct = 200 mg</span>
+        </div>
+
+        <!-- Grams Metric -->
+        <div class="p-3.5 rounded-xl bg-black/30 border border-white/5 space-y-1">
+          <span class="text-[11px] text-zinc-400 font-medium" data-i18n="unitGrams">Grams (g)</span>
+          <div id="grid-val-grams" class="text-lg font-bold font-mono text-white">0.9555</div>
+          <span class="text-[10px] text-zinc-500 block">SI Metric Scale</span>
+        </div>
+
+        <!-- Cents Metric -->
+        <div class="p-3.5 rounded-xl bg-black/30 border border-white/5 space-y-1">
+          <span class="text-[11px] text-zinc-400 font-medium" data-i18n="unitCents">Cents / Points</span>
+          <div id="grid-val-cents" class="text-lg font-bold font-mono text-white">477.8</div>
+          <span class="text-[10px] text-zinc-500 block">100 Cents = 1 Ct</span>
+        </div>
+
+        <!-- Grains Metric -->
+        <div class="p-3.5 rounded-xl bg-black/30 border border-white/5 space-y-1">
+          <span class="text-[11px] text-zinc-400 font-medium" data-i18n="unitGrains">Grains (gr)</span>
+          <div id="grid-val-grains" class="text-lg font-bold font-mono text-white">14.75</div>
+          <span class="text-[10px] text-zinc-500 block">Imperial Gem Measure</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Client Script for Hero Calculator Reactivity -->
+<script>
+  import { convertWeight, RATTI_STANDARDS, type ConversionMode, type RattiStandard } from '../utils/converter';
+  import { TRANSLATIONS } from '../utils/translations';
+
+  let currentMode: ConversionMode = 'rattiToCarat';
+  let currentStandard: RattiStandard = 'pakka';
+  let currentLang: 'en' | 'hi' = 'en';
+
+  const inputValEl = document.getElementById('gem-input-val') as HTMLInputElement;
+  const inputUnitLabel = document.getElementById('input-unit-label')!;
+  const inputUnitBadge = document.getElementById('input-unit-badge')!;
+  const outputUnitLabel = document.getElementById('output-unit-label')!;
+  const outputUnitBadge = document.getElementById('output-unit-badge')!;
+  const mainResultVal = document.getElementById('main-result-val')!;
+
+  const btnSwap = document.getElementById('btn-swap-units')!;
+  const btnPakka = document.getElementById('btn-std-pakka')!;
+  const btnSunee = document.getElementById('btn-std-sunee')!;
+
+  const sawaBanner = document.getElementById('sawa-banner')!;
+  const sawaTitleText = document.getElementById('sawa-title-text')!;
+  const sawaStatusTag = document.getElementById('sawa-status-tag')!;
+  const sawaDescText = document.getElementById('sawa-desc-text')!;
+
+  const gridCarats = document.getElementById('grid-val-carats')!;
+  const gridRatti = document.getElementById('grid-val-ratti')!;
+  const gridMg = document.getElementById('grid-val-mg')!;
+  const gridGrams = document.getElementById('grid-val-grams')!;
+  const gridCents = document.getElementById('grid-val-cents')!;
+  const gridGrains = document.getElementById('grid-val-grains')!;
+  const gridRattiTag = document.getElementById('grid-ratti-tag')!;
+
+  const btnCopy = document.getElementById('btn-copy-result')!;
+  const copyBtnText = document.getElementById('copy-btn-text')!;
+  const btnShareWhatsApp = document.getElementById('btn-share-whatsapp') as HTMLAnchorElement;
+  const langToggleBtn = document.getElementById('lang-toggle-btn');
+  const currentLangText = document.getElementById('current-lang-text');
+
+  function recalculate() {
+    const rawVal = parseFloat(inputValEl.value);
+    const result = convertWeight(isNaN(rawVal) ? 0 : rawVal, currentMode, currentStandard);
+
+    if (currentMode === 'rattiToCarat') {
+      mainResultVal.textContent = result.carats.toFixed(3);
+    } else {
+      mainResultVal.textContent = result.ratti.toFixed(3);
+    }
+
+    gridCarats.textContent = result.carats.toFixed(3);
+    gridRatti.textContent = result.ratti.toFixed(3);
+    gridMg.textContent = result.milligrams.toFixed(1);
+    gridGrams.textContent = result.grams.toFixed(4);
+    gridCents.textContent = result.cents.toFixed(1);
+    gridGrains.textContent = result.grains.toFixed(2);
+    gridRattiTag.textContent = currentStandard === 'pakka' ? 'Pakka (0.91)' : 'Sunee (0.90)';
+
+    // Update Sawa Astrological Banner
+    const info = result.sawaInfo;
+    const isHi = currentLang === 'hi';
+    sawaTitleText.textContent = isHi ? info.hindiName : info.name;
+    sawaDescText.textContent = isHi ? info.hindiDescription : info.description;
+
+    if (info.auspiciousStatus === 'auspicious') {
+      sawaStatusTag.className = 'px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-400 text-black uppercase tracking-wider';
+      sawaStatusTag.textContent = isHi ? 'अत्यंत शुभ' : 'Auspicious';
+      sawaBanner.className = 'p-4 rounded-2xl bg-gradient-to-r from-amber-500/15 via-amber-500/5 to-transparent border border-amber-500/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-8 transition-all';
+    } else if (info.auspiciousStatus === 'inauspicious') {
+      sawaStatusTag.className = 'px-2 py-0.5 rounded-full text-[10px] font-bold bg-rose-500 text-white uppercase tracking-wider';
+      sawaStatusTag.textContent = isHi ? 'त्याज्य (अशुभ)' : 'Avoid (Paune)';
+      sawaBanner.className = 'p-4 rounded-2xl bg-gradient-to-r from-rose-500/15 via-rose-500/5 to-transparent border border-rose-500/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-8 transition-all';
+    } else if (info.auspiciousStatus === 'neutral') {
+      sawaStatusTag.className = 'px-2 py-0.5 rounded-full text-[10px] font-bold bg-blue-400 text-black uppercase tracking-wider';
+      sawaStatusTag.textContent = isHi ? 'संतुलित' : 'Neutral';
+      sawaBanner.className = 'p-4 rounded-2xl bg-gradient-to-r from-blue-500/15 via-blue-500/5 to-transparent border border-blue-500/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-8 transition-all';
+    } else {
+      sawaStatusTag.className = 'px-2 py-0.5 rounded-full text-[10px] font-bold bg-zinc-700 text-zinc-300 uppercase tracking-wider';
+      sawaStatusTag.textContent = isHi ? 'मानक' : 'Standard';
+      sawaBanner.className = 'p-4 rounded-2xl bg-gradient-to-r from-white/5 via-white/2 to-transparent border border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-8 transition-all';
+    }
+
+    // Update WhatsApp Share Link
+    const textMsg = encodeURIComponent(
+      `💎 Gemstone Weight Conversion:\n` +
+      `• ${result.ratti.toFixed(2)} Ratti = ${result.carats.toFixed(2)} Carats (${result.milligrams.toFixed(1)} mg)\n` +
+      `• Standard: ${currentStandard === 'pakka' ? 'Pakka Ratti (0.91)' : 'Sunee Ratti (0.90)'}\n` +
+      `• Sawa Status: ${info.name}\n` +
+      `Calculated on https://rattitocarat.com`
+    );
+    btnShareWhatsApp.href = `https://wa.me/?text=${textMsg}`;
+  }
+
+  // Swap Units
+  btnSwap.addEventListener('click', () => {
+    if (currentMode === 'rattiToCarat') {
+      currentMode = 'caratToRatti';
+      inputUnitLabel.textContent = currentLang === 'hi' ? 'कैरेट' : 'Carats';
+      inputUnitBadge.textContent = 'Ct';
+      outputUnitLabel.textContent = currentLang === 'hi' ? 'रत्ती' : 'Ratti';
+      outputUnitBadge.textContent = 'Rt';
+    } else {
+      currentMode = 'rattiToCarat';
+      inputUnitLabel.textContent = currentLang === 'hi' ? 'रत्ती' : 'Ratti';
+      inputUnitBadge.textContent = 'Rt';
+      outputUnitLabel.textContent = currentLang === 'hi' ? 'कैरेट' : 'Carats';
+      outputUnitBadge.textContent = 'Ct';
+    }
+    recalculate();
+  });
+
+  // Standard Switcher
+  btnPakka.addEventListener('click', () => {
+    currentStandard = 'pakka';
+    btnPakka.className = 'px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all bg-amber-500 text-black shadow-sm';
+    btnSunee.className = 'px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all text-zinc-400 hover:text-white';
+    recalculate();
+  });
+
+  btnSunee.addEventListener('click', () => {
+    currentStandard = 'sunee';
+    btnSunee.className = 'px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all bg-amber-500 text-black shadow-sm';
+    btnPakka.className = 'px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all text-zinc-400 hover:text-white';
+    recalculate();
+  });
+
+  inputValEl.addEventListener('input', recalculate);
+
+  // Copy Result
+  btnCopy.addEventListener('click', async () => {
+    const rawVal = parseFloat(inputValEl.value) || 0;
+    const result = convertWeight(rawVal, currentMode, currentStandard);
+    const copyText = `${result.ratti.toFixed(2)} Ratti = ${result.carats.toFixed(2)} Carats (${result.milligrams.toFixed(1)} mg) [Standard: ${currentStandard === 'pakka' ? '0.91' : '0.90'}]`;
+    
+    try {
+      await navigator.clipboard.writeText(copyText);
+      copyBtnText.textContent = currentLang === 'hi' ? 'कॉपी हो गया!' : 'Copied!';
+      setTimeout(() => {
+        copyBtnText.textContent = currentLang === 'hi' ? TRANSLATIONS.hi.copyResult : TRANSLATIONS.en.copyResult;
+      }, 2000);
+    } catch (e) {
+      console.error(e);
+    }
+  });
+
+  // Bilingual Language Switcher Hook
+  function applyLanguage(lang: 'en' | 'hi') {
+    currentLang = lang;
+    const dict = TRANSLATIONS[lang];
+
+    document.querySelectorAll('[data-i18n]').forEach((el) => {
+      const key = el.getAttribute('data-i18n') as keyof typeof dict;
+      if (dict[key]) {
+        el.textContent = dict[key];
+      }
+    });
+
+    if (currentLangText) {
+      currentLangText.textContent = lang === 'en' ? 'EN / हिन्दी' : 'हिन्दी / EN';
+    }
+
+    if (currentMode === 'rattiToCarat') {
+      inputUnitLabel.textContent = lang === 'hi' ? 'रत्ती' : 'Ratti';
+      outputUnitLabel.textContent = lang === 'hi' ? 'कैरेट' : 'Carats';
+    } else {
+      inputUnitLabel.textContent = lang === 'hi' ? 'कैरेट' : 'Carats';
+      outputUnitLabel.textContent = lang === 'hi' ? 'रत्ती' : 'Ratti';
+    }
+
+    recalculate();
+  }
+
+  langToggleBtn?.addEventListener('click', () => {
+    applyLanguage(currentLang === 'en' ? 'hi' : 'en');
+  });
+
+  // Global listener for gemstone card click
+  window.addEventListener('load-gemstone-preset', ((e: CustomEvent) => {
+    const { ratti, mode } = e.detail;
+    currentMode = mode || 'rattiToCarat';
+    inputValEl.value = ratti.toString();
+    inputUnitLabel.textContent = currentLang === 'hi' ? 'रत्ती' : 'Ratti';
+    inputUnitBadge.textContent = 'Rt';
+    outputUnitLabel.textContent = currentLang === 'hi' ? 'कैरेट' : 'Carats';
+    outputUnitBadge.textContent = 'Ct';
+    recalculate();
+    document.getElementById('calculator')?.scrollIntoView({ behavior: 'smooth' });
+  }) as EventListener);
+
+  // Initial calculation
+  recalculate();
+</script>
