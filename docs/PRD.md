@@ -1,163 +1,101 @@
-# Product Requirements Document (PRD) — Content-Maxxing Edition
-## Multi-Page Programmatic SEO Engine for `rattitocarat.com`
+# Product Requirements Document (PRD) — Clean Multi-Page Architecture
+## Standalone Web Application for `rattitocarat.com`
 
 ---
 
-## 1. Vision & Strategy: Total SERP Domination
+## 1. Executive Summary & Vision
 
-### 🎯 The Core Philosophy: "Content Maxxing & Programmatic Domination"
-Existing competitors (The Vedic Crystals, AstroSage, GemPundit) rely on **a single generic page** or bury their tools inside massive e-commerce catalogs. When a user searches for a specific high-intent long-tail query like:
-* `"5.25 ratti in carat"` (6,500/mo)
-* `"pukhraj ratti to carat calculator"`
-* `"6.25 ratti in carat"` (5,200/mo)
-* `"how many carats is 5 ratti ruby"`
+### 🎯 Objective
+Build a high-performance, non-repetitive, multi-page tool website on **Astro v5 + Tailwind CSS v4** adhering to the **Vercel Geist Design Language** ([`DESIGN.md`](file:///c:/Users/harma/Documents/Repos/carat%20to%20ratti/DESIGN.md)).
 
-...Google currently has to serve generic pages with high bounce rates.
-
-**Our Winning Strategy:**  
-We are building a **massively scalable, multi-page programmatic SEO tool** with **500+ dedicated, lightning-fast static pages** using Astro's `getStaticPaths()`. Every single weight permutation, Sawa fraction, gemstone type, and unit pair will have a **dedicated, indexable, hyper-optimized landing page** with its own:
-1. Pre-populated live interactive calculator.
-2. Google Position 0 "Quick Answer" snippet box.
-3. Astrological Sawa analysis & body-weight compatibility chart.
-4. Semantic FAQ & JSON-LD structured data.
-5. Internal linking cluster connecting neighboring weights and related gemstones.
+### 🚫 Strict Rule: Zero Thin / Duplicate Content
+No auto-generated mass programmatic doorway pages (no `/5-25-ratti-to-carat`, no duplicate thin pages). Every single page must be a **distinct, high-utility, fully functional standalone tool or comprehensive reference**.
 
 ---
 
-## 2. Complete Multi-Page URL Architecture & Hierarchy
+## 2. Core Multi-Page Sitemap & Page Definitions
+
+A focused, high-authority 5-page structure where each page serves a unique user intent:
 
 ```
 rattitocarat.com/
 │
-├── 🏠 Tier 1: Core Hubs
-│   ├── /                                    (Master Bidirectional Calculator)
-│   ├── /carat-to-ratti                      (Dedicated Carat → Ratti Hub)
-│   ├── /ratti-to-carat                      (Dedicated Ratti → Carat Hub)
-│   ├── /body-weight-gemstone-calculator     (Vedic Dosage Calculator Hub)
-│   └── /sitemap-index                       (HTML Crawl Hub for Search Bots)
+├── 1. / (Homepage — Master Bidirectional Converter)
+│      Primary interactive tool with instant keystroke calculation, unit swap, 
+│      and synchronous 6-unit live metric matrix.
 │
-├── ⚡ Tier 2: Programmatic Value Pages (~200+ Pages)
-│   ├── /ratti-to-carat/[value]             (e.g. /ratti-to-carat/5-25, /ratti-to-carat/6-25, /ratti-to-carat/7)
-│   └── /carat-to-ratti/[value]             (e.g. /carat-to-ratti/1, /carat-to-ratti/5, /carat-to-ratti/10)
+├── 2. /carat-to-ratti (Dedicated Carat → Ratti Converter)
+│      Targeting exact search intent for buyers converting certified lab weights 
+│      to astrological Ratti with Carat-first conversion tables (0.25 to 15.00 Ct).
 │
-├── 💎 Tier 3: Navratna Gemstone Dedicated Tools (9 Pages)
-│   ├── /pukhraj-ratti-to-carat              (Yellow Sapphire Weight & Astrological Calculator)
-│   ├── /neelam-ratti-to-carat               (Blue Sapphire Weight Calculator)
-│   ├── /manik-ratti-to-carat                (Ruby Weight Calculator)
-│   ├── /panna-ratti-to-carat                (Emerald Weight Calculator)
-│   ├── /moti-ratti-to-carat                 (Pearl Weight Calculator)
-│   ├── /heera-ratti-to-carat                (Diamond / Opal Weight Calculator)
-│   ├── /moonga-ratti-to-carat               (Red Coral Weight Calculator)
-│   ├── /gomed-ratti-to-carat                (Hessonite Weight Calculator)
-│   └── /lehsuniya-ratti-to-carat            (Cat's Eye Weight Calculator)
+├── 3. /ratti-to-carat (Dedicated Ratti → Carat Converter)
+│      Targeting buyers converting astrological prescriptions to certified lab carats 
+│      with Ratti-first conversion tables (1.00 to 15.00 Ratti) and Pakka vs Sunee toggle.
 │
-├── 🌟 Tier 4: Astrological Sawa Ratti Pages (12 Pages)
-│   ├── /sawa/sawa-ek-ratti                  (1.25 Ratti in Carats — Shukra / Diamond)
-│   ├── /sawa/sawa-do-ratti                  (2.25 Ratti in Carats — Budh / Emerald)
-│   ├── /sawa/sawa-teen-ratti                (3.25 Ratti in Carats — Shani / Neelam)
-│   ├── /sawa/sawa-chaar-ratti               (4.25 Ratti in Carats — Surya / Ruby)
-│   ├── /sawa/sawa-paanch-ratti              (5.25 Ratti in Carats — Guru / Pukhraj)
-│   ├── /sawa/sawa-chhah-ratti               (6.25 Ratti in Carats — Chandra / Pearl)
-│   ├── /sawa/sawa-saat-ratti                (7.25 Ratti in Carats — Mangal / Moonga)
-│   ├── /sawa/sawa-aath-ratti                (8.25 Ratti in Carats — Rahu / Gomed)
-│   └── /sawa/sawa-nau-ratti                 (9.25 Ratti in Carats — Ketu / Lehsuniya)
+├── 4. /body-weight-calculator (Vedic Body-Mass Dosage Tool)
+│      Dedicated interactive slider tool calculating gemstone weight requirement 
+│      based on body mass (1 Ratti per 10–12 kg rule) and nearest Sawa weight fit.
 │
-├── 📐 Tier 5: Unit & Metric Sub-Converters (10 Pages)
-│   ├── /ratti-to-mg                         (Ratti to Milligrams Converter)
-│   ├── /carat-to-mg                         (Carat to Milligrams Converter)
-│   ├── /ratti-to-grams                      (Ratti to Grams Converter)
-│   ├── /carat-to-grams                      (Carat to Grams Converter)
-│   ├── /ratti-to-cents                      (Ratti to Cents / Points)
-│   └── /carat-to-cents                      (Carat to Cents / Points)
-│
-└── 📖 Tier 6: High-Authority Pillar Guides (6 Core Guides)
-    ├── /guide/what-is-ratti                 ("What is Ratti? Complete Indian Gemstone Guide")
-    ├── /guide/pakka-ratti-vs-sunee-ratti    ("Pakka Ratti vs Sunee Ratti: 0.91 vs 0.90 Explained")
-    ├── /guide/sawa-ratti-meaning-astrology  ("Why Astrologers Prescribe Sawa Weights")
-    ├── /guide/carat-vs-ratti-difference     ("Why Your Astrologer and Jeweler Use Different Units")
-    └── /guide/gemstone-weight-by-body-weight ("How to Calculate Gemstone Dosage by Body Mass")
+└── 5. /sawa-ratti-chart (The Complete Astrological Sawa Reference)
+       Authoritative astrological reference table covering all Sawa (+0.25), Saadhe (+0.50), 
+       and Paune (+0.75) weights, ruling planets, and Navratna gemstone associations.
 ```
 
 ---
 
-## 3. On-Page Structure for Programmatic Pages (The SEO Template)
+## 3. Detailed Page Breakdown & Functionality
 
-Every programmatic page (e.g. `/ratti-to-carat/5-25` or `/pukhraj-ratti-to-carat`) will be dynamically constructed with high content density:
+### Page 1: Homepage (`/`) — Master Hub
+* **Hero Calculator:** Bidirectional converter with live unit swap ($\rightleftharpoons$) and Pakka (`0.91`) vs Sunee (`0.90`) standards switch.
+* **Synchronous 6-Unit Matrix:** Carats, Ratti, Milligrams, Grams, Cents, and Grains.
+* **Quick Tools Strip:** Direct navigation to Body-Weight Tool, Carat $\to$ Ratti, Ratti $\to$ Carat, and Sawa Charts.
+* **1-Click Actions:** Copy Result & WhatsApp Formatted Share.
+* **Bilingual Toggle:** Instant English $\leftrightarrow$ हिन्दी switch across all UI elements.
 
-### 1. Dynamic Hero & Pre-filled Calculator Island
-* **H1:** `5.25 Ratti to Carat (Sawa Paanch) | Exact 0.91 Conversion`
-* **Preloaded Input:** `5.25` already typed in, outputting `4.778 Carats (955.5 mg)` instantly.
-* **Featured Snippet Box (Position 0 Target):**
-  > **Quick Answer:** 5.25 Ratti (Sawa Paanch) is equal to **4.778 Carats** (or **955.5 milligrams**) under the standard certified Pakka Ratti ratio (`1 Ratti = 0.91 Carats`). Under the traditional trade Sunee ratio (`0.90`), it equals **4.725 Carats**.
+### Page 2: `/carat-to-ratti` — Dedicated Carat to Ratti Tool
+* **Intent:** Users searching specifically for `"carat to ratti converter"`, `"1 carat in ratti"`, or `"5 carat in ratti"`.
+* **Features:**
+  * Carat-first input pre-focused.
+  * Static exhaustive conversion table ($0.25\text{ Ct}$ to $15.00\text{ Ct}$ in $0.25\text{ Ct}$ increments) optimized for Google Position 0 featured snippets.
+  * Laboratory explainer on why GIA/IGI certificates use Metric Carats ($200\text{ mg}$).
 
-### 2. Astrological & Sawa Breakdown Matrix
-* Auspicious Meaning: *Sawa Paanch (+0.25 Ratti) signifies growth, expansion, and prosperity.*
-* Planetary Ruler: *Jupiter (Brihaspati / Guru)*.
-* Primary Gemstone: *Yellow Sapphire (Pukhraj) & Topaz*.
-* Recommended Body Weight: *Compatible with persons weighing 52 kg to 63 kg*.
+### Page 3: `/ratti-to-carat` — Dedicated Ratti to Carat Tool
+* **Intent:** Users searching specifically for `"ratti to carat converter"`, `"1 ratti in carat"`, or `"5 ratti in carat"`.
+* **Features:**
+  * Ratti-first input pre-focused.
+  * Static conversion table ($1.00\text{ Ratti}$ to $15.00\text{ Ratti}$) with live Pakka vs Sunee standard comparison.
+  * Guide explaining the origin of Gunja seeds and the historical shift from traditional trade to metric units.
 
-### 3. Granular Conversion Table for Neighboring Fractions
-A static comparison table showing:
-| Unit | Standard (0.91) | Trade (0.90) | Milligrams | Grams | Cents |
-|---|---|---|---|---|---|
-| **5.00 Ratti** | 4.550 Ct | 4.500 Ct | 910.0 mg | 0.910 g | 455 Cts |
-| **5.25 Ratti (Current)** | **4.778 Ct** | **4.725 Ct** | **955.5 mg** | **0.955 g** | **478 Cts** |
-| **5.50 Ratti (Saadhe)** | 5.005 Ct | 4.950 Ct | 1001.0 mg | 1.001 g | 501 Cts |
-| **5.75 Ratti (Paune)** | 5.233 Ct | 5.175 Ct | 1046.5 mg | 1.047 g | 523 Cts |
+### Page 4: `/body-weight-calculator` — Vedic Body-Mass Dosage Tool
+* **Intent:** Users searching for `"gemstone weight by body weight"`, `"how many ratti for 65 kg"`.
+* **Features:**
+  * Full-width interactive weight slider ($35\text{--}140\text{ kg}$) + direct numeric entry.
+  * Live dosage matrix: Baseline ($\text{kg} / 12$), Full Potency ($\text{kg} / 10$), and Recommended Sawa Target.
+  * Navratna gemstone minimum weight guidelines.
 
-### 4. Dense Internal Linking Mesh (Spoke-to-Spoke)
-* **Previous Weight:** `← 5.00 Ratti to Carat` (`/ratti-to-carat/5`)
-* **Next Weight:** `5.50 Ratti to Carat →` (`/ratti-to-carat/5-5`)
-* **Associated Gemstone Hub:** `Pukhraj Weight Guide →` (`/pukhraj-ratti-to-carat`)
-* **Inverted Calculation:** `4.78 Carats to Ratti →` (`/carat-to-ratti/4-78`)
-
-### 5. Page-Specific JSON-LD Schema
-* `WebApplication` schema targeting that exact conversion pair.
-* `FAQPage` schema answering `"How many carats is 5.25 ratti?"` and `"Is 5.25 ratti auspicious?"`.
-* `BreadcrumbList` schema: `Home > Ratti to Carat > 5.25 Ratti`.
-
----
-
-## 4. Competitor Takeover Strategy: Why This Crushes the Top 10
-
-| Competitor | Their Strategy | Our Content-Maxxing Edge |
-|---|---|---|
-| **1. The Vedic Crystals** | 1 single calculator page with long text | We have **500+ dedicated landing pages** ranking for every exact query (e.g. `5.25 ratti in carat`). |
-| **2. AstroSage Shop** | Tool buried in e-commerce shop | Standalone, instant load ($\le 0.8\text{s}$), zero product clutter, pure utility focus. |
-| **3. GemPundit** | Uses rounded `0.9` ratio | We own both **0.91 Pakka** and **0.90 Sunee** on every programmatic page with full transparency. |
-| **4. GemsMantra** | 1 blog post with conversion table | We provide dedicated interactive tools for every Navratna gemstone (`/pukhraj-ratti-to-carat`, `/neelam-ratti-to-carat`). |
-| **5. GemRishi** | Zodiac sign long-tail text | We have dedicated Sawa Ratti pages with planetary associations (`/sawa/sawa-paanch-ratti`). |
-| **6. Pramogh to 10. Shiv Parvati** | Thin static content | Full programmatic silo mesh with rich JSON-LD on every single URL. |
+### Page 5: `/sawa-ratti-chart` — Astrological Reference & Vedic Scale
+* **Intent:** Users searching for `"sawa ratti meaning"`, `"sawa paanch ratti"`, `"sawa saat ratti"`.
+* **Features:**
+  * Complete, searchable reference matrix from Sawa Ek ($1.25\text{ Rt}$) to Sawa Barah ($12.25\text{ Rt}$).
+  * Detailed breakdown of Auspicious Sawa ($+0.25$), Neutral Saadhe ($+0.50$), and Paune ($+0.75$) astrological principles.
+  * Direct "Load into Calculator" action on every row.
 
 ---
 
-## 5. Technical Implementation Blueprint
+## 4. Design & UI Specifications (Vercel Geist System)
 
-### 1. Astro Static Generation Engine (`getStaticPaths`)
-* `src/pages/ratti-to-carat/[val].astro`: Generates all standard values:
-  - Whole numbers: `1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20`
-  - Fractional steps: `.25` (Sawa), `.50` (Saadhe), `.75` (Paune) for every whole number.
-  - Granular micro-steps (`0.25` to `15.00` in `0.25` increments = ~60 dedicated pages).
-* `src/pages/carat-to-ratti/[val].astro`: Generates all standard carat values (`0.25, 0.5, 0.75, 1.0, 1.25, ... 15.0`).
-* `src/pages/gemstones/[gem].astro`: Generates 9 Navratna gemstone pages.
-* `src/pages/sawa/[fraction].astro`: Generates 12 Auspicious Sawa pages.
-* `src/pages/guide/[slug].astro`: Content collection for deep educational pillar articles.
-
-### 2. Crawlability & XML Sitemaps
-* Programmatic generation of `sitemap.xml` listing all 500+ URLs with priority weighting:
-  - Core Hubs: `1.0`
-  - Gemstone Hubs & High-Volume Sawa Pages: `0.9`
-  - Programmatic Value Pages: `0.8`
-  - Educational Pillar Guides: `0.7`
-* HTML Sitemap Directory Page (`/sitemap-index`) linking every spoke for search engine spiders.
+* **Canvas & Color:** Deep ink background (`#000000` / `#090d16`), 1px hairline borders (`rgba(255, 255, 255, 0.08)`), amber/gold glowing highlights, high-contrast typography.
+* **Typography:** `Geist Mono` / `Outfit` for display headings and monospaced technical figures; `Inter` for clear body readability.
+* **Zero Distractions:** No third-party advertisements, no intrusive popups, instantaneous response times ($\le 0.8\text{s}$ LCP).
 
 ---
 
-## 6. Phased Execution Plan
+## 5. Technical & SEO Architecture
 
-- [ ] **Phase 1: PRD & Architectural Alignment (Current Step)**
-- [ ] **Phase 2: Programmatic Data Vault & Routing Engine** (Build `data/gemstones.ts`, `data/sawaData.ts`, `data/values.ts`)
-- [ ] **Phase 3: Programmatic Page Templates** (Build dynamic Astro route templates `[val].astro`, `[gem].astro`, `[fraction].astro`)
-- [ ] **Phase 4: High-Yield Pillar Content & Guides** (Build the 5 educational authority markdown guides)
-- [ ] **Phase 5: Internal Linking Silo & XML/HTML Sitemaps** (Connect every page with breadcrumbs and related neighbor links)
-- [ ] **Phase 6: Verification, Static Build & Lighthouse Audit** (Verify 500+ static HTML pages build in $\le 5\text{s}$ with 100 PageSpeed)
+* **Framework:** Astro v5 (Static Site Generation for 100/100 Core Web Vitals).
+* **Styling:** Tailwind CSS v4 (`@tailwindcss/vite`) via `@theme` design tokens.
+* **Structured Data (JSON-LD):**
+  * `WebApplication` Schema on tools.
+  * `FAQPage` Schema on question sections.
+  * `BreadcrumbList` Schema across all secondary pages.
+* **Internal Linking:** Clean header navigation and contextual footer links seamlessly binding the 5 core tools together.
