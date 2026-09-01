@@ -1,32 +1,28 @@
-/* Geist-inspired Glassmorphism & Micro-elevations */
-@utility glass-panel {
-  background: rgba(13, 18, 31, 0.75);
+/* Obsidian Atelier Panels & Glows */
+@utility atelier-card {
+  background: rgba(17, 22, 34, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-@utility glass-panel-elevated {
-  background: rgba(21, 28, 46, 0.85);
+@utility atelier-card-elevated {
+  background: rgba(23, 30, 46, 0.95);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 @utility glow-gold {
-  box-shadow: 0 0 35px -5px rgba(245, 158, 11, 0.25);
+  box-shadow: 0 0 40px -8px rgba(245, 158, 11, 0.22);
 }
 
 @utility glow-gold-sm {
-  box-shadow: 0 0 15px -3px rgba(245, 158, 11, 0.2);
-}
-
-@utility glow-emerald {
-  box-shadow: 0 0 30px -5px rgba(16, 185, 129, 0.2);
+  box-shadow: 0 0 16px -4px rgba(245, 158, 11, 0.18);
 }
 
 @utility tight-tracking {
-  letter-spacing: -0.035em;
+  letter-spacing: -0.03em;
 }
 
 @utility mono-nums {

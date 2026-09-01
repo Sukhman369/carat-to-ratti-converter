@@ -1,7 +1,8 @@
 ---
+const currentPath = Astro.url.pathname;
 ---
 
-<header class="sticky top-0 z-50 w-full border-b border-white/10 glass-panel backdrop-blur-xl transition-all">
+<header class="sticky top-0 z-50 w-full border-b border-white/10 atelier-card backdrop-blur-xl transition-all">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
     <!-- Brand Logo -->
     <a href="/" class="flex items-center gap-3 group">
@@ -22,15 +23,55 @@
     </a>
 
     <!-- Navigation Links -->
-    <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-zinc-300">
-      <a href="#calculator" class="hover:text-amber-400 transition-colors">Calculator</a>
-      <a href="#body-weight" class="hover:text-amber-400 transition-colors">Body Weight</a>
-      <a href="#gemstones" class="hover:text-amber-400 transition-colors">Gemstones</a>
-      <a href="#tables" class="hover:text-amber-400 transition-colors">Charts</a>
-      <a href="#faq" class="hover:text-amber-400 transition-colors">FAQ</a>
+    <nav class="hidden lg:flex items-center gap-5 text-xs font-medium text-zinc-300">
+      <a
+        href="/"
+        class:list={[
+          'px-2.5 py-1.5 rounded-lg transition-colors',
+          currentPath === '/' ? 'text-amber-400 bg-amber-500/10 font-semibold' : 'hover:text-amber-400'
+        ]}
+      >
+        Master Tool
+      </a>
+      <a
+        href="/carat-to-ratti"
+        class:list={[
+          'px-2.5 py-1.5 rounded-lg transition-colors',
+          currentPath === '/carat-to-ratti' ? 'text-amber-400 bg-amber-500/10 font-semibold' : 'hover:text-amber-400'
+        ]}
+      >
+        Carat → Ratti
+      </a>
+      <a
+        href="/ratti-to-carat"
+        class:list={[
+          'px-2.5 py-1.5 rounded-lg transition-colors',
+          currentPath === '/ratti-to-carat' ? 'text-amber-400 bg-amber-500/10 font-semibold' : 'hover:text-amber-400'
+        ]}
+      >
+        Ratti → Carat
+      </a>
+      <a
+        href="/body-weight-calculator"
+        class:list={[
+          'px-2.5 py-1.5 rounded-lg transition-colors',
+          currentPath === '/body-weight-calculator' ? 'text-amber-400 bg-amber-500/10 font-semibold' : 'hover:text-amber-400'
+        ]}
+      >
+        Body Weight
+      </a>
+      <a
+        href="/sawa-ratti-chart"
+        class:list={[
+          'px-2.5 py-1.5 rounded-lg transition-colors',
+          currentPath === '/sawa-ratti-chart' ? 'text-amber-400 bg-amber-500/10 font-semibold' : 'hover:text-amber-400'
+        ]}
+      >
+        Sawa Charts
+      </a>
     </nav>
 
-    <!-- Language & Quick Actions -->
+    <!-- Language & Standards Indicator -->
     <div class="flex items-center gap-3">
       <!-- Language Switcher Toggle -->
       <button
@@ -48,9 +89,9 @@
       </button>
 
       <!-- Standard Indicator Badge -->
-      <div class="hidden lg:flex items-center gap-2 px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-400 text-xs font-mono border border-emerald-500/20">
+      <div class="hidden sm:flex items-center gap-2 px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-400 text-xs font-mono border border-emerald-500/20">
         <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-        <span>1 Pakka Rt = 0.91 Ct</span>
+        <span>0.91 Pakka Ratio</span>
       </div>
     </div>
   </div>
