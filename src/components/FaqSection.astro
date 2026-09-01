@@ -1,0 +1,83 @@
+---
+const FAQS = [
+  {
+    q: 'How many Carats is 1 Ratti in Indian gemstone standards?',
+    hindiQ: '1 रत्ती में कितने कैरेट होते हैं?',
+    a: 'In certified Indian gemology and Vedic astrology (Pakka Ratti), 1 Ratti is equal to 0.91 Carats (182 milligrams). In some traditional North Indian regional jewelry markets, a rounded Sunee/Kachha ratio of 0.90 Carats (180 milligrams) is used.',
+    hindiA: 'मानक वैदिक ज्योतिष एवं प्रमाणित भारतीय जेमोलॉजी (पक्की रत्ती) में 1 रत्ती = 0.91 कैरेट (182 मिलीग्राम) होता है। कुछ पारंपरिक स्थानीय बाजारों में सुनी / कच्ची रत्ती को 0.90 कैरेट (180 मिग्रा) माना जाता है।',
+  },
+  {
+    q: 'How many Ratti is 1 Carat?',
+    hindiQ: '1 कैरेट में कितनी रत्ती होती है?',
+    a: '1 Carat is equal to 1.0989 Pakka Ratti (approximately 1.10 Ratti). If using the trade Sunee ratio (0.90), 1 Carat equals 1.11 Sunee Ratti.',
+    hindiA: '1 कैरेट में 1.0989 पक्की रत्ती (लगभग 1.10 रत्ती) होती है। सुनी रत्ती (0.90) के अनुसार 1 कैरेट = 1.11 सुनी रत्ती होता है।',
+  },
+  {
+    q: 'What is Sawa Ratti (सवा रत्ती) in Vedic Astrology?',
+    hindiQ: 'वैदिक ज्योतिष में सवा रत्ती (Sawa Ratti) का क्या महत्व है?',
+    a: 'In Vedic astrology, gemstones are prescribed with a +0.25 Ratti fraction (called Sawa, such as Sawa Paanch 5.25 Ratti or Sawa Saat 7.25 Ratti). Sawa represents growth, expansion, and auspicious energy. Exact whole numbers or Paune (-0.25 / +0.75) are traditionally avoided by orthodox practitioners.',
+    hindiA: 'वैदिक ज्योतिष में रत्नों को +0.25 रत्ती (सवा, जैसे सवा पांच 5.25 या सवा सात 7.25 रत्ती) के शुभ अनुपात में धारण करने की सलाह दी जाती है। सवा का अर्थ वृद्धि एवं शुभता है। पौने (+0.75) भार को त्याज्य माना जाता है।',
+  },
+  {
+    q: 'How to calculate gemstone weight based on body weight?',
+    hindiQ: 'शारीरिक वजन के अनुसार रत्न का भार कैसे तय करें?',
+    a: 'The established Vedic rule of thumb is 1 Ratti per 10 to 12 kg of body weight (Body Weight in kg divided by 10 to 12). For example, a 65 kg person is typically prescribed a gemstone between 5.41 Ratti (4.92 Carats) and 6.50 Ratti (5.91 Carats), with Sawa Paanch (5.25 Ratti) or Sawa Chhah (6.25 Ratti) as auspicious targets.',
+    hindiA: 'वैदिक नियम के अनुसार व्यक्ति के प्रति 10 से 12 किलो शारीरिक वजन पर 1 रत्ती रत्न का भार होना चाहिए। उदाहरण के लिए, 65 किलो वजन वाले व्यक्ति हेतु 5.41 से 6.50 रत्ती (लगभग 4.92 से 5.91 कैरेट) का रत्न उत्तम माना जाता है।',
+  },
+  {
+    q: 'What is the difference between Pakka Ratti and Sunee Ratti?',
+    hindiQ: 'पक्की रत्ती और सुनी रत्ती में क्या अंतर है?',
+    a: 'Pakka Ratti is calibrated at 182 mg (0.91 carats) and is the standard recognized by certified gem testing laboratories (GIA, IGI) and modern Vedic astrologers. Sunee (Kachha) Ratti is a traditional trade measure calibrated at 180 mg (0.90 carats) still used in some local North Indian markets.',
+    hindiA: 'पक्की रत्ती 182 मिग्रा (0.91 कैरेट) के बराबर होती है और यह अंतरराष्ट्रीय मान्यता प्राप्त लैब व आधुनिक ज्योतिष का मानक है। सुनी (कच्ची) रत्ती 180 मिग्रा (0.90 कैरेट) का पारंपरिक माप है।',
+  },
+  {
+    q: 'Why do international gem labs (GIA, IGI) report weights in Carats instead of Ratti?',
+    hindiQ: 'अंतर्राष्ट्रीय लैब (GIA, IGI) रत्ती के बजाय कैरेट में प्रमाण पत्र क्यों जारी करती हैं?',
+    a: 'Carat (metric carat = 200 mg) is an internationally standardized metric unit under the International System of Units (SI). Ratti is a traditional Indian unit derived from seed mass. International testing laboratories exclusively use metric carats for global legal and scientific uniformity.',
+    hindiA: 'कैरेट (1 कैरेट = 200 मिग्रा) एक अंतरराष्ट्रीय मानक SI इकाई है। रत्ती एक पारंपरिक भारतीय माप है। वैश्विक वैज्ञानिक एकरूपता के लिए सभी अंतरराष्ट्रीय प्रयोगशालाएं कैरेट का उपयोग करती हैं।',
+  },
+  {
+    q: 'How many milligrams (mg) and grams (g) are in 1 Ratti?',
+    hindiQ: '1 रत्ती में कितने मिलीग्राम (mg) और ग्राम होते हैं?',
+    a: '1 Pakka Ratti contains 182.0 milligrams (0.1820 grams). 1 Sunee Ratti contains 180.0 milligrams (0.1800 grams). 1 Carat contains 200.0 milligrams (0.2000 grams).',
+    hindiA: '1 पक्की रत्ती में 182.0 मिलीग्राम (0.1820 ग्राम) होते हैं। 1 सुनी रत्ती में 180.0 मिलीग्राम (0.1800 ग्राम) होते हैं। 1 कैरेट में 200 मिलीग्राम (0.2000 ग्राम) होते हैं।',
+  },
+];
+---
+
+<section id="faq" class="w-full max-w-4xl mx-auto py-12 px-4 sm:px-6">
+  <!-- Header -->
+  <div class="text-center space-y-2 mb-8">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 text-xs font-semibold uppercase tracking-wider border border-amber-500/20">
+      <span>❓ Frequently Asked Questions</span>
+    </div>
+    <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-white font-display" data-i18n="faqTitle">
+      Frequently Asked Questions
+    </h2>
+    <p class="text-zinc-400 text-sm max-w-xl mx-auto" data-i18n="faqSubtitle">
+      Everything you need to know about Carats, Pakka Ratti, Sunee Ratti, and Vedic gemstone weight standards.
+    </p>
+  </div>
+
+  <!-- Accordion List -->
+  <div class="space-y-3">
+    {FAQS.map((faq, idx) => (
+      <details class="group glass-panel rounded-2xl border border-white/10 overflow-hidden transition-all [&_summary::-webkit-details-marker]:hidden">
+        <summary class="flex items-center justify-between p-4 sm:p-5 cursor-pointer select-none text-left hover:bg-white/5 transition-colors">
+          <span class="text-sm sm:text-base font-semibold text-zinc-100 group-open:text-amber-400 transition-colors flex items-start gap-3">
+            <span class="text-amber-500/80 font-mono text-xs mt-0.5">0{idx + 1}.</span>
+            <span>{faq.q}</span>
+          </span>
+          <span class="w-6 h-6 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 group-open:rotate-180 group-open:bg-amber-500/20 group-open:text-amber-300 transition-all shrink-0 ml-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m6 9 6 6 6-6"></path>
+            </svg>
+          </span>
+        </summary>
+        <div class="px-5 pb-5 pt-1 text-xs sm:text-sm text-zinc-400 leading-relaxed border-t border-white/5 bg-black/20">
+          <p>{faq.a}</p>
+        </div>
+      </details>
+    ))}
+  </div>
+</section>
