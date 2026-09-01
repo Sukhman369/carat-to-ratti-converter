@@ -21,15 +21,6 @@ const currentPath = Astro.url.pathname;
     <!-- Navigation Links -->
     <nav class="hidden lg:flex items-center gap-2 text-xs font-semibold text-slate-600">
       <a
-        href="/"
-        class:list={[
-          'px-3 py-1.5 rounded-lg transition-colors',
-          currentPath === '/' ? 'text-amber-700 bg-amber-50 font-bold border border-amber-200/60' : 'hover:text-amber-600 hover:bg-slate-50'
-        ]}
-      >
-        Master Tool
-      </a>
-      <a
         href="/carat-to-ratti"
         class:list={[
           'px-3 py-1.5 rounded-lg transition-colors',
