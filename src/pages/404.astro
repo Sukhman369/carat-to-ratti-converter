@@ -11,28 +11,28 @@ import Footer from '../components/Footer.astro';
 >
   <Navbar />
 
-  <main class="relative min-h-[85vh] flex flex-col items-center justify-center px-4 sm:px-6 py-12 overflow-hidden">
+  <main class="relative min-h-[80vh] flex flex-col items-center justify-center px-4 sm:px-6 py-6 sm:py-10 overflow-hidden">
     
     <!-- Ambient Celestial Glow Orbs -->
     <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-gradient-to-tr from-amber-300/20 via-orange-300/10 to-amber-500/20 rounded-full blur-3xl pointer-events-none -z-10"></div>
 
-    <div class="max-w-2xl w-full text-center space-y-8">
+    <div class="max-w-2xl w-full text-center space-y-5">
       
-      <!-- Top Status Header -->
-      <div class="space-y-3">
-        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-50 text-amber-800 text-xs font-mono font-bold uppercase tracking-widest border border-amber-200 shadow-xs">
-          <span>✨ 404 · Uncharted Celestial Coordinates</span>
+      <!-- Top Status Header (Compact) -->
+      <div class="space-y-2">
+        <div class="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-amber-50 text-amber-800 text-[11px] font-mono font-bold uppercase tracking-widest border border-amber-200 shadow-xs">
+          <span>✨ 404 · Cosmic Gem Vault</span>
         </div>
-        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 font-display">
-          Lost in the Cosmic Gem Vault
+        <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-slate-900 font-display">
+          Lost in the Celestial Vault
         </h1>
         <p class="text-xs sm:text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
-          The page you requested has dissolved into stardust. But while you're here, tap the sacred Navratna gems to balance the ancient celestial scale!
+          Tap the floating sacred gemstones in the horizontal dock below to balance the cosmic scale!
         </p>
       </div>
 
       <!-- Smart URL Intent Detector (Appears if user mistyped a weight URL) -->
-      <div id="url-intent-box" class="hidden p-4 rounded-2xl bg-amber-50/90 border border-amber-300/80 shadow-xs text-center space-y-2 animate-in fade-in zoom-in-95 duration-300">
+      <div id="url-intent-box" class="hidden p-3.5 rounded-2xl bg-amber-50/90 border border-amber-300/80 shadow-xs text-center space-y-1.5 animate-in fade-in zoom-in-95 duration-300">
         <div class="flex items-center justify-center gap-2 text-xs font-bold text-amber-900">
           <span>🔍</span>
           <span>We detected a weight in your link!</span>
@@ -47,46 +47,46 @@ import Footer from '../components/Footer.astro';
         </a>
       </div>
 
-      <!-- Interactive Celestial Balance Scale (The Viral Interactive Core) -->
-      <div class="rounded-3xl atelier-card-elevated p-6 sm:p-8 border border-slate-200 shadow-xl space-y-6 glow-gold-sm text-center">
+      <!-- Interactive Celestial Balance Scale Card -->
+      <div class="rounded-3xl atelier-card-elevated p-5 sm:p-7 border border-slate-200 shadow-xl space-y-4 glow-gold-sm text-center">
         
-        <!-- Live Scale Readout -->
-        <div class="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-slate-100 text-xs">
+        <!-- Live Scale Readout Bar -->
+        <div class="flex items-center justify-between gap-2 pb-3 border-b border-slate-100 text-xs">
           <div class="flex items-center gap-2">
             <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
-            <span class="font-bold text-slate-800">Cosmic Balance Scale</span>
+            <span class="font-bold text-slate-800">Physical Balance Scale</span>
           </div>
-          <div class="font-mono font-bold text-amber-800 bg-amber-50 px-3 py-1 rounded-full border border-amber-200">
-            Total Mass: <span id="scale-total-ratti">0.00</span> Rt (<span id="scale-total-carats">0.00</span> Ct)
+          <div class="font-mono font-bold text-amber-800 bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200 text-[11px]">
+            Mass: <span id="scale-total-ratti">0.00</span> Rt (<span id="scale-total-carats">0.00</span> Ct)
           </div>
         </div>
 
-        <!-- The Animated Physical Balance Scale -->
-        <div class="relative h-44 sm:h-52 w-full flex items-center justify-center overflow-hidden select-none">
+        <!-- The Animated Physical Balance Scale (Compact Height) -->
+        <div class="relative h-32 sm:h-40 w-full flex items-center justify-center overflow-hidden select-none">
           
           <!-- Central Pivot Stand -->
-          <div class="absolute bottom-4 left-1/2 -translate-x-1/2 w-4 h-28 bg-gradient-to-t from-slate-400 to-amber-500 rounded-t-sm shadow-md"></div>
-          <div class="absolute bottom-2 left-1/2 -translate-x-1/2 w-16 h-3 bg-slate-300 rounded-full border border-slate-400"></div>
-          <div class="absolute top-12 left-1/2 -translate-x-1/2 w-5 h-5 rounded-full bg-amber-500 border-2 border-white shadow-sm z-20"></div>
+          <div class="absolute bottom-3 left-1/2 -translate-x-1/2 w-3.5 h-20 bg-gradient-to-t from-slate-400 to-amber-500 rounded-t-sm shadow-md"></div>
+          <div class="absolute bottom-1.5 left-1/2 -translate-x-1/2 w-14 h-2.5 bg-slate-300 rounded-full border border-slate-400"></div>
+          <div class="absolute top-8 left-1/2 -translate-x-1/2 w-4.5 h-4.5 rounded-full bg-amber-500 border-2 border-white shadow-sm z-20"></div>
 
           <!-- Rotating Tilting Beam -->
           <div
             id="scale-beam"
-            class="absolute top-14 left-1/2 -translate-x-1/2 w-64 sm:w-80 h-2 bg-gradient-to-r from-amber-400 via-amber-600 to-amber-400 rounded-full shadow-md transition-transform duration-500 ease-out origin-center z-10"
+            class="absolute top-10 left-1/2 -translate-x-1/2 w-60 sm:w-72 h-1.5 bg-gradient-to-r from-amber-400 via-amber-600 to-amber-400 rounded-full shadow-md transition-transform duration-500 ease-out origin-center z-10"
             style="transform: translateX(-50%) rotate(0deg);"
           >
             <!-- Left Pan Hanging Rope & Tray -->
-            <div class="absolute -left-1 top-2 flex flex-col items-center">
-              <div class="w-0.5 h-16 bg-slate-400/80"></div>
-              <div class="w-16 h-4 bg-gradient-to-b from-amber-200 to-amber-400 rounded-b-xl border border-amber-500 shadow-sm flex items-center justify-center">
+            <div class="absolute -left-1 top-1.5 flex flex-col items-center">
+              <div class="w-0.5 h-12 bg-slate-400/80"></div>
+              <div class="w-14 h-3.5 bg-gradient-to-b from-amber-200 to-amber-400 rounded-b-xl border border-amber-500 shadow-sm flex items-center justify-center">
                 <span id="left-pan-count" class="text-[9px] font-mono font-bold text-amber-900">0</span>
               </div>
             </div>
 
             <!-- Right Pan Hanging Rope & Tray -->
-            <div class="absolute -right-1 top-2 flex flex-col items-center">
-              <div class="w-0.5 h-16 bg-slate-400/80"></div>
-              <div class="w-16 h-4 bg-gradient-to-b from-amber-200 to-amber-400 rounded-b-xl border border-amber-500 shadow-sm flex items-center justify-center">
+            <div class="absolute -right-1 top-1.5 flex flex-col items-center">
+              <div class="w-0.5 h-12 bg-slate-400/80"></div>
+              <div class="w-14 h-3.5 bg-gradient-to-b from-amber-200 to-amber-400 rounded-b-xl border border-amber-500 shadow-sm flex items-center justify-center">
                 <span id="right-pan-count" class="text-[9px] font-mono font-bold text-amber-900">0</span>
               </div>
             </div>
@@ -94,89 +94,89 @@ import Footer from '../components/Footer.astro';
 
           <!-- Active Oracle Message -->
           <div class="absolute bottom-0 inset-x-0 text-center">
-            <p id="oracle-message" class="text-xs font-semibold text-slate-700 italic">
-              "Click any sacred gemstone below to load the cosmic scale..."
+            <p id="oracle-message" class="text-[11px] font-semibold text-slate-700 italic">
+              "Tap any sacred gemstone in the horizontal dock below..."
             </p>
           </div>
         </div>
 
-        <!-- 9 Tap-to-Drop Navratna Gemstone Buttons -->
-        <div class="space-y-2 pt-2 border-t border-slate-100">
-          <span class="text-[11px] font-bold uppercase tracking-wider text-slate-500 block">
-            Tap Gems to Balance · Hear the Chime 🔔
-          </span>
+        <!-- 9 Navratna Gemstones in a Single Sleek Horizontal Scrollable Dock -->
+        <div class="space-y-1.5 pt-2 border-t border-slate-100 text-left">
+          <div class="flex items-center justify-between px-1 text-[10px] font-bold uppercase tracking-wider text-slate-400">
+            <span>Horizontal Gem Dock (Scroll / Tap)</span>
+            <span class="text-amber-700 font-mono">9 Sacred Stones</span>
+          </div>
           
-          <div class="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-9 gap-1.5" id="gems-dock">
-            <button type="button" class="gem-btn p-2 rounded-xl bg-slate-50 hover:bg-amber-100/60 border border-slate-200 transition-all hover:scale-105 active:scale-90 flex flex-col items-center gap-0.5" data-gem="Manik (Ruby)" data-ratti="4.25" data-side="left" data-freq="528">
+          <div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-1 px-0.5 snap-x scroll-smooth max-w-full justify-start sm:justify-center" id="gems-dock">
+            <button type="button" class="gem-btn shrink-0 min-w-[68px] sm:min-w-[72px] p-2 rounded-2xl bg-white hover:bg-amber-50 border border-slate-200/90 shadow-xs hover:border-amber-400 active:scale-95 transition-all flex flex-col items-center gap-0.5 snap-center cursor-pointer" data-gem="Manik (Ruby)" data-ratti="4.25" data-side="left" data-freq="528">
               <span class="text-base">☀️</span>
-              <span class="text-[10px] font-bold text-slate-800">Manik</span>
-              <span class="text-[9px] font-mono text-slate-500">4.25 Rt</span>
+              <span class="text-[10px] font-bold text-slate-900 leading-none">Manik</span>
+              <span class="text-[9px] font-mono text-slate-400">4.25 Rt</span>
             </button>
 
-            <button type="button" class="gem-btn p-2 rounded-xl bg-slate-50 hover:bg-amber-100/60 border border-slate-200 transition-all hover:scale-105 active:scale-90 flex flex-col items-center gap-0.5" data-gem="Moti (Pearl)" data-ratti="5.25" data-side="left" data-freq="587">
+            <button type="button" class="gem-btn shrink-0 min-w-[68px] sm:min-w-[72px] p-2 rounded-2xl bg-white hover:bg-amber-50 border border-slate-200/90 shadow-xs hover:border-amber-400 active:scale-95 transition-all flex flex-col items-center gap-0.5 snap-center cursor-pointer" data-gem="Moti (Pearl)" data-ratti="5.25" data-side="left" data-freq="587">
               <span class="text-base">🌕</span>
-              <span class="text-[10px] font-bold text-slate-800">Moti</span>
-              <span class="text-[9px] font-mono text-slate-500">5.25 Rt</span>
+              <span class="text-[10px] font-bold text-slate-900 leading-none">Moti</span>
+              <span class="text-[9px] font-mono text-slate-400">5.25 Rt</span>
             </button>
 
-            <button type="button" class="gem-btn p-2 rounded-xl bg-slate-50 hover:bg-amber-100/60 border border-slate-200 transition-all hover:scale-105 active:scale-90 flex flex-col items-center gap-0.5" data-gem="Pukhraj (Yellow Sapphire)" data-ratti="5.25" data-side="left" data-freq="659">
+            <button type="button" class="gem-btn shrink-0 min-w-[68px] sm:min-w-[72px] p-2 rounded-2xl bg-white hover:bg-amber-50 border border-slate-200/90 shadow-xs hover:border-amber-400 active:scale-95 transition-all flex flex-col items-center gap-0.5 snap-center cursor-pointer" data-gem="Pukhraj (Yellow Sapphire)" data-ratti="5.25" data-side="left" data-freq="659">
               <span class="text-base">🌟</span>
-              <span class="text-[10px] font-bold text-slate-800">Pukhraj</span>
-              <span class="text-[9px] font-mono text-slate-500">5.25 Rt</span>
+              <span class="text-[10px] font-bold text-slate-900 leading-none">Pukhraj</span>
+              <span class="text-[9px] font-mono text-slate-400">5.25 Rt</span>
             </button>
 
-            <button type="button" class="gem-btn p-2 rounded-xl bg-slate-50 hover:bg-amber-100/60 border border-slate-200 transition-all hover:scale-105 active:scale-90 flex flex-col items-center gap-0.5" data-gem="Panna (Emerald)" data-ratti="3.25" data-side="left" data-freq="698">
+            <button type="button" class="gem-btn shrink-0 min-w-[68px] sm:min-w-[72px] p-2 rounded-2xl bg-white hover:bg-amber-50 border border-slate-200/90 shadow-xs hover:border-amber-400 active:scale-95 transition-all flex flex-col items-center gap-0.5 snap-center cursor-pointer" data-gem="Panna (Emerald)" data-ratti="3.25" data-side="left" data-freq="698">
               <span class="text-base">🌿</span>
-              <span class="text-[10px] font-bold text-slate-800">Panna</span>
-              <span class="text-[9px] font-mono text-slate-500">3.25 Rt</span>
+              <span class="text-[10px] font-bold text-slate-900 leading-none">Panna</span>
+              <span class="text-[9px] font-mono text-slate-400">3.25 Rt</span>
             </button>
 
-            <button type="button" class="gem-btn p-2 rounded-xl bg-slate-50 hover:bg-amber-100/60 border border-slate-200 transition-all hover:scale-105 active:scale-90 flex flex-col items-center gap-0.5" data-gem="Heera (Diamond)" data-ratti="1.25" data-side="right" data-freq="784">
+            <button type="button" class="gem-btn shrink-0 min-w-[68px] sm:min-w-[72px] p-2 rounded-2xl bg-white hover:bg-amber-50 border border-slate-200/90 shadow-xs hover:border-amber-400 active:scale-95 transition-all flex flex-col items-center gap-0.5 snap-center cursor-pointer" data-gem="Heera (Diamond)" data-ratti="1.25" data-side="right" data-freq="784">
               <span class="text-base">💎</span>
-              <span class="text-[10px] font-bold text-slate-800">Heera</span>
-              <span class="text-[9px] font-mono text-slate-500">1.25 Rt</span>
+              <span class="text-[10px] font-bold text-slate-900 leading-none">Heera</span>
+              <span class="text-[9px] font-mono text-slate-400">1.25 Rt</span>
             </button>
 
-            <button type="button" class="gem-btn p-2 rounded-xl bg-slate-50 hover:bg-amber-100/60 border border-slate-200 transition-all hover:scale-105 active:scale-90 flex flex-col items-center gap-0.5" data-gem="Neelam (Blue Sapphire)" data-ratti="4.25" data-side="right" data-freq="880">
+            <button type="button" class="gem-btn shrink-0 min-w-[68px] sm:min-w-[72px] p-2 rounded-2xl bg-white hover:bg-amber-50 border border-slate-200/90 shadow-xs hover:border-amber-400 active:scale-95 transition-all flex flex-col items-center gap-0.5 snap-center cursor-pointer" data-gem="Neelam (Blue Sapphire)" data-ratti="4.25" data-side="right" data-freq="880">
               <span class="text-base">🪐</span>
-              <span class="text-[10px] font-bold text-slate-800">Neelam</span>
-              <span class="text-[9px] font-mono text-slate-500">4.25 Rt</span>
+              <span class="text-[10px] font-bold text-slate-900 leading-none">Neelam</span>
+              <span class="text-[9px] font-mono text-slate-400">4.25 Rt</span>
             </button>
 
-            <button type="button" class="gem-btn p-2 rounded-xl bg-slate-50 hover:bg-amber-100/60 border border-slate-200 transition-all hover:scale-105 active:scale-90 flex flex-col items-center gap-0.5" data-gem="Moonga (Coral)" data-ratti="6.25" data-side="right" data-freq="987">
+            <button type="button" class="gem-btn shrink-0 min-w-[68px] sm:min-w-[72px] p-2 rounded-2xl bg-white hover:bg-amber-50 border border-slate-200/90 shadow-xs hover:border-amber-400 active:scale-95 transition-all flex flex-col items-center gap-0.5 snap-center cursor-pointer" data-gem="Moonga (Coral)" data-ratti="6.25" data-side="right" data-freq="987">
               <span class="text-base">🔥</span>
-              <span class="text-[10px] font-bold text-slate-800">Moonga</span>
-              <span class="text-[9px] font-mono text-slate-500">6.25 Rt</span>
+              <span class="text-[10px] font-bold text-slate-900 leading-none">Moonga</span>
+              <span class="text-[9px] font-mono text-slate-400">6.25 Rt</span>
             </button>
 
-            <button type="button" class="gem-btn p-2 rounded-xl bg-slate-50 hover:bg-amber-100/60 border border-slate-200 transition-all hover:scale-105 active:scale-90 flex flex-col items-center gap-0.5" data-gem="Gomed (Hessonite)" data-ratti="7.25" data-side="right" data-freq="1046">
+            <button type="button" class="gem-btn shrink-0 min-w-[68px] sm:min-w-[72px] p-2 rounded-2xl bg-white hover:bg-amber-50 border border-slate-200/90 shadow-xs hover:border-amber-400 active:scale-95 transition-all flex flex-col items-center gap-0.5 snap-center cursor-pointer" data-gem="Gomed (Hessonite)" data-ratti="7.25" data-side="right" data-freq="1046">
               <span class="text-base">🌪️</span>
-              <span class="text-[10px] font-bold text-slate-800">Gomed</span>
-              <span class="text-[9px] font-mono text-slate-500">7.25 Rt</span>
+              <span class="text-[10px] font-bold text-slate-900 leading-none">Gomed</span>
+              <span class="text-[9px] font-mono text-slate-400">7.25 Rt</span>
             </button>
 
-            <button type="button" class="gem-btn p-2 rounded-xl bg-slate-50 hover:bg-amber-100/60 border border-slate-200 transition-all hover:scale-105 active:scale-90 flex flex-col items-center gap-0.5" data-gem="Lehsuniya (Cat's Eye)" data-ratti="5.25" data-side="right" data-freq="1174">
+            <button type="button" class="gem-btn shrink-0 min-w-[68px] sm:min-w-[72px] p-2 rounded-2xl bg-white hover:bg-amber-50 border border-slate-200/90 shadow-xs hover:border-amber-400 active:scale-95 transition-all flex flex-col items-center gap-0.5 snap-center cursor-pointer" data-gem="Lehsuniya (Cat's Eye)" data-ratti="5.25" data-side="right" data-freq="1174">
               <span class="text-base">👁️</span>
-              <span class="text-[10px] font-bold text-slate-800">Lehsuniya</span>
-              <span class="text-[9px] font-mono text-slate-500">5.25 Rt</span>
+              <span class="text-[10px] font-bold text-slate-900 leading-none">Lehsuniya</span>
+              <span class="text-[9px] font-mono text-slate-400">5.25 Rt</span>
             </button>
           </div>
         </div>
 
-        <!-- Scale Controls -->
-        <div class="flex items-center justify-center gap-3 pt-2">
+        <!-- Scale Controls & Reset -->
+        <div class="flex items-center justify-between text-xs pt-1 px-1">
           <button
             type="button"
             id="btn-reset-scale"
-            class="text-xs font-semibold text-slate-500 hover:text-slate-900 underline transition-colors"
+            class="text-xs font-semibold text-slate-500 hover:text-slate-900 underline transition-colors cursor-pointer"
           >
             Reset Scale
           </button>
-          <span>·</span>
           <button
             type="button"
             id="btn-share-cosmic"
-            class="text-xs font-semibold text-amber-700 hover:text-amber-800 flex items-center gap-1 transition-colors"
+            class="text-xs font-semibold text-amber-700 hover:text-amber-800 flex items-center gap-1 transition-colors cursor-pointer"
           >
             <span>✨ Share Cosmic Score</span>
           </button>
@@ -184,11 +184,11 @@ import Footer from '../components/Footer.astro';
 
       </div>
 
-      <!-- Teleport Back Actions -->
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+      <!-- Teleport Back Primary Action Button (Above the Fold) -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-3 pt-1">
         <a
           href="/"
-          class="w-full sm:w-auto h-12 px-7 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm shadow-md flex items-center justify-center gap-2.5 transition-all hover:scale-105 active:scale-95"
+          class="w-full sm:w-auto h-11 px-7 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs shadow-md flex items-center justify-center gap-2.5 transition-all hover:scale-105 active:scale-95"
         >
           <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
@@ -199,7 +199,7 @@ import Footer from '../components/Footer.astro';
 
         <a
           href="/body-weight-calculator"
-          class="w-full sm:w-auto h-12 px-5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 font-semibold text-sm border border-slate-200 shadow-xs flex items-center justify-center gap-2 transition-all hover:scale-105 active:scale-95"
+          class="w-full sm:w-auto h-11 px-5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 font-semibold text-xs border border-slate-200 shadow-xs flex items-center justify-center gap-2 transition-all hover:scale-105 active:scale-95"
         >
           <span>Body Weight Dosage</span>
         </a>
@@ -228,11 +228,11 @@ import Footer from '../components/Footer.astro';
       osc.type = 'sine';
       osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
       gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.6);
+      gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.5);
       osc.connect(gain);
       gain.connect(audioCtx.destination);
       osc.start();
-      osc.stop(audioCtx.currentTime + 0.6);
+      osc.stop(audioCtx.currentTime + 0.5);
     } catch (e) {
       // Audio not permitted or supported
     }
@@ -270,9 +270,9 @@ import Footer from '../components/Footer.astro';
     if (leftCountEl) leftCountEl.innerText = `${leftWeight.toFixed(1)} Rt`;
     if (rightCountEl) rightCountEl.innerText = `${rightWeight.toFixed(1)} Rt`;
 
-    // Calculate rotation angle (max ±14 deg)
+    // Calculate rotation angle (max ±12 deg)
     const diff = rightWeight - leftWeight;
-    const angle = Math.max(-14, Math.min(14, diff * 2.5));
+    const angle = Math.max(-12, Math.min(12, diff * 2.5));
 
     if (beam) {
       beam.style.transform = `translateX(-50%) rotate(${angle}deg)`;
@@ -327,7 +327,7 @@ import Footer from '../components/Footer.astro';
     }
   });
 
-  // Intelligent URL Intent Detection (e.g. if URL is /5.25 or /carat-to-ratti/7)
+  // Intelligent URL Intent Detection
   const path = window.location.pathname;
   const numMatch = path.match(/\b\d+(\.\d+)?\b/);
   if (numMatch) {
