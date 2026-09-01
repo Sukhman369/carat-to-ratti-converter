@@ -1,0 +1,150 @@
+---
+import '../css/app.css';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  canonicalUrl?: string;
+}
+
+const {
+  title = 'Carat to Ratti & Ratti to Carat Converter | Free Vedic Gemstone Calculator',
+  description = 'Convert Carats to Ratti and Ratti to Carats instantly with certified 0.91 Pakka Ratti ratio. Accurate Vedic astrological calculator with multi-unit breakdown (mg, grams, grains, cents), Sawa Ratti decoder, and body weight dosage.',
+  canonicalUrl = 'https://rattitocarat.com',
+} = Astro.props;
+
+// JSON-LD Schemas
+const webAppSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: 'Carat to Ratti & Ratti to Carat Converter',
+  url: 'https://rattitocarat.com',
+  applicationCategory: 'UtilityApplication',
+  operatingSystem: 'All',
+  browserRequirements: 'Requires JavaScript. Requires HTML5.',
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'USD',
+  },
+  featureList: [
+    'Instant Carat to Ratti Conversion (0.91 Pakka standard & 0.90 Sunee trade)',
+    'Instant Ratti to Carat Conversion',
+    'Real-time Multi-Unit breakdown: Milligrams, Grams, Grains, and Cents',
+    'Vedic Astrological Sawa Ratti Decoder (Sawa Paanch, Sawa Saat, etc.)',
+    'Vedic Body-Weight Gemstone Dosage Calculator (kg / 10 to 12 rule)',
+    '1-Click WhatsApp Share for Jewelers and Astrologers',
+    'Bilingual English and Hindi Support',
+  ],
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How many Carats is 1 Ratti in Indian gemstone standards?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'In standard Indian gemology and Vedic astrology (Pakka Ratti), 1 Ratti is equal to 0.91 Carats (or 182 milligrams). In some traditional regional jewelry markets, a rounded Sunee/Kachha ratio of 0.90 Carats (180 milligrams) is used.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How many Ratti is 1 Carat?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: '1 Carat is equal to 1.0989 Pakka Ratti (approximately 1.10 Ratti). If using the trade Sunee ratio (0.90), 1 Carat equals 1.11 Sunee Ratti.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is Sawa Ratti (सवा रत्ती) in Vedic Astrology?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'In Vedic astrology, gemstones are prescribed with a +0.25 Ratti fraction (called Sawa, such as Sawa Paanch 5.25 Ratti or Sawa Saat 7.25 Ratti). Sawa represents growth, expansion, and auspicious energy. Exact whole numbers or Paune (-0.25 / +0.75) are traditionally avoided by orthodox practitioners.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How to calculate gemstone weight based on body weight?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'The established Vedic rule of thumb is 1 Ratti per 10 to 12 kg of body weight (Body Weight in kg divided by 10 to 12). For example, a 65 kg person is typically prescribed a gemstone between 5.41 Ratti (4.92 Carats) and 6.50 Ratti (5.91 Carats), with Sawa Paanch (5.25 Ratti) or Sawa Chhah (6.25 Ratti) as auspicious targets.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the difference between Pakka Ratti and Sunee Ratti?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Pakka Ratti is calibrated at 182 mg (0.91 carats) and is the standard recognized by certified gem testing laboratories (GIA, IGI) and modern Vedic astrologers. Sunee (Kachha) Ratti is a traditional trade measure calibrated at 180 mg (0.90 carats) still used in some local North Indian markets.',
+      },
+    },
+  ],
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: 'https://rattitocarat.com',
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Ratti to Carat Converter',
+      item: 'https://rattitocarat.com',
+    },
+  ],
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="https://rattitocarat.com/og-image.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalUrl} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content="https://rattitocarat.com/og-image.png" />
+
+    <!-- Google Fonts Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json" set:html={JSON.stringify(webAppSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  </head>
+  <body class="selection:bg-amber-500 selection:text-black">
+    <slot />
+  </body>
+</html>
