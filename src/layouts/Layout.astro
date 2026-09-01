@@ -13,19 +13,204 @@ const {
   canonicalUrl = 'https://rattitocarat.com',
 } = Astro.props;
 
-// JSON-LD Schemas
+const currentPath = Astro.url.pathname;
+
+// 1. WebSite Schema with hasPart for Google Sitelinks & Subsections
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Ratti to Carat',
+  alternateName: [
+    'Ratti to Carat Converter',
+    'Carat to Ratti Calculator',
+    'Vedic Gemstone Calculator',
+    'Pakka Ratti to Carat Tool'
+  ],
+  url: 'https://rattitocarat.com',
+  description: 'Precision gemstone weight calculation engine and Vedic astrological Sawa decoder calibrated to certified 0.9100 Pakka Ratti and 200 mg metric standards.',
+  inLanguage: ['en', 'hi'],
+  hasPart: [
+    {
+      '@type': 'WebApplication',
+      name: 'Carat to Ratti Calculator',
+      description: 'Convert metric Carats to Ratti instantly using certified 0.91 Pakka and 0.90 Sunee gemstone ratios.',
+      url: 'https://rattitocarat.com/carat-to-ratti',
+      applicationCategory: 'UtilityApplication',
+      operatingSystem: 'All'
+    },
+    {
+      '@type': 'WebApplication',
+      name: 'Ratti to Carat Calculator',
+      description: 'Convert traditional Ratti to metric Carats with exact milligram, gram, and cent precision for jewelry trade.',
+      url: 'https://rattitocarat.com/ratti-to-carat',
+      applicationCategory: 'UtilityApplication',
+      operatingSystem: 'All'
+    },
+    {
+      '@type': 'WebApplication',
+      name: 'Vedic Body-Weight Gemstone Dosage Calculator',
+      description: 'Calculate personal Vedic gemstone weight based on body weight using the classical 1 Ratti per 10–12 kg rule.',
+      url: 'https://rattitocarat.com/body-weight-calculator',
+      applicationCategory: 'HealthApplication',
+      operatingSystem: 'All'
+    },
+    {
+      '@type': 'WebPage',
+      name: 'Sawa Ratti Astrological Scale Chart',
+      description: 'Complete sacred astrological weight reference chart from 1.25 to 12.25 Ratti with ruling planets and Navratna gems.',
+      url: 'https://rattitocarat.com/sawa-ratti-chart'
+    },
+    {
+      '@type': 'FAQPage',
+      name: 'Gemstone FAQs & Knowledge Base',
+      description: 'Comprehensive Q&A answering all mathematical, gemological, and astrological weight questions.',
+      url: 'https://rattitocarat.com/faqs'
+    },
+    {
+      '@type': 'Blog',
+      name: 'Gemological Blog & Astrological Guides',
+      description: 'In-depth educational articles on gemstone buying, certified testing, and Vedic astrological prescriptions.',
+      url: 'https://rattitocarat.com/blog'
+    }
+  ]
+};
+
+// 2. SiteNavigationElement Schema (Explicitly for Google Front Position Sitelinks)
+const siteNavigationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Primary Site Navigation',
+  itemListElement: [
+    {
+      '@type': 'SiteNavigationElement',
+      position: 1,
+      name: 'Body Weight Dosage Calculator',
+      description: 'Calculate gemstone weight based on body mass (1 Ratti per 10-12 kg rule)',
+      url: 'https://rattitocarat.com/body-weight-calculator'
+    },
+    {
+      '@type': 'SiteNavigationElement',
+      position: 2,
+      name: 'Sawa Ratti Astrological Scale',
+      description: 'Auspicious Sawa weight chart covering 1.25 to 12.25 Ratti with ruling planets',
+      url: 'https://rattitocarat.com/sawa-ratti-chart'
+    },
+    {
+      '@type': 'SiteNavigationElement',
+      position: 3,
+      name: 'Carat to Ratti Calculator',
+      description: 'Instant conversion of Carats to Pakka and Sunee Ratti',
+      url: 'https://rattitocarat.com/carat-to-ratti'
+    },
+    {
+      '@type': 'SiteNavigationElement',
+      position: 4,
+      name: 'Ratti to Carat Calculator',
+      description: 'Instant conversion of Ratti to Carats and Milligrams',
+      url: 'https://rattitocarat.com/ratti-to-carat'
+    },
+    {
+      '@type': 'SiteNavigationElement',
+      position: 5,
+      name: 'Gemstone FAQs & Knowledge Base',
+      description: 'Comprehensive answers on formulas, Pakka vs Sunee, and pricing',
+      url: 'https://rattitocarat.com/faqs'
+    },
+    {
+      '@type': 'SiteNavigationElement',
+      position: 6,
+      name: 'Gemological Blog',
+      description: 'Expert articles on gemstone certification and Vedic Jyotish',
+      url: 'https://rattitocarat.com/blog'
+    }
+  ]
+};
+
+// 3. Organization Schema
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Ratti to Carat',
+  url: 'https://rattitocarat.com',
+  logo: 'https://rattitocarat.com/favicon.svg',
+  description: 'Independent gemological conversion authority and Vedic astrological calculator.',
+  sameAs: []
+};
+
+// 4. Dynamic Breadcrumb Schema based on current route
+const pathClean = currentPath.replace(/\/$/, '');
+const breadcrumbItems: any[] = [
+  {
+    '@type': 'ListItem',
+    position: 1,
+    name: 'Home',
+    item: 'https://rattitocarat.com'
+  }
+];
+
+if (pathClean === '/body-weight-calculator') {
+  breadcrumbItems.push({
+    '@type': 'ListItem',
+    position: 2,
+    name: 'Body Weight Dosage Tool',
+    item: 'https://rattitocarat.com/body-weight-calculator'
+  });
+} else if (pathClean === '/sawa-ratti-chart') {
+  breadcrumbItems.push({
+    '@type': 'ListItem',
+    position: 2,
+    name: 'Sawa Ratti Astrological Scale',
+    item: 'https://rattitocarat.com/sawa-ratti-chart'
+  });
+} else if (pathClean === '/carat-to-ratti') {
+  breadcrumbItems.push({
+    '@type': 'ListItem',
+    position: 2,
+    name: 'Carat to Ratti Calculator',
+    item: 'https://rattitocarat.com/carat-to-ratti'
+  });
+} else if (pathClean === '/ratti-to-carat') {
+  breadcrumbItems.push({
+    '@type': 'ListItem',
+    position: 2,
+    name: 'Ratti to Carat Calculator',
+    item: 'https://rattitocarat.com/ratti-to-carat'
+  });
+} else if (pathClean === '/faqs') {
+  breadcrumbItems.push({
+    '@type': 'ListItem',
+    position: 2,
+    name: 'FAQs & Knowledge Base',
+    item: 'https://rattitocarat.com/faqs'
+  });
+} else if (pathClean === '/blog') {
+  breadcrumbItems.push({
+    '@type': 'ListItem',
+    position: 2,
+    name: 'Blog & Guides',
+    item: 'https://rattitocarat.com/blog'
+  });
+}
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbItems
+};
+
+// 5. WebApplication Schema
 const webAppSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebApplication',
   name: 'Carat to Ratti & Ratti to Carat Converter',
-  url: 'https://rattitocarat.com',
+  url: canonicalUrl,
   applicationCategory: 'UtilityApplication',
   operatingSystem: 'All',
   browserRequirements: 'Requires JavaScript. Requires HTML5.',
   offers: {
     '@type': 'Offer',
     price: '0',
-    priceCurrency: 'USD',
+    priceCurrency: 'USD'
   },
   featureList: [
     'Instant Carat to Ratti Conversion (0.91 Pakka standard & 0.90 Sunee trade)',
@@ -34,74 +219,8 @@ const webAppSchema = {
     'Vedic Astrological Sawa Ratti Decoder (Sawa Paanch, Sawa Saat, etc.)',
     'Vedic Body-Weight Gemstone Dosage Calculator (kg / 10 to 12 rule)',
     '1-Click WhatsApp Share for Jewelers and Astrologers',
-    'Bilingual English and Hindi Support',
-  ],
-};
-
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'How many Carats is 1 Ratti in Indian gemstone standards?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'In standard Indian gemology and Vedic astrology (Pakka Ratti), 1 Ratti is equal to 0.91 Carats (or 182 milligrams). In some traditional regional jewelry markets, a rounded Sunee/Kachha ratio of 0.90 Carats (180 milligrams) is used.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'How many Ratti is 1 Carat?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: '1 Carat is equal to 1.0989 Pakka Ratti (approximately 1.10 Ratti). If using the trade Sunee ratio (0.90), 1 Carat equals 1.11 Sunee Ratti.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'What is Sawa Ratti (सवा रत्ती) in Vedic Astrology?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'In Vedic astrology, gemstones are prescribed with a +0.25 Ratti fraction (called Sawa, such as Sawa Paanch 5.25 Ratti or Sawa Saat 7.25 Ratti). Sawa represents growth, expansion, and auspicious energy. Exact whole numbers or Paune (-0.25 / +0.75) are traditionally avoided by orthodox practitioners.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'How to calculate gemstone weight based on body weight?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'The established Vedic rule of thumb is 1 Ratti per 10 to 12 kg of body weight (Body Weight in kg divided by 10 to 12). For example, a 65 kg person is typically prescribed a gemstone between 5.41 Ratti (4.92 Carats) and 6.50 Ratti (5.91 Carats), with Sawa Paanch (5.25 Ratti) or Sawa Chhah (6.25 Ratti) as auspicious targets.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'What is the difference between Pakka Ratti and Sunee Ratti?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Pakka Ratti is calibrated at 182 mg (0.91 carats) and is the standard recognized by certified gem testing laboratories (GIA, IGI) and modern Vedic astrologers. Sunee (Kachha) Ratti is a traditional trade measure calibrated at 180 mg (0.90 carats) still used in some local North Indian markets.',
-      },
-    },
-  ],
-};
-
-const breadcrumbSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    {
-      '@type': 'ListItem',
-      position: 1,
-      name: 'Home',
-      item: 'https://rattitocarat.com',
-    },
-    {
-      '@type': 'ListItem',
-      position: 2,
-      name: 'Ratti to Carat Converter',
-      item: 'https://rattitocarat.com',
-    },
-  ],
+    'Bilingual English and Hindi Support'
+  ]
 };
 ---
 
@@ -139,10 +258,12 @@ const breadcrumbSchema = {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-    <!-- Structured Data (JSON-LD) -->
-    <script type="application/ld+json" set:html={JSON.stringify(webAppSchema)} />
-    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    <!-- Structured Data (JSON-LD) for Google Sitelinks, Search Subsections & Knowledge Graph -->
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(siteNavigationSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(webAppSchema)} />
   </head>
   <body class="selection:bg-amber-500 selection:text-black">
     <slot />
