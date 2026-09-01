@@ -40,9 +40,8 @@ const currentPath = Astro.url.pathname;
       </a>
     </nav>
 
-    <!-- Language & Standards Indicator -->
+    <!-- Language Switcher Toggle -->
     <div class="flex items-center gap-3">
-      <!-- Language Switcher Toggle -->
       <button
         id="lang-toggle-btn"
         type="button"
@@ -56,12 +55,6 @@ const currentPath = Astro.url.pathname;
         </svg>
         <span id="current-lang-text">EN / हिन्दी</span>
       </button>
-
-      <!-- Standard Indicator Badge -->
-      <div class="hidden sm:flex items-center gap-2 px-2.5 py-1 rounded-md bg-emerald-50 text-emerald-800 text-xs font-mono border border-emerald-200 font-semibold">
-        <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span>
-        <span>0.91 Pakka Ratio</span>
-      </div>
     </div>
   </div>
 </header>
