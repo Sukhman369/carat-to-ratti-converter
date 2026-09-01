@@ -1,24 +1,22 @@
-/* Obsidian Atelier Panels & Glows */
+/* Luminous Pearl Light Panels & Shadows */
 @utility atelier-card {
-  background: rgba(17, 22, 34, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.02);
 }
 
 @utility atelier-card-elevated {
-  background: rgba(23, 30, 46, 0.95);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.08), 0 4px 12px -2px rgba(15, 23, 42, 0.04);
 }
 
 @utility glow-gold {
-  box-shadow: 0 0 40px -8px rgba(245, 158, 11, 0.22);
+  box-shadow: 0 10px 30px -5px rgba(217, 119, 6, 0.18), 0 4px 12px -2px rgba(217, 119, 6, 0.08);
 }
 
 @utility glow-gold-sm {
-  box-shadow: 0 0 16px -4px rgba(245, 158, 11, 0.18);
+  box-shadow: 0 4px 12px -2px rgba(217, 119, 6, 0.14);
 }
 
 @utility tight-tracking {

@@ -16,7 +16,7 @@ export interface SawaInfo {
   hindiPlanet: string;
   gemstone: string;
   hindiGemstone: string;
-  auspiciousStatus: 'auspicious' | 'neutral' | 'inauspicious' | 'standard';
+  status: 'auspicious' | 'neutral' | 'inauspicious' | 'standard';
   description: string;
   hindiDescription: string;
 }
@@ -60,75 +60,93 @@ const SAWA_NAMES_MAP: Record<number, { name: string; hindi: string; planet: stri
   7: { name: 'Sawa Saat', hindi: 'सवा सात', planet: 'Mars (Mangal)', hindiPlanet: 'मंगल', gem: 'Red Coral (Moonga)', hindiGem: 'मूंगा' },
   8: { name: 'Sawa Aath', hindi: 'सवा आठ', planet: 'Rahu', hindiPlanet: 'राहु', gem: 'Hessonite (Gomed)', hindiGem: 'गोमेद' },
   9: { name: 'Sawa Nau', hindi: 'सवा नौ', planet: 'Ketu', hindiPlanet: 'केतु', gem: "Cat's Eye (Lehsuniya)", hindiGem: 'लहसुनिया' },
-  10: { name: 'Sawa Dus', hindi: 'सवा दस', planet: 'High Potency', hindiPlanet: 'उच्च प्रभाव', gem: 'High-Impact Remedy', hindiGem: 'विशेष रत्न' },
-  11: { name: 'Sawa Ghyarah', hindi: 'सवा ग्यारह', planet: 'High Potency', hindiPlanet: 'उच्च प्रभाव', gem: 'Heavy Remedy', hindiGem: 'विशेष रत्न' },
-  12: { name: 'Sawa Barah', hindi: 'सवा बारह', planet: 'Altar/Special', hindiPlanet: 'विशेष साधना', gem: 'Heavy Gemstone', hindiGem: 'विशाल रत्न' },
+  10: { name: 'Sawa Dus', hindi: 'सवा दस', planet: 'High Dosage', hindiPlanet: 'उच्च प्रभाव', gem: 'Remedial Heavy Gem', hindiGem: 'विशेष उपचार' },
+  11: { name: 'Sawa Ghyarah', hindi: 'सवा ग्यारह', planet: 'High Dosage', hindiPlanet: 'उच्च प्रभाव', gem: 'Heavy Ring / Altar', hindiGem: 'विशेष धारण' },
+  12: { name: 'Sawa Barah', hindi: 'सवा बारह', planet: 'Altar Worship', hindiPlanet: 'पूजा स्थान', gem: 'Sacred Altar Gem', hindiGem: 'विशाल सिद्ध रत्न' },
 };
 
 /**
- * Decode Vedic astrological fractions (Sawa, Saadhe, Paune)
+ * Astrological Sawa Decoder
  */
 export function getSawaInfo(rattiVal: number): SawaInfo {
+  if (isNaN(rattiVal) || rattiVal <= 0) {
+    return {
+      isSawa: false,
+      isSaadhe: false,
+      isPaune: false,
+      name: '0.00 Ratti',
+      hindiName: '०.०० रत्ती',
+      planet: 'Universal',
+      hindiPlanet: 'सामान्य',
+      gemstone: 'All Gemstones',
+      hindiGemstone: 'समस्त रत्न',
+      status: 'standard',
+      description: 'Enter a weight above 0 to see astrological Sawa analysis.',
+      hindiDescription: 'ज्योतिषीय सवा विश्लेषण देखने के लिए 0 से अधिक वजन दर्ज करें।',
+    };
+  }
+
   const whole = Math.floor(rattiVal);
   const frac = Number((rattiVal - whole).toFixed(2));
 
   // Check Sawa (+0.25)
-  if (Math.abs(frac - 0.25) < 0.03) {
+  if (Math.abs(frac - 0.25) < 0.04) {
     const data = SAWA_NAMES_MAP[whole] || {
       name: `Sawa ${whole}`,
       hindi: `सवा ${whole}`,
-      planet: 'Auspicious Vedic Measure',
-      hindiPlanet: 'शुभ वैदिक माप',
-      gem: 'Universal Auspicious Gem',
-      hindiGem: 'सर्वकार्य शुभ रत्न',
+      planet: 'Jupiter (Brihaspati)',
+      hindiPlanet: 'बृहस्पति / गुरु',
+      gem: 'Yellow Sapphire',
+      hindiGem: 'पुखराज',
     };
+
     return {
       isSawa: true,
       isSaadhe: false,
       isPaune: false,
-      name: data.name,
-      hindiName: data.hindi,
+      name: `${data.name} Ratti`,
+      hindiName: `${data.hindi} रत्ती`,
       planet: data.planet,
       hindiPlanet: data.hindiPlanet,
       gemstone: data.gem,
       hindiGemstone: data.hindiGem,
-      auspiciousStatus: 'auspicious',
-      description: 'Auspicious (+0.25 Ratti). Signifies growth, prosperity, and expansive energy in Vedic astrology.',
-      hindiDescription: 'अत्यंत शुभ (+0.25 रत्ती)। वैदिक ज्योतिष में यह वृद्धि, समृद्धि और सकारात्मक ऊर्जा का प्रतीक है।',
+      status: 'auspicious',
+      description: `Auspicious (+0.25 Ratti). Governed by ${data.planet}. Ideal for ${data.gem}.`,
+      hindiDescription: `शुभ सवा भार (+0.25 रत्ती)। कारक ग्रह: ${data.hindiPlanet}। श्रेष्ठ रत्न: ${data.hindiGem}।`,
     };
   }
 
   // Check Saadhe (+0.50)
-  if (Math.abs(frac - 0.50) < 0.03) {
+  if (Math.abs(frac - 0.50) < 0.04) {
     return {
       isSawa: false,
       isSaadhe: true,
       isPaune: false,
-      name: `Saadhe ${whole}`,
-      hindi: `साढ़े ${whole}`,
+      name: `Saadhe ${whole} Ratti`,
+      hindiName: `साढ़े ${whole} रत्ती`,
       planet: 'Neutral Energy',
       hindiPlanet: 'संतुलित प्रभाव',
       gemstone: 'Standard Gemstone Weight',
       hindiGemstone: 'मानक रत्न भार',
-      auspiciousStatus: 'neutral',
+      status: 'neutral',
       description: 'Neutral (+0.50 Ratti). Considered stable and acceptable for standard astrological wear.',
       hindiDescription: 'संतुलित (+0.50 रत्ती)। सामान्य रूप से स्वीकार्य एवं स्थिर ऊर्जा वाला माना जाता है।',
     };
   }
 
   // Check Paune (+0.75)
-  if (Math.abs(frac - 0.75) < 0.03) {
+  if (Math.abs(frac - 0.75) < 0.04) {
     return {
       isSawa: false,
       isSaadhe: false,
       isPaune: true,
-      name: `Paune ${whole + 1}`,
-      hindi: `पौने ${whole + 1}`,
+      name: `Paune ${whole + 1} Ratti`,
+      hindiName: `पौने ${whole + 1} रत्ती`,
       planet: 'Historically Avoided',
       hindiPlanet: 'अशुभ / त्याज्य',
       gemstone: 'Incomplete Fraction',
       hindiGemstone: 'अपूर्ण भार',
-      auspiciousStatus: 'inauspicious',
+      status: 'inauspicious',
       description: 'Paune (+0.75 Ratti). Historically avoided by orthodox astrologers as an incomplete fraction.',
       hindiDescription: 'पौने (+0.75 रत्ती)। पारंपरिक वैदिक ज्योतिष में इसे अधूरा या क्षयकारी मानकर टाला जाता है।',
     };
@@ -144,57 +162,49 @@ export function getSawaInfo(rattiVal: number): SawaInfo {
     hindiPlanet: 'मानक वैदिक भार',
     gemstone: 'Standard Gemstone',
     hindiGemstone: 'मानक रत्न',
-    auspiciousStatus: 'standard',
+    status: 'standard',
     description: 'Exact weight conversion calculated with full scientific precision.',
     hindiDescription: 'वैज्ञानिक शुद्धता के साथ सटीक वजन की गणना।',
   };
 }
 
 /**
- * Main Conversion Function
+ * Synchronous Multi-Unit Calculator
  */
-export function convertWeight(
-  value: number,
-  mode: ConversionMode,
-  standard: RattiStandard = 'pakka'
-): GemstoneConversionResult {
-  const safeVal = Math.max(0, isNaN(value) ? 0 : value);
-  const ratio = RATTI_STANDARDS[standard].ratio;
+export function calculateAllUnits(
+  val: number,
+  unit: 'ratti' | 'carat',
+  ratio: number = 0.91
+) {
+  const safeVal = Math.max(0, isNaN(val) ? 0 : val);
+  let caratsPakka = 0;
+  let rattiPakka = 0;
 
-  let carats = 0;
-  let ratti = 0;
-
-  if (mode === 'rattiToCarat') {
-    ratti = safeVal;
-    carats = safeVal * ratio;
+  if (unit === 'ratti') {
+    rattiPakka = safeVal;
+    caratsPakka = safeVal * ratio;
   } else {
-    carats = safeVal;
-    ratti = ratio > 0 ? safeVal / ratio : 0;
+    caratsPakka = safeVal;
+    rattiPakka = ratio > 0 ? safeVal / ratio : 0;
   }
 
-  const milligrams = carats * 200;
-  const grams = milligrams / 1000;
-  const grains = carats * 3.08647;
-  const cents = carats * 100;
+  const mg = caratsPakka * 200;
+  const grams = mg / 1000;
+  const grains = caratsPakka * 3.08647;
+  const cents = caratsPakka * 100;
 
   return {
-    inputVal: safeVal,
-    inputUnit: mode === 'rattiToCarat' ? 'ratti' : 'carat',
-    standard,
-    ratio,
-    carats: Number(carats.toFixed(3)),
-    ratti: Number(ratti.toFixed(3)),
-    milligrams: Number(milligrams.toFixed(1)),
-    grams: Number(grams.toFixed(4)),
-    grains: Number(grains.toFixed(2)),
-    cents: Number(cents.toFixed(1)),
-    sawaInfo: getSawaInfo(ratti),
+    caratsPakka,
+    rattiPakka,
+    mg,
+    grams,
+    grains,
+    cents,
   };
 }
 
 /**
  * Vedic Body Weight Dosage Calculation
- * Formula: Minimum Ratti = Body Weight in kg / (10 to 12)
  */
 export interface BodyWeightRecommendation {
   bodyWeightKg: number;
@@ -202,19 +212,13 @@ export interface BodyWeightRecommendation {
   maxRatti: number;
   minCarat: number;
   maxCarat: number;
-  recommendedSawa: {
-    ratti: number;
-    carats: number;
-    name: string;
-    hindiName: string;
-    description: string;
-    hindiDescription: string;
-  };
+  recommendedSawaRatti: number;
+  recommendedCarats: number;
+  sawaInfo: SawaInfo;
 }
 
-export function calculateBodyWeightDosage(weightKg: number, standard: RattiStandard = 'pakka'): BodyWeightRecommendation {
-  const safeKg = Math.max(30, Math.min(150, weightKg));
-  const ratio = RATTI_STANDARDS[standard].ratio;
+export function calculateBodyWeightDosage(weightKg: number, ratio: number = 0.91): BodyWeightRecommendation {
+  const safeKg = Math.max(30, Math.min(150, isNaN(weightKg) ? 65 : weightKg));
 
   const minRatti = Number((safeKg / 12).toFixed(2));
   const maxRatti = Number((safeKg / 10).toFixed(2));
@@ -222,16 +226,15 @@ export function calculateBodyWeightDosage(weightKg: number, standard: RattiStand
   const minCarat = Number((minRatti * ratio).toFixed(2));
   const maxCarat = Number((maxRatti * ratio).toFixed(2));
 
-  // Find nearest Sawa (+0.25) in this range or just above min
+  // Nearest Sawa (+0.25)
   const baseWhole = Math.floor(minRatti);
-  let recommendedRatti = baseWhole + 0.25;
-  if (recommendedRatti < minRatti) {
-    recommendedRatti = baseWhole + 1.25;
+  let recommendedSawaRatti = baseWhole + 0.25;
+  if (recommendedSawaRatti < minRatti) {
+    recommendedSawaRatti = baseWhole + 1.25;
   }
 
-  const recommendedCarats = Number((recommendedRatti * ratio).toFixed(2));
-  const wholeVal = Math.floor(recommendedRatti);
-  const sawaData = SAWA_NAMES_MAP[wholeVal] || { name: `Sawa ${wholeVal}`, hindi: `सवा ${wholeVal}` };
+  const recommendedCarats = Number((recommendedSawaRatti * ratio).toFixed(2));
+  const sawaInfo = getSawaInfo(recommendedSawaRatti);
 
   return {
     bodyWeightKg: safeKg,
@@ -239,108 +242,57 @@ export function calculateBodyWeightDosage(weightKg: number, standard: RattiStand
     maxRatti,
     minCarat,
     maxCarat,
-    recommendedSawa: {
-      ratti: recommendedRatti,
-      carats: recommendedCarats,
-      name: sawaData.name,
-      hindiName: sawaData.hindi,
-      description: `Recommended for ${safeKg} kg body weight for optimal astrological efficacy.`,
-      hindiDescription: `${safeKg} किग्रा वजन के लिए सर्वश्रेष्ठ ज्योतिषीय परिणाम हेतु अनुशंसित भार।`,
-    },
+    recommendedSawaRatti,
+    recommendedCarats,
+    sawaInfo,
   };
 }
 
 /**
- * Precomputed Static Conversion Tables Data (for SEO Featured Snippet dominance)
+ * 7 Sacred Navratna Gemstone Presets
  */
-export interface ConversionRow {
-  carats: number;
-  pakkaRatti: number;
-  suneeRatti: number;
-  mg: number;
-  grams: number;
-  cents: number;
-  sawaTag?: string;
-  sawaTagHindi?: string;
-}
+export const GEMSTONE_PRESETS = [
+  { name: 'Pukhraj', hindiName: 'पुखराज', icon: '🟡', recommendedRatti: 5.25, rattiRange: '5.25 - 7.25 Rt', planet: 'Jupiter', color: '#fbbf24' },
+  { name: 'Neelam', hindiName: 'नीलम', icon: '🔵', recommendedRatti: 4.25, rattiRange: '4.25 - 6.25 Rt', planet: 'Saturn', color: '#3b82f6' },
+  { name: 'Manik', hindiName: 'माणिक', icon: '🔴', recommendedRatti: 4.25, rattiRange: '3.25 - 5.25 Rt', planet: 'Sun', color: '#f43f5e' },
+  { name: 'Panna', hindiName: 'पन्ना', icon: '🟢', recommendedRatti: 5.25, rattiRange: '4.25 - 6.25 Rt', planet: 'Mercury', color: '#10b981' },
+  { name: 'Moti', hindiName: 'मोती', icon: '⚪', recommendedRatti: 6.25, rattiRange: '5.25 - 8.25 Rt', planet: 'Moon', color: '#94a3b8' },
+  { name: 'Heera', hindiName: 'हीरा / ओपल', icon: '💎', recommendedRatti: 1.25, rattiRange: '1.25 - 2.25 Rt', planet: 'Venus', color: '#38bdf8' },
+  { name: 'Moonga', hindiName: 'मूंगा', icon: '🟠', recommendedRatti: 7.25, rattiRange: '6.25 - 9.25 Rt', planet: 'Mars', color: '#fb923c' },
+];
 
-export function generateCaratToRattiTable(): ConversionRow[] {
-  const rows: ConversionRow[] = [];
-  const steps = [
-    0.25, 0.5, 0.75, 1.0, 1.25, 1.5, 1.75, 2.0, 2.25, 2.5, 2.75, 3.0, 3.25, 3.5, 3.75, 4.0, 4.25, 4.5,
-    4.75, 5.0, 5.25, 5.5, 5.75, 6.0, 6.25, 6.5, 6.75, 7.0, 7.25, 7.5, 8.0, 8.5, 9.0, 10.0, 11.0, 12.0, 15.0
-  ];
+/**
+ * Static Precomputed Tables
+ */
+export const STATIC_CARAT_TO_RATTI = [
+  0.25, 0.50, 0.75, 1.00, 1.25, 1.50, 1.75, 2.00, 2.25, 2.50, 2.75, 3.00, 3.25, 3.50, 3.75, 4.00,
+  4.25, 4.50, 4.75, 5.00, 5.25, 5.50, 5.75, 6.00, 6.25, 6.50, 6.75, 7.00, 7.25, 7.50, 8.00, 9.00, 10.00, 12.00, 15.00
+].map(ct => {
+  const rPakka = ct / 0.91;
+  const rSunee = ct / 0.90;
+  return {
+    carats: ct,
+    rattiPakka: rPakka,
+    rattiSunee: rSunee,
+    mg: ct * 200,
+    sawaInfo: getSawaInfo(rPakka)
+  };
+});
 
-  for (const ct of steps) {
-    const pakka = Number((ct / 0.91).toFixed(2));
-    const sunee = Number((ct / 0.90).toFixed(2));
-    const mg = Number((ct * 200).toFixed(1));
-    const grams = Number((ct * 0.2).toFixed(3));
-    const cents = Number((ct * 100).toFixed(0));
-
-    const wholePakka = Math.floor(pakka);
-    const frac = Number((pakka - wholePakka).toFixed(2));
-    let sawaTag: string | undefined;
-    let sawaTagHindi: string | undefined;
-
-    if (Math.abs(frac - 0.25) < 0.05 && SAWA_NAMES_MAP[wholePakka]) {
-      sawaTag = SAWA_NAMES_MAP[wholePakka].name;
-      sawaTagHindi = SAWA_NAMES_MAP[wholePakka].hindi;
-    }
-
-    rows.push({
-      carats: ct,
-      pakkaRatti: pakka,
-      suneeRatti: sunee,
-      mg,
-      grams,
-      cents,
-      sawaTag,
-      sawaTagHindi,
-    });
-  }
-
-  return rows;
-}
-
-export function generateRattiToCaratTable(): ConversionRow[] {
-  const rows: ConversionRow[] = [];
-  const steps = [
-    1.0, 1.25, 1.5, 1.75, 2.0, 2.25, 2.5, 2.75, 3.0, 3.25, 3.5, 3.75, 4.0, 4.25, 4.5, 4.75, 5.0,
-    5.25, 5.5, 5.75, 6.0, 6.25, 6.5, 6.75, 7.0, 7.25, 7.5, 8.0, 8.25, 8.5, 9.0, 9.25, 10.0, 10.25, 11.0, 12.0, 15.0
-  ];
-
-  for (const rt of steps) {
-    const ctPakka = Number((rt * 0.91).toFixed(2));
-    const ctSunee = Number((rt * 0.90).toFixed(2));
-    const mg = Number((ctPakka * 200).toFixed(1));
-    const grams = Number((ctPakka * 0.2).toFixed(3));
-    const cents = Number((ctPakka * 100).toFixed(0));
-
-    const wholeRt = Math.floor(rt);
-    const frac = Number((rt - wholeRt).toFixed(2));
-    let sawaTag: string | undefined;
-    let sawaTagHindi: string | undefined;
-
-    if (Math.abs(frac - 0.25) < 0.03 && SAWA_NAMES_MAP[wholeRt]) {
-      sawaTag = SAWA_NAMES_MAP[wholeRt].name;
-      sawaTagHindi = SAWA_NAMES_MAP[wholeRt].hindi;
-    }
-
-    rows.push({
-      carats: ctPakka,
-      pakkaRatti: rt,
-      suneeRatti: ctSunee,
-      mg,
-      grams,
-      cents,
-      sawaTag,
-      sawaTagHindi,
-    });
-  }
-
-  return rows;
-}
+export const STATIC_RATTI_TO_CARAT = [
+  1.00, 1.25, 1.50, 1.75, 2.00, 2.25, 2.50, 2.75, 3.00, 3.25, 3.50, 3.75, 4.00, 4.25, 4.50, 4.75,
+  5.00, 5.25, 5.50, 5.75, 6.00, 6.25, 6.50, 6.75, 7.00, 7.25, 7.50, 8.00, 8.25, 8.50, 9.00, 9.25, 10.00, 10.25, 12.00, 15.00
+].map(rt => {
+  const ctPakka = rt * 0.91;
+  const ctSunee = rt * 0.90;
+  return {
+    ratti: rt,
+    caratsPakka: ctPakka,
+    caratsSunee: ctSunee,
+    mg: ctPakka * 200,
+    sawaInfo: getSawaInfo(rt)
+  };
+});
 
 export const SAWA_RATTI_TABLE = [
   { ratti: 1.25, name: 'Sawa Ek', hindiName: 'सवा एक', carat: 1.14, mg: 227.5, planet: 'Venus (Shukra)', hindiPlanet: 'शुक्र', gem: 'Diamond / Opal', hindiGem: 'हीरा / ओपल' },

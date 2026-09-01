@@ -1,173 +1,134 @@
 ---
-import { generateCaratToRattiTable, generateRattiToCaratTable, SAWA_RATTI_TABLE } from '../utils/converter';
-
-const caratTable = generateCaratToRattiTable();
-const rattiTable = generateRattiToCaratTable();
+import { STATIC_CARAT_TO_RATTI, STATIC_RATTI_TO_CARAT, SAWA_RATTI_TABLE } from '../utils/converter';
 ---
 
-<section id="tables" class="w-full max-w-5xl mx-auto py-12 px-4 sm:px-6">
-  <!-- Section Header -->
-  <div class="text-center space-y-2 mb-8">
-    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 text-xs font-semibold uppercase tracking-wider border border-amber-500/20">
-      <span>📊 Position 0 Verified Charts</span>
-    </div>
-    <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-white font-display" data-i18n="tablesTitle">
-      High-Accuracy Conversion Charts
-    </h2>
-    <p class="text-zinc-400 text-sm max-w-xl mx-auto" data-i18n="tablesSubtitle">
-      Comprehensive conversion tables calibrated for Indian gem trade and international lab certifications.
-    </p>
-  </div>
-
-  <div class="glass-panel-elevated rounded-3xl p-6 sm:p-8 border border-white/10 space-y-6">
-    <!-- Tab Switches & Search Bar -->
-    <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
-      <!-- Tabs -->
-      <div class="inline-flex p-1 rounded-xl bg-black/40 border border-white/10 w-full sm:w-auto overflow-x-auto">
-        <button
-          type="button"
-          id="tab-btn-ct-to-rt"
-          class="table-tab-btn flex-1 sm:flex-initial px-4 py-2 rounded-lg text-xs font-semibold transition-all bg-amber-500 text-black shadow-sm"
-          data-tab="tab-ct-to-rt"
-          data-i18n="tabCaratToRatti"
-        >
-          Carat to Ratti Table
-        </button>
-        <button
-          type="button"
-          id="tab-btn-rt-to-ct"
-          class="table-tab-btn flex-1 sm:flex-initial px-4 py-2 rounded-lg text-xs font-semibold transition-all text-zinc-400 hover:text-white"
-          data-tab="tab-rt-to-ct"
-          data-i18n="tabRattiToCarat"
-        >
-          Ratti to Carat Table
-        </button>
-        <button
-          type="button"
-          id="tab-btn-sawa"
-          class="table-tab-btn flex-1 sm:flex-initial px-4 py-2 rounded-lg text-xs font-semibold transition-all text-zinc-400 hover:text-white"
-          data-tab="tab-sawa"
-          data-i18n="tabSawaScale"
-        >
-          Sawa Ratti Scale
-        </button>
+<section id="conversion-tables-section" class="w-full max-w-4xl mx-auto px-4 sm:px-6 py-8">
+  <div class="rounded-3xl atelier-card p-6 sm:p-8 space-y-6 border border-slate-200 shadow-sm">
+    <!-- Header & Tab Navigation -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-slate-100">
+      <div>
+        <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 font-display">
+          Certified Conversion Reference Tables
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-600">
+          Fast reference data for jewelers, gemologists, and astrological prescriptions.
+        </p>
       </div>
 
-      <!-- Quick Search Filter -->
-      <div class="relative w-full sm:w-64">
-        <input
-          type="text"
-          id="table-filter-input"
-          placeholder="Filter weight (e.g. 5, 5.25)..."
-          class="w-full h-10 pl-9 pr-3 bg-black/40 border border-white/15 focus:border-amber-400/80 rounded-xl text-xs font-mono text-white placeholder-zinc-500 outline-none transition-all"
-        />
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-zinc-500 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="11" cy="11" r="8"></circle>
-          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-        </svg>
+      <!-- Tab Buttons -->
+      <div class="flex items-center gap-1.5 p-1 rounded-xl bg-slate-100 border border-slate-200 text-xs font-semibold self-start sm:self-auto">
+        <button
+          type="button"
+          id="tab-btn-carat-first"
+          class="px-3 py-1.5 rounded-lg bg-white text-slate-900 shadow-xs font-bold transition-all"
+        >
+          Carat → Ratti
+        </button>
+        <button
+          type="button"
+          id="tab-btn-ratti-first"
+          class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 transition-all"
+        >
+          Ratti → Carat
+        </button>
+        <button
+          type="button"
+          id="tab-btn-sawa-scale"
+          class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 transition-all"
+        >
+          Sawa Scale
+        </button>
       </div>
     </div>
 
-    <!-- Table 1: Carat to Ratti -->
-    <div id="tab-ct-to-rt" class="table-container overflow-x-auto rounded-2xl border border-white/10 max-h-[460px] overflow-y-auto">
-      <table class="w-full text-left text-xs border-collapse">
-        <thead class="sticky top-0 bg-[#0d121f] text-zinc-400 border-b border-white/10 font-mono text-[11px] uppercase tracking-wider">
+    <!-- Table Search Filter -->
+    <div class="flex items-center gap-3 p-3 rounded-2xl bg-slate-50 border border-slate-200">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+      <input
+        type="text"
+        id="table-search-input"
+        placeholder="Filter table rows (e.g. 5.25, 7.00, Pukhraj)..."
+        class="w-full bg-transparent text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none font-mono"
+      />
+    </div>
+
+    <!-- Tab 1: Carat to Ratti Table -->
+    <div id="tab-content-carat-first" class="overflow-x-auto rounded-2xl border border-slate-200">
+      <table class="w-full text-left text-xs font-mono border-collapse table-auto">
+        <thead class="bg-slate-50 text-slate-500 border-b border-slate-200 font-semibold uppercase text-[11px] tracking-wider">
           <tr>
-            <th class="p-3.5" data-i18n="colCarat">Carats (Ct)</th>
-            <th class="p-3.5 text-amber-400" data-i18n="colPakkaRatti">Pakka Ratti (0.91)</th>
-            <th class="p-3.5" data-i18n="colSuneeRatti">Sunee Ratti (0.90)</th>
-            <th class="p-3.5" data-i18n="colMg">Milligrams (mg)</th>
-            <th class="p-3.5" data-i18n="colGrams">Grams (g)</th>
-            <th class="p-3.5" data-i18n="colCents">Cents</th>
-            <th class="p-3.5" data-i18n="colAstrology">Astrology Sawa</th>
+            <th class="p-3.5 text-slate-900">Carats (Ct)</th>
+            <th class="p-3.5 text-amber-800">Pakka Ratti (0.91)</th>
+            <th class="p-3.5">Sunee Ratti (0.90)</th>
+            <th class="p-3.5">Milligrams (mg)</th>
+            <th class="p-3.5 font-sans">Astrological Sawa Term</th>
           </tr>
         </thead>
-        <tbody class="divide-y divide-white/5 font-mono text-zinc-300">
-          {caratTable.map((row) => (
-            <tr class="table-row hover:bg-white/5 transition-colors">
-              <td class="p-3.5 font-bold text-white">{row.carats.toFixed(2)} Ct</td>
-              <td class="p-3.5 font-bold text-amber-300">{row.pakkaRatti.toFixed(2)} Rt</td>
-              <td class="p-3.5 text-zinc-400">{row.suneeRatti.toFixed(2)} Rt</td>
-              <td class="p-3.5">{row.mg.toFixed(1)} mg</td>
-              <td class="p-3.5">{row.grams.toFixed(3)} g</td>
-              <td class="p-3.5">{row.cents} Cts</td>
-              <td class="p-3.5 font-sans">
-                {row.sawaTag ? (
-                  <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-amber-500/20 text-amber-300 border border-amber-500/30">
-                    ✨ {row.sawaTag}
-                  </span>
-                ) : (
-                  <span class="text-zinc-600">—</span>
-                )}
-              </td>
+        <tbody id="carat-table-body" class="divide-y divide-slate-100 text-slate-700 bg-white">
+          {STATIC_CARAT_TO_RATTI.map((row) => (
+            <tr class="hover:bg-amber-50/40 transition-colors">
+              <td class="p-3.5 font-bold text-slate-900">{row.carats.toFixed(2)} Ct</td>
+              <td class="p-3.5 font-bold text-amber-800">{row.rattiPakka.toFixed(3)} Rt</td>
+              <td class="p-3.5 text-slate-500">{row.rattiSunee.toFixed(3)} Rt</td>
+              <td class="p-3.5 text-slate-500">{row.mg.toFixed(1)} mg</td>
+              <td class="p-3.5 font-sans font-medium text-slate-900">{row.sawaInfo.name} ({row.sawaInfo.hindiName})</td>
             </tr>
           ))}
         </tbody>
       </table>
     </div>
 
-    <!-- Table 2: Ratti to Carat -->
-    <div id="tab-rt-to-ct" class="table-container hidden overflow-x-auto rounded-2xl border border-white/10 max-h-[460px] overflow-y-auto">
-      <table class="w-full text-left text-xs border-collapse">
-        <thead class="sticky top-0 bg-[#0d121f] text-zinc-400 border-b border-white/10 font-mono text-[11px] uppercase tracking-wider">
+    <!-- Tab 2: Ratti to Carat Table (Hidden by default) -->
+    <div id="tab-content-ratti-first" class="hidden overflow-x-auto rounded-2xl border border-slate-200">
+      <table class="w-full text-left text-xs font-mono border-collapse table-auto">
+        <thead class="bg-slate-50 text-slate-500 border-b border-slate-200 font-semibold uppercase text-[11px] tracking-wider">
           <tr>
-            <th class="p-3.5 text-amber-400" data-i18n="colPakkaRatti">Ratti (Rt)</th>
-            <th class="p-3.5" data-i18n="colCarat">Carats (0.91 Pakka)</th>
-            <th class="p-3.5" data-i18n="colSuneeRatti">Carats (0.90 Sunee)</th>
-            <th class="p-3.5" data-i18n="colMg">Milligrams (mg)</th>
-            <th class="p-3.5" data-i18n="colGrams">Grams (g)</th>
-            <th class="p-3.5" data-i18n="colCents">Cents</th>
-            <th class="p-3.5" data-i18n="colAstrology">Astrology Sawa</th>
+            <th class="p-3.5 text-slate-900">Ratti (Rt)</th>
+            <th class="p-3.5 text-amber-800">Carats (Pakka 0.91)</th>
+            <th class="p-3.5">Carats (Sunee 0.90)</th>
+            <th class="p-3.5">Milligrams (mg)</th>
+            <th class="p-3.5 font-sans">Hindi Term</th>
           </tr>
         </thead>
-        <tbody class="divide-y divide-white/5 font-mono text-zinc-300">
-          {rattiTable.map((row) => (
-            <tr class="table-row hover:bg-white/5 transition-colors">
-              <td class="p-3.5 font-bold text-amber-300">{row.pakkaRatti.toFixed(2)} Rt</td>
-              <td class="p-3.5 font-bold text-white">{row.carats.toFixed(2)} Ct</td>
-              <td class="p-3.5 text-zinc-400">{row.suneeRatti.toFixed(2)} Ct</td>
-              <td class="p-3.5">{row.mg.toFixed(1)} mg</td>
-              <td class="p-3.5">{row.grams.toFixed(3)} g</td>
-              <td class="p-3.5">{row.cents} Cts</td>
-              <td class="p-3.5 font-sans">
-                {row.sawaTag ? (
-                  <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-amber-500/20 text-amber-300 border border-amber-500/30">
-                    ✨ {row.sawaTag}
-                  </span>
-                ) : (
-                  <span class="text-zinc-600">—</span>
-                )}
-              </td>
+        <tbody id="ratti-table-body" class="divide-y divide-slate-100 text-slate-700 bg-white">
+          {STATIC_RATTI_TO_CARAT.map((row) => (
+            <tr class="hover:bg-amber-50/40 transition-colors">
+              <td class="p-3.5 font-bold text-slate-900">{row.ratti.toFixed(2)} Rt</td>
+              <td class="p-3.5 font-bold text-amber-800">{row.caratsPakka.toFixed(3)} Ct</td>
+              <td class="p-3.5 text-slate-500">{row.caratsSunee.toFixed(3)} Ct</td>
+              <td class="p-3.5 text-slate-500">{row.mg.toFixed(1)} mg</td>
+              <td class="p-3.5 font-sans font-medium text-slate-900">{row.sawaInfo.hindiName}</td>
             </tr>
           ))}
         </tbody>
       </table>
     </div>
 
-    <!-- Table 3: Sawa Ratti Reference Scale -->
-    <div id="tab-sawa" class="table-container hidden overflow-x-auto rounded-2xl border border-white/10 max-h-[460px] overflow-y-auto">
-      <table class="w-full text-left text-xs border-collapse">
-        <thead class="sticky top-0 bg-[#0d121f] text-zinc-400 border-b border-white/10 font-mono text-[11px] uppercase tracking-wider">
+    <!-- Tab 3: Sawa Astrological Scale (Hidden by default) -->
+    <div id="tab-content-sawa-scale" class="hidden overflow-x-auto rounded-2xl border border-slate-200">
+      <table class="w-full text-left text-xs font-mono border-collapse table-auto">
+        <thead class="bg-slate-50 text-slate-500 border-b border-slate-200 font-semibold uppercase text-[11px] tracking-wider">
           <tr>
-            <th class="p-3.5 text-amber-400">Sawa Fraction</th>
-            <th class="p-3.5">Weight (Ratti)</th>
+            <th class="p-3.5 text-amber-800 font-sans">Sawa Name</th>
+            <th class="p-3.5 text-slate-900">Ratti</th>
             <th class="p-3.5">Carats (0.91)</th>
             <th class="p-3.5">Milligrams</th>
-            <th class="p-3.5" data-i18n="colPlanet">Ruling Planet</th>
-            <th class="p-3.5" data-i18n="colGem">Associated Gemstone</th>
+            <th class="p-3.5 font-sans">Ruling Planet</th>
+            <th class="p-3.5 font-sans">Associated Gem</th>
           </tr>
         </thead>
-        <tbody class="divide-y divide-white/5 font-mono text-zinc-300">
+        <tbody id="sawa-table-body" class="divide-y divide-slate-100 text-slate-700 bg-white">
           {SAWA_RATTI_TABLE.map((row) => (
-            <tr class="table-row hover:bg-white/5 transition-colors">
-              <td class="p-3.5 font-sans font-bold text-amber-300 flex items-center gap-1.5">
-                <span>✨</span> {row.name}
-              </td>
-              <td class="p-3.5 font-bold text-white">{row.ratti.toFixed(2)} Rt</td>
-              <td class="p-3.5 font-bold text-white">{row.carat.toFixed(2)} Ct</td>
-              <td class="p-3.5 text-zinc-400">{row.mg.toFixed(1)} mg</td>
-              <td class="p-3.5 font-sans text-zinc-200">{row.planet}</td>
-              <td class="p-3.5 font-sans text-amber-400 font-medium">{row.gem}</td>
+            <tr class="hover:bg-amber-50/40 transition-colors">
+              <td class="p-3.5 font-sans font-bold text-amber-800">✨ {row.name} ({row.hindiName})</td>
+              <td class="p-3.5 font-bold text-slate-900">{row.ratti.toFixed(2)} Rt</td>
+              <td class="p-3.5 font-bold text-slate-900">{row.carat.toFixed(2)} Ct</td>
+              <td class="p-3.5 text-slate-500">{row.mg.toFixed(1)} mg</td>
+              <td class="p-3.5 font-sans text-slate-900">{row.planet}</td>
+              <td class="p-3.5 font-sans text-amber-700 font-medium">{row.gem}</td>
             </tr>
           ))}
         </tbody>
@@ -176,43 +137,42 @@ const rattiTable = generateRattiToCaratTable();
   </div>
 </section>
 
-<!-- Client Script for Table Switching & Filtering -->
 <script>
-  const tabBtns = document.querySelectorAll('.table-tab-btn');
-  const tableContainers = document.querySelectorAll('.table-container');
-  const filterInput = document.getElementById('table-filter-input') as HTMLInputElement;
+  const tabBtnCarat = document.getElementById('tab-btn-carat-first');
+  const tabBtnRatti = document.getElementById('tab-btn-ratti-first');
+  const tabBtnSawa = document.getElementById('tab-btn-sawa-scale');
 
-  tabBtns.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const targetId = btn.getAttribute('data-tab');
+  const tabContentCarat = document.getElementById('tab-content-carat-first');
+  const tabContentRatti = document.getElementById('tab-content-ratti-first');
+  const tabContentSawa = document.getElementById('tab-content-sawa-scale');
 
-      // Update button active styles
-      tabBtns.forEach((b) => {
-        b.className = 'table-tab-btn flex-1 sm:flex-initial px-4 py-2 rounded-lg text-xs font-semibold transition-all text-zinc-400 hover:text-white';
-      });
-      btn.className = 'table-tab-btn flex-1 sm:flex-initial px-4 py-2 rounded-lg text-xs font-semibold transition-all bg-amber-500 text-black shadow-sm';
+  const searchInput = document.getElementById('table-search-input') as HTMLInputElement;
 
-      // Switch tables
-      tableContainers.forEach((tc) => {
-        if (tc.id === targetId) {
-          tc.classList.remove('hidden');
-        } else {
-          tc.classList.add('hidden');
-        }
-      });
-    });
-  });
+  function switchTab(activeTab: 'carat' | 'ratti' | 'sawa') {
+    const activeClass = 'px-3 py-1.5 rounded-lg bg-white text-slate-900 shadow-xs font-bold transition-all';
+    const inactiveClass = 'px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 transition-all';
 
-  // Table Filter
-  filterInput?.addEventListener('input', () => {
-    const q = filterInput.value.toLowerCase().trim();
-    document.querySelectorAll('.table-row').forEach((row) => {
+    tabBtnCarat!.className = activeTab === 'carat' ? activeClass : inactiveClass;
+    tabBtnRatti!.className = activeTab === 'ratti' ? activeClass : inactiveClass;
+    tabBtnSawa!.className = activeTab === 'sawa' ? activeClass : inactiveClass;
+
+    tabContentCarat?.classList.toggle('hidden', activeTab !== 'carat');
+    tabContentRatti?.classList.toggle('hidden', activeTab !== 'ratti');
+    tabContentSawa?.classList.toggle('hidden', activeTab !== 'sawa');
+  }
+
+  tabBtnCarat?.addEventListener('click', () => switchTab('carat'));
+  tabBtnRatti?.addEventListener('click', () => switchTab('ratti'));
+  tabBtnSawa?.addEventListener('click', () => switchTab('sawa'));
+
+  searchInput?.addEventListener('input', (e) => {
+    const query = (e.target as HTMLInputElement).value.toLowerCase().trim();
+    const activeTable = document.querySelector('#conversion-tables-section table:not(.hidden) tbody') || document.querySelector('#carat-table-body');
+    const rows = document.querySelectorAll('#conversion-tables-section tbody tr');
+    
+    rows.forEach(row => {
       const text = row.textContent?.toLowerCase() || '';
-      if (!q || text.includes(q)) {
-        (row as HTMLElement).style.display = '';
-      } else {
-        (row as HTMLElement).style.display = 'none';
-      }
+      (row as HTMLElement).style.display = text.includes(query) ? '' : 'none';
     });
   });
 </script>

@@ -17,26 +17,26 @@ import Footer from '../components/Footer.astro';
   <main class="relative space-y-8 py-4">
     <!-- Breadcrumbs -->
     <div class="max-w-4xl mx-auto px-4 sm:px-6 pt-4">
-      <nav class="flex items-center gap-2 text-xs text-zinc-500 font-mono">
-        <a href="/" class="hover:text-amber-400 transition-colors">Home</a>
+      <nav class="flex items-center gap-2 text-xs text-slate-500 font-mono">
+        <a href="/" class="hover:text-amber-700 transition-colors">Home</a>
         <span>/</span>
-        <span class="text-zinc-300">Carat to Ratti</span>
+        <span class="text-slate-800 font-semibold">Carat to Ratti</span>
       </nav>
     </div>
 
     <!-- Hero Calculator (Carat Intent) -->
-    <HeroCalculator />
+    <HeroCalculator initialUnit="carat" isReverse={true} />
 
     <!-- Static Quick Formula Banner -->
     <div class="max-w-4xl mx-auto px-4 sm:px-6">
-      <div class="p-6 rounded-2xl atelier-card border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="p-6 rounded-2xl atelier-card border border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xs">
         <div>
-          <h2 class="text-base font-bold text-white font-display">Carat to Ratti Conversion Formula</h2>
-          <p class="text-xs text-zinc-400 mt-1">
+          <h2 class="text-base font-bold text-slate-900 font-display">Carat to Ratti Conversion Formula</h2>
+          <p class="text-xs text-slate-600 mt-1">
             To convert Carats to Ratti, divide the Carat weight by <strong>0.91</strong> (for Pakka Ratti) or multiply by <strong>1.0989</strong>.
           </p>
         </div>
-        <div class="px-4 py-2 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-300 font-mono font-bold text-sm shrink-0">
+        <div class="px-4 py-2 rounded-xl bg-amber-50 border border-amber-200 text-amber-900 font-mono font-bold text-sm shrink-0">
           Ratti = Carats ÷ 0.91
         </div>
       </div>

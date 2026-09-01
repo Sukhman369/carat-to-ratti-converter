@@ -1,140 +1,66 @@
 ---
-const GEMSTONES = [
-  {
-    name: 'Yellow Sapphire (Pukhraj)',
-    hindiName: 'पुखराज',
-    planet: 'Jupiter (Guru)',
-    hindiPlanet: 'गुरु / बृहस्पति',
-    color: 'from-amber-400/20 to-yellow-600/10 border-amber-500/30 text-amber-400',
-    icon: '🟡',
-    defaultRatti: 5.25,
-    carat: '4.78 Ct',
-    range: '5.25 – 7.25 Ratti',
-  },
-  {
-    name: 'Blue Sapphire (Neelam)',
-    hindiName: 'नीलम',
-    planet: 'Saturn (Shani)',
-    hindiPlanet: 'शनि',
-    color: 'from-blue-500/20 to-indigo-600/10 border-blue-500/30 text-blue-400',
-    icon: '🔵',
-    defaultRatti: 5.25,
-    carat: '4.78 Ct',
-    range: '4.25 – 6.25 Ratti',
-  },
-  {
-    name: 'Ruby (Manik)',
-    hindiName: 'माणिक',
-    planet: 'Sun (Surya)',
-    hindiPlanet: 'सूर्य',
-    color: 'from-rose-500/20 to-red-700/10 border-rose-500/30 text-rose-400',
-    icon: '🔴',
-    defaultRatti: 5.25,
-    carat: '4.78 Ct',
-    range: '4.25 – 5.25 Ratti',
-  },
-  {
-    name: 'Emerald (Panna)',
-    hindiName: 'पन्ना',
-    planet: 'Mercury (Budh)',
-    hindiPlanet: 'बुध',
-    color: 'from-emerald-500/20 to-teal-700/10 border-emerald-500/30 text-emerald-400',
-    icon: '🟢',
-    defaultRatti: 4.25,
-    carat: '3.87 Ct',
-    range: '3.25 – 6.25 Ratti',
-  },
-  {
-    name: 'Pearl (Moti)',
-    hindiName: 'मोती',
-    planet: 'Moon (Chandra)',
-    hindiPlanet: 'चंद्रमा',
-    color: 'from-slate-300/20 to-zinc-500/10 border-zinc-400/30 text-zinc-200',
-    icon: '⚪',
-    defaultRatti: 6.25,
-    carat: '5.69 Ct',
-    range: '5.25 – 7.25 Ratti',
-  },
-  {
-    name: 'Diamond / Opal (Heera)',
-    hindiName: 'हीरा / ओपल',
-    planet: 'Venus (Shukra)',
-    hindiPlanet: 'शुक्र',
-    color: 'from-cyan-400/20 to-sky-600/10 border-cyan-400/30 text-cyan-300',
-    icon: '💎',
-    defaultRatti: 1.25,
-    carat: '1.14 Ct',
-    range: '1.25 – 2.25 Ratti',
-  },
-  {
-    name: 'Red Coral (Moonga)',
-    hindiName: 'मूंगा',
-    planet: 'Mars (Mangal)',
-    hindiPlanet: 'मंगल',
-    color: 'from-orange-500/20 to-red-600/10 border-orange-500/30 text-orange-400',
-    icon: '🟠',
-    defaultRatti: 7.25,
-    carat: '6.60 Ct',
-    range: '6.25 – 9.25 Ratti',
-  },
-];
+import { GEMSTONE_PRESETS } from '../utils/converter';
 ---
 
-<section id="gemstones" class="w-full max-w-5xl mx-auto py-12 px-4 sm:px-6">
-  <!-- Section Header -->
-  <div class="text-center space-y-2 mb-8">
-    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 text-xs font-semibold uppercase tracking-wider border border-amber-500/20">
-      <span>✨ Navratna Presets</span>
+<section class="w-full max-w-4xl mx-auto px-4 sm:px-6 py-6">
+  <div class="space-y-4">
+    <div class="flex items-center justify-between">
+      <div>
+        <h3 class="text-base font-bold text-slate-900 font-display">
+          Navratna Astrological Weight Presets
+        </h3>
+        <p class="text-xs text-slate-600">
+          Click any sacred gemstone to instantly load its astrologically prescribed Sawa weight.
+        </p>
+      </div>
+      <span class="text-xs font-mono text-amber-700 bg-amber-50 px-2.5 py-1 rounded-full border border-amber-200 hidden sm:inline-block font-semibold">
+        7 Core Gems
+      </span>
     </div>
-    <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-white font-display" data-i18n="gemstonesTitle">
-      Popular Vedic Gemstone Presets
-    </h2>
-    <p class="text-zinc-400 text-sm max-w-xl mx-auto" data-i18n="gemstonesSubtitle">
-      Click any sacred Navratna gemstone to prefill the standard astrologically recommended weight.
-    </p>
-  </div>
 
-  <!-- 7 Gemstone Cards Grid -->
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-    {GEMSTONES.map((gem) => (
-      <button
-        type="button"
-        class="gemstone-preset-btn p-4 rounded-2xl glass-panel bg-gradient-to-br border text-left space-y-3 hover:scale-[1.02] active:scale-[0.99] transition-all group"
-        class:list={[gem.color]}
-        data-ratti={gem.defaultRatti}
-      >
-        <div class="flex items-center justify-between">
-          <span class="text-2xl">{gem.icon}</span>
-          <span class="text-[11px] font-mono px-2 py-0.5 rounded-full bg-white/5 border border-white/10 text-zinc-300">
-            {gem.range}
-          </span>
-        </div>
+    <!-- 7 Gemstone Cards Grid -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3">
+      {GEMSTONE_PRESETS.map((gem) => (
+        <button
+          type="button"
+          class="gemstone-card group p-3.5 rounded-2xl bg-white hover:bg-slate-50 border border-slate-200/90 text-left transition-all duration-200 hover:scale-[1.03] active:scale-95 shadow-xs hover:shadow-md flex flex-col justify-between space-y-3"
+          data-ratti={gem.recommendedRatti}
+          data-name={gem.name}
+          title={`Load ${gem.name} standard weight (${gem.recommendedRatti} Ratti)`}
+        >
+          <div class="flex items-center justify-between w-full">
+            <span class="text-lg">{gem.icon}</span>
+            <span class="text-[10px] font-mono text-slate-500 font-semibold">{gem.rattiRange}</span>
+          </div>
 
-        <div>
-          <h3 class="text-sm font-bold text-white group-hover:text-amber-300 transition-colors">
-            {gem.name}
-          </h3>
-          <p class="text-xs text-zinc-400 mt-0.5">
-            {gem.planet}
-          </p>
-        </div>
+          <div>
+            <div class="text-xs font-bold text-slate-900 group-hover:text-amber-700 transition-colors">
+              {gem.name}
+            </div>
+            <div class="text-[11px] text-slate-500 font-medium">
+              {gem.hindiName}
+            </div>
+          </div>
 
-        <div class="flex items-center justify-between pt-2 border-t border-white/10 text-xs font-mono">
-          <span class="text-amber-400 font-bold">{gem.defaultRatti} Ratti</span>
-          <span class="text-zinc-400">≈ {gem.carat}</span>
-        </div>
-      </button>
-    ))}
+          <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] font-mono">
+            <span class="text-slate-500">Rec:</span>
+            <span class="font-bold text-amber-800 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200/60">
+              {gem.recommendedRatti} Rt
+            </span>
+          </div>
+        </button>
+      ))}
+    </div>
   </div>
 </section>
 
-<!-- Client Script for Preset Buttons -->
 <script>
-  document.querySelectorAll('.gemstone-preset-btn').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const ratti = parseFloat(btn.getAttribute('data-ratti') || '5.25');
+  const cards = document.querySelectorAll('.gemstone-card');
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      const ratti = parseFloat(card.getAttribute('data-ratti') || '5.25');
       window.dispatchEvent(new CustomEvent('load-gemstone-preset', {
-        detail: { ratti, mode: 'rattiToCarat' }
+        detail: { ratti }
       }));
     });
   });

@@ -20,7 +20,7 @@ A high-precision, distraction-free gemstone weight calculator and astrological r
 5. `/sawa-ratti-chart` (Complete Astrological Sawa Reference Scale)
 
 ## Aesthetic Identity
-- **Design System:** Vercel Geist aesthetic ([`DESIGN.md`](./DESIGN.md)).
-- **Mood:** Stark, dark-mode first, precision developer-grade tool, high-contrast, zero fluff.
-- **Color Palette:** Deep canvas (`#000000` / `#090d16`), 1px hairlines (`rgba(255,255,255,0.08)`), amber/gold glowing accents.
-- **Typography:** Display type with tight tracking, monospaced tabular figures (`Geist Mono`).
+- **Design System:** Luminous Pearl & Royal Vedic Gold ([`DESIGN.md`](./DESIGN.md)).
+- **Mood:** Luminous, warm, auspicious, radiant, high-trust precision tool with natural sunlight clarity.
+- **Color Palette:** Warm porcelain canvas (`#faf9f6`, `#ffffff`), deep slate ink (`#0f172a`, `#475569`), royal amber gold (`#d97706`, `#b45309`), and jewelry-grade hairlines (`#e2e8f0`).
+- **Typography:** Display type with tight tracking (`Outfit`), monospaced tabular figures (`Geist Mono`), and clear body copy (`Inter`).

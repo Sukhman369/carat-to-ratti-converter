@@ -2,12 +2,12 @@
 const currentPath = Astro.url.pathname;
 ---
 
-<header class="sticky top-0 z-50 w-full border-b border-white/10 atelier-card backdrop-blur-xl transition-all">
+<header class="sticky top-0 z-50 w-full border-b border-slate-200/80 bg-white/90 backdrop-blur-xl transition-all shadow-xs">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
     <!-- Brand Logo -->
     <a href="/" class="flex items-center gap-3 group">
-      <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-amber-400 via-amber-500 to-amber-700 flex items-center justify-center shadow-lg shadow-amber-500/20 group-hover:scale-105 transition-transform">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 flex items-center justify-center shadow-md shadow-amber-500/20 group-hover:scale-105 transition-transform">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
           <path d="M6 3h12l4 6-10 12L2 9z"></path>
           <path d="M11 3 8 9l4 12 4-12-3-6"></path>
           <path d="M2 9h20"></path>
@@ -15,20 +15,20 @@ const currentPath = Astro.url.pathname;
       </div>
       <div>
         <div class="flex items-center gap-2">
-          <span class="text-base font-bold tracking-tight text-white font-display">Ratti to Carat</span>
-          <span class="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/20 uppercase tracking-wider hidden sm:inline-block">Vedic & Lab</span>
+          <span class="text-base font-bold tracking-tight text-slate-900 font-display">Ratti to Carat</span>
+          <span class="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-amber-50 text-amber-700 border border-amber-200 uppercase tracking-wider hidden sm:inline-block">Vedic & Lab</span>
         </div>
-        <span class="text-[11px] text-zinc-400 hidden sm:block">rattitocarat.com</span>
+        <span class="text-[11px] text-slate-500 hidden sm:block">rattitocarat.com</span>
       </div>
     </a>
 
     <!-- Navigation Links -->
-    <nav class="hidden lg:flex items-center gap-5 text-xs font-medium text-zinc-300">
+    <nav class="hidden lg:flex items-center gap-2 text-xs font-semibold text-slate-600">
       <a
         href="/"
         class:list={[
-          'px-2.5 py-1.5 rounded-lg transition-colors',
-          currentPath === '/' ? 'text-amber-400 bg-amber-500/10 font-semibold' : 'hover:text-amber-400'
+          'px-3 py-1.5 rounded-lg transition-colors',
+          currentPath === '/' ? 'text-amber-700 bg-amber-50 font-bold border border-amber-200/60' : 'hover:text-amber-600 hover:bg-slate-50'
         ]}
       >
         Master Tool
@@ -36,8 +36,8 @@ const currentPath = Astro.url.pathname;
       <a
         href="/carat-to-ratti"
         class:list={[
-          'px-2.5 py-1.5 rounded-lg transition-colors',
-          currentPath === '/carat-to-ratti' ? 'text-amber-400 bg-amber-500/10 font-semibold' : 'hover:text-amber-400'
+          'px-3 py-1.5 rounded-lg transition-colors',
+          currentPath === '/carat-to-ratti' ? 'text-amber-700 bg-amber-50 font-bold border border-amber-200/60' : 'hover:text-amber-600 hover:bg-slate-50'
         ]}
       >
         Carat → Ratti
@@ -45,8 +45,8 @@ const currentPath = Astro.url.pathname;
       <a
         href="/ratti-to-carat"
         class:list={[
-          'px-2.5 py-1.5 rounded-lg transition-colors',
-          currentPath === '/ratti-to-carat' ? 'text-amber-400 bg-amber-500/10 font-semibold' : 'hover:text-amber-400'
+          'px-3 py-1.5 rounded-lg transition-colors',
+          currentPath === '/ratti-to-carat' ? 'text-amber-700 bg-amber-50 font-bold border border-amber-200/60' : 'hover:text-amber-600 hover:bg-slate-50'
         ]}
       >
         Ratti → Carat
@@ -54,8 +54,8 @@ const currentPath = Astro.url.pathname;
       <a
         href="/body-weight-calculator"
         class:list={[
-          'px-2.5 py-1.5 rounded-lg transition-colors',
-          currentPath === '/body-weight-calculator' ? 'text-amber-400 bg-amber-500/10 font-semibold' : 'hover:text-amber-400'
+          'px-3 py-1.5 rounded-lg transition-colors',
+          currentPath === '/body-weight-calculator' ? 'text-amber-700 bg-amber-50 font-bold border border-amber-200/60' : 'hover:text-amber-600 hover:bg-slate-50'
         ]}
       >
         Body Weight
@@ -63,8 +63,8 @@ const currentPath = Astro.url.pathname;
       <a
         href="/sawa-ratti-chart"
         class:list={[
-          'px-2.5 py-1.5 rounded-lg transition-colors',
-          currentPath === '/sawa-ratti-chart' ? 'text-amber-400 bg-amber-500/10 font-semibold' : 'hover:text-amber-400'
+          'px-3 py-1.5 rounded-lg transition-colors',
+          currentPath === '/sawa-ratti-chart' ? 'text-amber-700 bg-amber-50 font-bold border border-amber-200/60' : 'hover:text-amber-600 hover:bg-slate-50'
         ]}
       >
         Sawa Charts
@@ -77,10 +77,10 @@ const currentPath = Astro.url.pathname;
       <button
         id="lang-toggle-btn"
         type="button"
-        class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-white/5 hover:bg-white/10 text-zinc-200 border border-white/10 transition-all hover:border-amber-500/40"
+        class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-200 transition-all"
         title="Toggle English / हिन्दी"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 text-amber-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="12" cy="12" r="10"></circle>
           <line x1="2" y1="12" x2="22" y2="12"></line>
           <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
@@ -89,8 +89,8 @@ const currentPath = Astro.url.pathname;
       </button>
 
       <!-- Standard Indicator Badge -->
-      <div class="hidden sm:flex items-center gap-2 px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-400 text-xs font-mono border border-emerald-500/20">
-        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+      <div class="hidden sm:flex items-center gap-2 px-2.5 py-1 rounded-md bg-emerald-50 text-emerald-800 text-xs font-mono border border-emerald-200 font-semibold">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span>
         <span>0.91 Pakka Ratio</span>
       </div>
     </div>

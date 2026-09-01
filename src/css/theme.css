@@ -1,33 +1,33 @@
 @theme {
-  /* Obsidian & Vedic Gold Palette */
-  --color-canvas-base: #07090e;
-  --color-canvas-subtle: #0c1017;
-  --color-canvas-card: #111622;
-  --color-canvas-elevated: #171e2e;
-  --color-canvas-input: #090d15;
+  /* Luminous Pearl & Royal Gold Light Palette */
+  --color-canvas-base: #faf9f6;
+  --color-canvas-subtle: #f4f3ef;
+  --color-canvas-card: #ffffff;
+  --color-canvas-elevated: #ffffff;
+  --color-canvas-input: #ffffff;
 
-  --color-primary: #f59e0b;
-  --color-primary-hover: #fbbf24;
-  --color-primary-glow: rgba(245, 158, 11, 0.22);
-  --color-on-primary: #000000;
+  --color-primary: #d97706;
+  --color-primary-hover: #b45309;
+  --color-primary-glow: rgba(217, 119, 6, 0.15);
+  --color-on-primary: #ffffff;
 
-  --color-ink: #f8fafc;
-  --color-ink-secondary: #94a3b8;
+  --color-ink: #0f172a;
+  --color-ink-secondary: #475569;
   --color-ink-muted: #64748b;
-  --color-ink-faint: #334155;
+  --color-ink-faint: #94a3b8;
 
-  --color-hairline: rgba(255, 255, 255, 0.08);
-  --color-hairline-strong: rgba(255, 255, 255, 0.16);
-  --color-hairline-gold: rgba(245, 158, 11, 0.35);
+  --color-hairline: #e2e8f0;
+  --color-hairline-strong: #cbd5e1;
+  --color-hairline-gold: rgba(217, 119, 6, 0.35);
 
-  --color-gem-ruby: #f43f5e;
-  --color-gem-sapphire: #3b82f6;
-  --color-gem-emerald: #10b981;
-  --color-gem-pearl: #e2e8f0;
-  --color-gem-coral: #fb923c;
-  --color-gem-heera: #38bdf8;
-  --color-gem-gomed: #a855f7;
-  --color-gem-lehsuniya: #ca8a04;
+  --color-gem-ruby: #e11d48;
+  --color-gem-sapphire: #2563eb;
+  --color-gem-emerald: #059669;
+  --color-gem-pearl: #475569;
+  --color-gem-coral: #ea580c;
+  --color-gem-heera: #0284c7;
+  --color-gem-gomed: #9333ea;
+  --color-gem-lehsuniya: #b45309;
 
   /* Typography */
   --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans Devanagari', sans-serif;

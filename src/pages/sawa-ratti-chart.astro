@@ -16,59 +16,61 @@ import Footer from '../components/Footer.astro';
   <main class="relative space-y-8 py-4">
     <!-- Breadcrumbs -->
     <div class="max-w-5xl mx-auto px-4 sm:px-6 pt-4">
-      <nav class="flex items-center gap-2 text-xs text-zinc-500 font-mono">
-        <a href="/" class="hover:text-amber-400 transition-colors">Home</a>
+      <nav class="flex items-center gap-2 text-xs text-slate-500 font-mono">
+        <a href="/" class="hover:text-amber-700 transition-colors">Home</a>
         <span>/</span>
-        <span class="text-zinc-300">Sawa Ratti Chart</span>
+        <span class="text-slate-800 font-semibold">Sawa Ratti Chart</span>
       </nav>
     </div>
 
     <!-- Header Section -->
     <section class="max-w-5xl mx-auto px-4 sm:px-6 pt-4 text-center space-y-3">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 text-xs font-semibold uppercase tracking-wider border border-amber-500/20">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 text-amber-800 text-xs font-semibold uppercase tracking-wider border border-amber-200 shadow-xs">
         <span>✨ Sacred Vedic Numerology</span>
       </div>
-      <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white font-display">
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 font-display">
         The Sawa Ratti Astrological Reference Scale
       </h1>
-      <p class="text-zinc-400 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+      <p class="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
         Why Vedic astrologers prescribe gemstones with a +0.25 Ratti fraction and the planetary significance of each weight.
       </p>
     </section>
 
     <!-- Master Sawa Reference Table -->
     <section class="max-w-5xl mx-auto px-4 sm:px-6">
-      <div class="p-6 sm:p-8 rounded-3xl atelier-card border border-white/10 space-y-6">
+      <div class="p-6 sm:p-8 rounded-3xl atelier-card border border-slate-200 space-y-6 shadow-sm">
         <div class="flex items-center justify-between">
-          <h2 class="text-lg font-bold text-white font-display">
+          <h2 class="text-lg font-bold text-slate-900 font-display">
             Complete Sawa Ratti Matrix (1.25 to 12.25 Rt)
           </h2>
-          <span class="text-xs font-mono text-amber-400">1 Pakka Ratti = 0.91 Ct</span>
+          <span class="text-xs font-mono font-bold text-amber-800 bg-amber-50 px-2.5 py-1 rounded-lg border border-amber-200">
+            1 Pakka Ratti = 0.91 Ct
+          </span>
         </div>
 
-        <div class="overflow-x-auto rounded-2xl border border-white/10">
+        <div class="overflow-x-auto rounded-2xl border border-slate-200">
           <table class="w-full text-left text-xs border-collapse">
-            <thead class="bg-[#0c1017] text-zinc-400 border-b border-white/10 font-mono text-[11px] uppercase tracking-wider">
+            <thead class="bg-slate-50 text-slate-500 border-b border-slate-200 font-mono text-[11px] uppercase tracking-wider">
               <tr>
-                <th class="p-3.5 text-amber-400">Sawa Fraction</th>
-                <th class="p-3.5">Weight (Ratti)</th>
-                <th class="p-3.5">Carats (0.91)</th>
+                <th class="p-3.5 text-amber-900">Sawa Fraction</th>
+                <th class="p-3.5 text-slate-900">Weight (Ratti)</th>
+                <th class="p-3.5 text-slate-900">Carats (0.91)</th>
                 <th class="p-3.5">Milligrams</th>
                 <th class="p-3.5 font-sans">Ruling Planet</th>
                 <th class="p-3.5 font-sans">Associated Gemstone</th>
               </tr>
             </thead>
-            <tbody class="divide-y divide-white/5 font-mono text-zinc-300">
+            <tbody class="divide-y divide-slate-100 font-mono text-slate-700 bg-white">
               {SAWA_RATTI_TABLE.map((row) => (
-                <tr class="hover:bg-white/5 transition-colors">
-                  <td class="p-3.5 font-sans font-bold text-amber-300 flex items-center gap-1.5">
+                <tr class="hover:bg-amber-50/40 transition-colors">
+                  <td class="p-3.5 font-sans font-bold text-amber-800 flex items-center gap-1.5">
                     <span>✨</span> {row.name} ({row.hindiName})
                   </td>
-                  <td class="p-3.5 font-bold text-white">{row.ratti.toFixed(2)} Rt</td>
-                  <td class="p-3.5 font-bold text-white">{row.carat.toFixed(2)} Ct</td>
-                  <td class="p-3.5 text-zinc-400">{row.mg.toFixed(1)} mg</td>
-                  <td class="p-3.5 font-sans text-zinc-200">{row.planet}</td>
-                  <td class="p-3.5 font-sans text-amber-400 font-medium">{row.gem}</td>
+                  <td class="p-3.5 font-bold text-slate-900">{row.ratti.toFixed(2)} Rt</td>
+                  <td class="p-3.5 font-bold text-slate-900">{row.carat.toFixed(2)} Ct</td>
+                  <td class="p-3.5 text-slate-500">{row.mg.toFixed(1)} mg</td>
+                  <td class="p-3.5 font-sans text-slate-900 font-medium">{row.planet}</td>
+                  <td class="p-3.5 font-sans text-amber-800 font-semibold">{row.gem}</td>
                 </tr>
               ))}
             </tbody>
@@ -80,32 +82,32 @@ import Footer from '../components/Footer.astro';
     <!-- Deep Astrological Fraction Meaning -->
     <section class="max-w-5xl mx-auto px-4 sm:px-6">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="p-6 rounded-2xl atelier-card border border-amber-500/30 space-y-3 bg-gradient-to-b from-amber-500/10 to-transparent">
+        <div class="p-6 rounded-2xl bg-amber-50/70 border border-amber-200 space-y-3 shadow-xs">
           <div class="flex items-center gap-2">
             <span class="text-xl">🌟</span>
-            <h3 class="text-base font-bold text-amber-300 font-display">Sawa (+0.25 Ratti)</h3>
+            <h3 class="text-base font-bold text-amber-900 font-display">Sawa (+0.25 Ratti)</h3>
           </div>
-          <p class="text-xs text-zinc-300 leading-relaxed">
+          <p class="text-xs text-slate-700 leading-relaxed">
             Derived from <em>Sapada</em> in Sanskrit, Sawa symbolizes growth, expansion, and positive momentum. It is universally considered the most auspicious fraction for wearing astrological gemstones.
           </p>
         </div>
 
-        <div class="p-6 rounded-2xl atelier-card border border-blue-500/30 space-y-3 bg-gradient-to-b from-blue-500/10 to-transparent">
+        <div class="p-6 rounded-2xl bg-blue-50/70 border border-blue-200 space-y-3 shadow-xs">
           <div class="flex items-center gap-2">
             <span class="text-xl">⚖️</span>
-            <h3 class="text-base font-bold text-blue-300 font-display">Saadhe (+0.50 Ratti)</h3>
+            <h3 class="text-base font-bold text-blue-900 font-display">Saadhe (+0.50 Ratti)</h3>
           </div>
-          <p class="text-xs text-zinc-300 leading-relaxed">
+          <p class="text-xs text-slate-700 leading-relaxed">
             Derived from <em>Sardha</em>, Saadhe represents balance, stability, and neutrality. Astrologers consider it acceptable for standard remedial wear where expansion is not strictly necessary.
           </p>
         </div>
 
-        <div class="p-6 rounded-2xl atelier-card border border-rose-500/30 space-y-3 bg-gradient-to-b from-rose-500/10 to-transparent">
+        <div class="p-6 rounded-2xl bg-rose-50/70 border border-rose-200 space-y-3 shadow-xs">
           <div class="flex items-center gap-2">
             <span class="text-xl">🚫</span>
-            <h3 class="text-base font-bold text-rose-300 font-display">Paune (+0.75 Ratti)</h3>
+            <h3 class="text-base font-bold text-rose-900 font-display">Paune (+0.75 Ratti)</h3>
           </div>
-          <p class="text-xs text-zinc-300 leading-relaxed">
+          <p class="text-xs text-slate-700 leading-relaxed">
             Derived from <em>Padona</em> (one-quarter less than next whole), Paune is traditionally associated with loss or incompleteness in orthodox North Indian Jyotish and is avoided.
           </p>
         </div>
