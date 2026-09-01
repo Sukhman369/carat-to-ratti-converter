@@ -42,20 +42,58 @@ const FAQS = [
       </h2>
     </div>
 
-    <div class="space-y-3 divide-y divide-slate-100">
+    <div class="space-y-2 divide-y divide-slate-100" id="faq-accordion-container">
       {FAQS.map((faq) => (
-        <details class="group pt-3 first:pt-0">
-          <summary class="flex items-center justify-between cursor-pointer list-none py-2 text-sm font-bold text-slate-900 group-hover:text-amber-700 transition-colors">
+        <div class="faq-item pt-3 first:pt-0">
+          <button
+            type="button"
+            class="faq-trigger w-full flex items-center justify-between py-2 text-left text-sm font-bold text-slate-900 hover:text-amber-700 transition-colors focus:outline-none group"
+            aria-expanded="false"
+          >
             <span>{faq.q}</span>
-            <span class="w-6 h-6 rounded-full bg-slate-100 group-open:bg-amber-100 text-slate-600 group-open:text-amber-800 flex items-center justify-center text-xs font-mono transition-transform group-open:rotate-180">
-              ↓
+            <span class="faq-icon w-6 h-6 rounded-full bg-slate-100 group-hover:bg-amber-100 text-slate-600 group-hover:text-amber-800 flex items-center justify-center text-xs transition-transform duration-300 shrink-0 ml-3">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
             </span>
-          </summary>
-          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed pt-2 pb-3">
-            {faq.a}
-          </p>
-        </details>
+          </button>
+          <div class="faq-panel grid grid-rows-[0fr] transition-[grid-template-rows,opacity] duration-300 ease-out opacity-0">
+            <div class="overflow-hidden">
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed pt-2 pb-3">
+                {faq.a}
+              </p>
+            </div>
+          </div>
+        </div>
       ))}
     </div>
   </div>
 </section>
+
+<script>
+  const triggers = document.querySelectorAll<HTMLButtonElement>('.faq-trigger');
+
+  triggers.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      if (!item) return;
+
+      const panel = item.querySelector('.faq-panel');
+      const icon = btn.querySelector('.faq-icon');
+      const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+
+      // Toggle current item
+      if (isExpanded) {
+        btn.setAttribute('aria-expanded', 'false');
+        panel?.classList.remove('grid-rows-[1fr]', 'opacity-100');
+        panel?.classList.add('grid-rows-[0fr]', 'opacity-0');
+        icon?.classList.remove('rotate-180', 'bg-amber-100', 'text-amber-800');
+      } else {
+        btn.setAttribute('aria-expanded', 'true');
+        panel?.classList.remove('grid-rows-[0fr]', 'opacity-0');
+        panel?.classList.add('grid-rows-[1fr]', 'opacity-100');
+        icon?.classList.add('rotate-180', 'bg-amber-100', 'text-amber-800');
+      }
+    });
+  });
+</script>
