@@ -16,11 +16,11 @@ import { STATIC_CARAT_TO_RATTI, STATIC_RATTI_TO_CARAT, SAWA_RATTI_TABLE } from '
       </div>
 
       <!-- Tab Buttons -->
-      <div class="flex items-center gap-1.5 p-1 rounded-xl bg-slate-100 border border-slate-200 text-xs font-semibold self-start sm:self-auto">
+      <div class="flex items-center gap-1.5 p-1 rounded-xl bg-slate-100 border border-slate-200 text-xs font-semibold self-start sm:self-auto overflow-x-auto max-w-full">
         <button
           type="button"
           id="tab-btn-carat-first"
-          class="px-3 py-1.5 rounded-lg bg-white text-slate-900 shadow-xs font-bold transition-all"
+          class="px-3 py-1.5 rounded-lg bg-white text-slate-900 shadow-xs font-bold transition-all shrink-0"
           data-i18n="tabCaratToRatti"
         >
           Carat → Ratti
@@ -28,7 +28,7 @@ import { STATIC_CARAT_TO_RATTI, STATIC_RATTI_TO_CARAT, SAWA_RATTI_TABLE } from '
         <button
           type="button"
           id="tab-btn-ratti-first"
-          class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 transition-all"
+          class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 transition-all shrink-0"
           data-i18n="tabRattiToCarat"
         >
           Ratti → Carat
@@ -36,7 +36,7 @@ import { STATIC_CARAT_TO_RATTI, STATIC_RATTI_TO_CARAT, SAWA_RATTI_TABLE } from '
         <button
           type="button"
           id="tab-btn-sawa-scale"
-          class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 transition-all"
+          class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 transition-all shrink-0"
           data-i18n="tabSawaScale"
         >
           Sawa Scale
