@@ -47,6 +47,15 @@ const currentPath = Astro.url.pathname;
       >
         Blog
       </a>
+      <a
+        href="/faqs"
+        class:list={[
+          'px-3 py-1.5 rounded-lg transition-colors',
+          currentPath === '/faqs' ? 'text-amber-700 bg-amber-50 font-bold border border-amber-200/60' : 'hover:text-amber-600 hover:bg-slate-50'
+        ]}
+      >
+        FAQs
+      </a>
     </nav>
 
     <!-- Language Switcher & Mobile Menu Trigger -->
@@ -131,6 +140,16 @@ const currentPath = Astro.url.pathname;
     >
       <span>📖 Gemological Blog & Guides</span>
       <span class="text-xs font-mono text-slate-400">Articles</span>
+    </a>
+    <a
+      href="/faqs"
+      class:list={[
+        'flex items-center justify-between p-3 rounded-xl text-sm font-semibold transition-colors',
+        currentPath === '/faqs' ? 'text-amber-800 bg-amber-50 border border-amber-200' : 'text-slate-700 hover:bg-slate-50'
+      ]}
+    >
+      <span>💡 FAQs & Knowledge Base</span>
+      <span class="text-xs font-mono text-slate-400">Q&A</span>
     </a>
 
     <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 font-mono px-1">

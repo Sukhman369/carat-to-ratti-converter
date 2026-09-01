@@ -1,0 +1,292 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const FAQ_CATEGORIES = [
+  {
+    category: 'Mathematical & Gemological Conversion Formulas',
+    icon: '📐',
+    faqs: [
+      {
+        q: 'How many Carats are in 1 Ratti (Pakka vs Sunee)?',
+        a: 'In scientifically certified gemology and orthodox Vedic astrology, 1 Pakka Ratti is exactly equal to 0.9100 Carats (182.0 milligrams). In certain traditional regional Indian jewelry markets, a rounded Sunee Ratti (also known as Kachha Ratti) ratio of 0.9000 Carats (180.0 milligrams) is used. Certified laboratories like GIA and IGI always report weights in metric carats.'
+      },
+      {
+        q: 'How do you convert Carats to Ratti accurately?',
+        a: 'To convert Carats to Pakka Ratti, divide the Carat weight by 0.91 (or multiply by 1.098901). For example: 5.00 Carats ÷ 0.91 = 5.494 Pakka Ratti. If converting to Sunee Ratti, divide by 0.90 (5.00 ÷ 0.90 = 5.555 Sunee Ratti).'
+      },
+      {
+        q: 'How many Milligrams and Grams are in 1 Carat and 1 Ratti?',
+        a: '1 Metric Carat is internationally standardized at exactly 200.0 milligrams (0.200 grams). 1 Pakka Ratti is equal to 182.0 milligrams (0.182 grams). 1 Sunee Ratti equals 180.0 milligrams (0.180 grams).'
+      },
+      {
+        q: 'How many Cents or Points are in a Carat and a Ratti?',
+        a: '1 Carat is divided into 100 Cents (also known as Points in diamond and gemstone grading). Therefore, 1 Pakka Ratti (0.91 Carats) equals 91 Cents, and 1 Sunee Ratti (0.90 Carats) equals 90 Cents.'
+      },
+      {
+        q: 'What is the formula to convert Gemstone Weight into Grains?',
+        a: '1 Metric Carat is equivalent to 3.08647 Troy Grains. Therefore, 1 Pakka Ratti (0.91 Ct) equals approximately 2.8087 Grains.'
+      }
+    ]
+  },
+  {
+    category: 'Vedic Astrology & Jyotish Dosage Rules',
+    icon: '🧘',
+    faqs: [
+      {
+        q: 'Why do astrologers prescribe "Sawa" weights (e.g., Sawa 5, Sawa 7 Ratti)?',
+        a: 'In Vedic Jyotish numerology and Sanskrit tradition, the fraction +0.25 is termed "Sapada" (popularly Sawa). Sawa represents growth, expansion, abundance, and positive momentum. Astrologers universally recommend Sawa weights (such as 5.25, 6.25, or 7.25 Ratti) to invoke progressive planetary energies.'
+      },
+      {
+        q: 'Why should "Paune" (-0.25 / 0.75) weights be strictly avoided in gemstones?',
+        a: 'Paune (Padona / three-quarter fraction, such as 4.75, 5.75, or 6.75 Ratti) signifies deficit, incompleteness, and loss in classical Vedic texts. Wearing a Paune weight gemstone is believed to attract hurdles and diminished planetary returns. Seekers are advised to round up to the nearest Sawa weight.'
+      },
+      {
+        q: 'What is the classical Vedic formula for Gemstone Weight by Body Weight?',
+        a: 'The classical Jyotish dosage guideline prescribes 1 Ratti of gemstone weight for every 10 to 12 kilograms of human body weight. For instance, a person weighing 65 kg requires a stone between 5.42 and 6.50 Ratti, making 6.25 Ratti (Sawa Chhah Ratti) the ideal auspicious target.'
+      },
+      {
+        q: 'What does "Saadhe" (+0.50) weight mean in gemstone astrology?',
+        a: 'Saadhe (Sardha / +0.50 fraction, such as 5.50 or 6.50 Ratti) is considered a neutral, stabilizing weight. While not as energetically expansive as Sawa (+0.25), Saadhe weights are astrologically safe and widely accepted if exact Sawa cuts are unavailable.'
+      }
+    ]
+  },
+  {
+    category: 'Navratna Gemstones & Planetary Prescriptions',
+    icon: '✨',
+    faqs: [
+      {
+        q: 'What is the recommended Sawa Ratti weight for Yellow Sapphire (Pukhraj)?',
+        a: 'Yellow Sapphire (Guru / Jupiter) is typically prescribed in Sawa 5 (5.25 Ratti / 4.78 Ct) or Sawa 7 (7.25 Ratti / 6.60 Ct) depending on body weight. It must be set in yellow gold or brass and worn on the index finger on a Thursday morning.'
+      },
+      {
+        q: 'What is the standard weight recommendation for Blue Sapphire (Neelam)?',
+        a: 'Blue Sapphire (Shani / Saturn) is a high-potency gemstone usually prescribed in conservative weights: Sawa 4 (4.25 Ratti / 3.87 Ct) or Sawa 5 (5.25 Ratti / 4.78 Ct). A mandatory 3-day trial period under a pillow or against the skin is recommended before final mounting.'
+      },
+      {
+        q: 'What is the auspicious weight for Emerald (Panna)?',
+        a: 'Emerald (Budh / Mercury) is recommended in Sawa 3 (3.25 Ratti / 2.96 Ct) to Sawa 6 (6.25 Ratti / 5.69 Ct). It is traditionally set in gold or silver and worn on the little finger on a Wednesday morning during Shukla Paksha.'
+      },
+      {
+        q: 'What weight is ideal for Ruby (Manik)?',
+        a: 'Ruby (Surya / Sun) is prescribed in Sawa 4 (4.25 Ratti / 3.87 Ct) to Sawa 5 (5.25 Ratti / 4.78 Ct). It enhances leadership, vitality, and government prestige, and should be worn on the ring finger on a Sunday morning.'
+      },
+      {
+        q: 'What is the recommended weight for Natural Pearl (Moti) and Red Coral (Moonga)?',
+        a: 'Natural Pearl (Chandra / Moon) is prescribed in Sawa 5 (5.25 Rt) to Sawa 7 (7.25 Rt) set in silver. Red Coral (Mangal / Mars) is recommended in Sawa 6 (6.25 Rt) to Sawa 8 (8.25 Rt) set in copper, gold, or silver on the ring finger on a Tuesday.'
+      }
+    ]
+  },
+  {
+    category: 'Commercial Jewelry Trade, Pricing & Laboratory Certification',
+    icon: '💎',
+    faqs: [
+      {
+        q: 'How do jewelers price gemstones: Per Ratti vs Per Carat?',
+        a: 'In Indian and Middle Eastern markets, jewelers frequently quote prices per Ratti (e.g. ₹5,000/Ratti), whereas international laboratories (GIA, IGI) certify solely in Carats. Because 1 Ratti is only 0.91 Carats, buying a 5.25 Ratti (4.78 Carat) stone at ₹5,000/Ratti costs ₹26,250 total, which translates to an effective rate of ₹5,491.63 per Carat.'
+      },
+      {
+        q: 'Why do lab certificates never mention "Ratti"?',
+        a: 'Ratti is a traditional Indian unit of mass based historically on the seed of Abrus precatorius. International standardizing bodies (BIPM, ISO, CIBJO, GIA) exclusively recognize the Metric Carat (200 mg) for commercial testing and certification to ensure legal traceability.'
+      },
+      {
+        q: 'How can I ensure my gemstone has not been weighed on a Sunee (0.90) ratio to overcharge?',
+        a: 'Always verify the weight in milligrams (mg) on a calibrated electronic gemological scale. Divide the milligram weight by 182 to obtain exact Pakka Ratti. If a jeweler divides by 180 (Sunee), they are providing approximately 1.1% less physical gem material.'
+      },
+      {
+        q: 'What is the origin of the Gunja seed in Indian weight measurement?',
+        a: 'Before electronic scales, ancient Indian lapidaries used the bright scarlet seeds of the Gunja plant (Abrus precatorius). Because individual wild Gunja seeds have an astonishingly uniform mass of approximately 1.82 grains (~120–180 mg), they became the foundational standard for weighing gemstones and gold.'
+      }
+    ]
+  }
+];
+
+// Flatten all FAQs for full JSON-LD structured data
+const allFaqs = FAQ_CATEGORIES.flatMap((c) => c.faqs);
+const faqPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: allFaqs.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.a
+    }
+  }))
+};
+---
+
+<Layout
+  title="Gemstone FAQs & Knowledge Base | Ratti to Carat, Vedic Dosage & Lab Standards"
+  description="Comprehensive FAQ directory covering Ratti to Carat mathematical conversions, 0.91 Pakka vs 0.90 Sunee standards, Vedic Sawa vs Paune astrological rules, and pricing formulas."
+  canonicalUrl="https://rattitocarat.com/faqs"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(faqPageSchema)} slot="head" />
+
+  <Navbar />
+
+  <main class="relative max-w-5xl mx-auto px-4 sm:px-6 py-10 space-y-10">
+    <!-- Breadcrumbs -->
+    <nav class="flex items-center gap-2 text-xs text-slate-500 font-mono">
+      <a href="/" class="hover:text-amber-700 transition-colors">Home</a>
+      <span>/</span>
+      <span class="text-slate-800 font-semibold">FAQs & Knowledge Base</span>
+    </nav>
+
+    <!-- Header Banner -->
+    <section class="text-center space-y-3 max-w-3xl mx-auto">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 text-amber-800 text-xs font-semibold uppercase tracking-wider border border-amber-200 shadow-xs">
+        <span>💡 Comprehensive Knowledge Repository</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 font-display">
+        Gemstone Weights, Ratti & Vedic Astrology FAQs
+      </h1>
+      <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+        Everything you need to know regarding mathematical formulas, certified laboratory standards (0.91 Pakka / 182 mg), auspicious Sawa fractions, and jewelry trade calculations.
+      </p>
+    </section>
+
+    <!-- Real-Time Search Filter -->
+    <section class="max-w-2xl mx-auto">
+      <div class="p-3.5 rounded-2xl bg-white border border-slate-200 shadow-xs flex items-center gap-3 focus-within:ring-2 focus-within:ring-amber-500/20 focus-within:border-amber-500 transition-all">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-slate-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input
+          type="text"
+          id="faq-search-input"
+          placeholder="Search any question (e.g. Pakka, Sunee, Pukhraj, Paune, Milligrams, Price)..."
+          class="w-full bg-transparent text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none"
+        />
+      </div>
+    </section>
+
+    <!-- Categorized FAQ Accordion Sections -->
+    <div class="space-y-8" id="faq-groups-container">
+      {FAQ_CATEGORIES.map((cat) => (
+        <section class="faq-category-card rounded-3xl atelier-card p-6 sm:p-8 space-y-6 border border-slate-200 shadow-sm">
+          <div class="flex items-center gap-3 pb-4 border-b border-slate-100">
+            <span class="w-9 h-9 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center text-lg shadow-xs">
+              {cat.icon}
+            </span>
+            <h2 class="text-lg sm:text-xl font-bold text-slate-900 font-display">
+              {cat.category}
+            </h2>
+          </div>
+
+          <div class="space-y-3 divide-y divide-slate-100">
+            {cat.faqs.map((faq) => (
+              <div class="faq-item pt-3 first:pt-0">
+                <button
+                  type="button"
+                  class="faq-trigger w-full flex items-center justify-between py-2 text-left text-sm sm:text-base font-bold text-slate-900 hover:text-amber-700 transition-colors focus:outline-none group"
+                  aria-expanded="false"
+                >
+                  <span class="faq-question-text">{faq.q}</span>
+                  <span class="faq-icon w-6 h-6 rounded-full bg-slate-100 group-hover:bg-amber-100 text-slate-600 group-hover:text-amber-800 flex items-center justify-center text-xs transition-transform duration-300 shrink-0 ml-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="m6 9 6 6 6-6"/>
+                    </svg>
+                  </span>
+                </button>
+                <div class="faq-panel grid grid-rows-[0fr] transition-[grid-template-rows,opacity] duration-300 ease-out opacity-0">
+                  <div class="overflow-hidden">
+                    <p class="faq-answer-text text-xs sm:text-sm text-slate-600 leading-relaxed pt-2 pb-3">
+                      {faq.a}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      ))}
+    </div>
+
+    <!-- Quick Jump to Calculator -->
+    <section class="p-8 rounded-3xl bg-gradient-to-br from-amber-50 via-amber-100/50 to-orange-50 border border-amber-200 text-center space-y-4 shadow-xs">
+      <h3 class="text-xl font-bold text-slate-900 font-display">
+        Ready to convert gemstone weights in real-time?
+      </h3>
+      <p class="text-xs sm:text-sm text-slate-600 max-w-md mx-auto">
+        Calculate exact Carats, Ratti, Milligrams, Grams, and auspicious Sawa fractions with keystroke precision.
+      </p>
+      <div class="pt-2 flex justify-center gap-3">
+        <a
+          href="/"
+          class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold shadow-xs transition-all hover:scale-105 active:scale-95"
+        >
+          <span>Open Live Converter</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m9 18 6-6-6-6"/>
+          </svg>
+        </a>
+        <a
+          href="/body-weight-calculator"
+          class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white hover:bg-slate-100 text-slate-800 border border-slate-200 text-xs font-semibold shadow-xs transition-all hover:scale-105 active:scale-95"
+        >
+          <span>Body Weight Dosage</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<script>
+  // Accordion Toggle Logic
+  const triggers = document.querySelectorAll<HTMLButtonElement>('.faq-trigger');
+
+  triggers.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      if (!item) return;
+
+      const panel = item.querySelector('.faq-panel');
+      const icon = btn.querySelector('.faq-icon');
+      const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+
+      if (isExpanded) {
+        btn.setAttribute('aria-expanded', 'false');
+        panel?.classList.remove('grid-rows-[1fr]', 'opacity-100');
+        panel?.classList.add('grid-rows-[0fr]', 'opacity-0');
+        icon?.classList.remove('rotate-180', 'bg-amber-100', 'text-amber-800');
+      } else {
+        btn.setAttribute('aria-expanded', 'true');
+        panel?.classList.remove('grid-rows-[0fr]', 'opacity-0');
+        panel?.classList.add('grid-rows-[1fr]', 'opacity-100');
+        icon?.classList.add('rotate-180', 'bg-amber-100', 'text-amber-800');
+      }
+    });
+  });
+
+  // Real-Time Search Filter across all FAQs
+  const searchInput = document.getElementById('faq-search-input') as HTMLInputElement;
+  const faqItems = document.querySelectorAll<HTMLElement>('.faq-item');
+  const categoryCards = document.querySelectorAll<HTMLElement>('.faq-category-card');
+
+  searchInput?.addEventListener('input', (e) => {
+    const query = (e.target as HTMLInputElement).value.toLowerCase().trim();
+
+    faqItems.forEach((item) => {
+      const qText = item.querySelector('.faq-question-text')?.textContent?.toLowerCase() || '';
+      const aText = item.querySelector('.faq-answer-text')?.textContent?.toLowerCase() || '';
+
+      if (!query || qText.includes(query) || aText.includes(query)) {
+        item.style.display = 'block';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+
+    // Hide empty category cards
+    categoryCards.forEach((card) => {
+      const visibleItems = card.querySelectorAll<HTMLElement>('.faq-item:not([style*="display: none"])');
+      card.style.display = visibleItems.length > 0 ? 'block' : 'none';
+    });
+  });
+</script>
