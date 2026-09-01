@@ -20,12 +20,12 @@ const initialSawa = getSawaInfo(initialConversion.rattiPakka);
   <div class="text-center space-y-3 mb-8">
     <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 text-amber-800 text-xs font-semibold uppercase tracking-wider border border-amber-200 shadow-xs">
       <span class="w-2 h-2 rounded-full bg-amber-500"></span>
-      <span id="hero-badge">Certified 0.9100 Pakka & 0.9000 Sunee Engine</span>
+      <span id="hero-badge" data-i18n="badgeReady">Certified 0.9100 Pakka & 0.9000 Sunee Engine</span>
     </div>
     <h1 id="hero-title" class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 font-display">
       {isReverse ? 'Carat to Ratti Converter' : 'Ratti to Carat Converter'}
     </h1>
-    <p id="hero-subtitle" class="text-slate-600 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
+    <p id="hero-subtitle" class="text-slate-600 text-sm sm:text-base max-w-xl mx-auto leading-relaxed" data-i18n="heroSubheading">
       Precision gemstone weight calculator with instant keystroke calculations, astrological Sawa fractions, and multi-unit matrix.
     </p>
   </div>
@@ -66,7 +66,7 @@ const initialSawa = getSawaInfo(initialConversion.rattiPakka);
             <rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect>
             <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>
           </svg>
-          <span id="copy-text">Copy</span>
+          <span id="copy-text" data-i18n="copyResult">Copy Result</span>
         </button>
 
         <button
@@ -169,7 +169,7 @@ const initialSawa = getSawaInfo(initialConversion.rattiPakka);
       </div>
       <div class="text-xs font-mono text-slate-600 sm:text-right">
         <div>Planet: <span id="sawa-planet" class="font-bold text-slate-900">{initialSawa.planet || 'Universal'}</span></div>
-        <div>Gem: <span id="sawa-gem" class="font-bold text-amber-800">{initialSawa.gem || 'All Gemstones'}</span></div>
+        <div>Gem: <span id="sawa-gem" class="font-bold text-amber-800">{initialSawa.gemstone || 'All Gemstones'}</span></div>
       </div>
     </div>
 
@@ -181,13 +181,13 @@ const initialSawa = getSawaInfo(initialConversion.rattiPakka);
           <path d="M3 9h18"></path>
           <path d="M9 21V9"></path>
         </svg>
-        <span>Synchronous Multi-Unit Breakdown</span>
+        <span data-i18n="breakdownTitle">Synchronous Multi-Unit Breakdown</span>
       </h3>
 
       <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
         <!-- Carats Tile -->
         <div class="p-3 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
-          <span class="text-[11px] font-semibold text-slate-500">Carats (Ct)</span>
+          <span class="text-[11px] font-semibold text-slate-500" data-i18n="unitCarats">Carats (Ct)</span>
           <div id="tile-carats" class="text-base font-extrabold text-slate-900 font-mono">
             {initialConversion.caratsPakka.toFixed(3)}
           </div>
@@ -195,7 +195,7 @@ const initialSawa = getSawaInfo(initialConversion.rattiPakka);
 
         <!-- Ratti (Pakka) Tile -->
         <div class="p-3 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
-          <span class="text-[11px] font-semibold text-slate-500">Pakka Ratti (0.91)</span>
+          <span class="text-[11px] font-semibold text-slate-500" data-i18n="unitRatti">Pakka Ratti (0.91)</span>
           <div id="tile-ratti-pakka" class="text-base font-extrabold text-slate-900 font-mono">
             {initialConversion.rattiPakka.toFixed(3)}
           </div>
@@ -203,7 +203,7 @@ const initialSawa = getSawaInfo(initialConversion.rattiPakka);
 
         <!-- Milligrams Tile -->
         <div class="p-3 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
-          <span class="text-[11px] font-semibold text-slate-500">Milligrams (mg)</span>
+          <span class="text-[11px] font-semibold text-slate-500" data-i18n="unitMg">Milligrams (mg)</span>
           <div id="tile-mg" class="text-base font-extrabold text-slate-900 font-mono">
             {initialConversion.mg.toFixed(1)}
           </div>
@@ -211,7 +211,7 @@ const initialSawa = getSawaInfo(initialConversion.rattiPakka);
 
         <!-- Grams Tile -->
         <div class="p-3 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
-          <span class="text-[11px] font-semibold text-slate-500">Grams (g)</span>
+          <span class="text-[11px] font-semibold text-slate-500" data-i18n="unitGrams">Grams (g)</span>
           <div id="tile-grams" class="text-base font-extrabold text-slate-900 font-mono">
             {initialConversion.grams.toFixed(4)}
           </div>
@@ -219,7 +219,7 @@ const initialSawa = getSawaInfo(initialConversion.rattiPakka);
 
         <!-- Cents / Points Tile -->
         <div class="p-3 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
-          <span class="text-[11px] font-semibold text-slate-500">Cents / Points</span>
+          <span class="text-[11px] font-semibold text-slate-500" data-i18n="unitCents">Cents / Points</span>
           <div id="tile-cents" class="text-base font-extrabold text-slate-900 font-mono">
             {initialConversion.cents.toFixed(1)}
           </div>
@@ -227,7 +227,7 @@ const initialSawa = getSawaInfo(initialConversion.rattiPakka);
 
         <!-- Grains Tile -->
         <div class="p-3 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
-          <span class="text-[11px] font-semibold text-slate-500">Grains (gr)</span>
+          <span class="text-[11px] font-semibold text-slate-500" data-i18n="unitGrains">Grains (gr)</span>
           <div id="tile-grains" class="text-base font-extrabold text-slate-900 font-mono">
             {initialConversion.grains.toFixed(2)}
           </div>
@@ -240,6 +240,7 @@ const initialSawa = getSawaInfo(initialConversion.rattiPakka);
 <!-- Keystroke Reactive Calculation Engine -->
 <script>
   import { calculateAllUnits, getSawaInfo } from '../utils/converter';
+  import { getStoredLanguage } from '../utils/i18n';
 
   let currentUnit = 'ratti';
   let currentRatio = 0.91;
@@ -300,8 +301,10 @@ const initialSawa = getSawaInfo(initialConversion.rattiPakka);
     if (tileCents) tileCents.innerText = result.cents.toFixed(1);
     if (tileGrains) tileGrains.innerText = result.grains.toFixed(2);
 
+    const isHi = getStoredLanguage() === 'hi';
     const sawaInfo = getSawaInfo(result.rattiPakka);
-    if (sawaTitle) sawaTitle.innerText = `${sawaInfo.name} (${sawaInfo.hindiName})`;
+
+    if (sawaTitle) sawaTitle.innerText = isHi ? sawaInfo.hindiName : sawaInfo.name;
     if (sawaBadge) {
       sawaBadge.innerText = sawaInfo.status.toUpperCase();
       sawaBadge.className = sawaInfo.status === 'auspicious'
@@ -310,9 +313,9 @@ const initialSawa = getSawaInfo(initialConversion.rattiPakka);
           ? 'px-2 py-0.5 rounded-full text-[10px] font-bold bg-blue-100 text-blue-900'
           : 'px-2 py-0.5 rounded-full text-[10px] font-bold bg-rose-100 text-rose-900';
     }
-    if (sawaDesc) sawaDesc.innerText = sawaInfo.description;
-    if (sawaPlanet) sawaPlanet.innerText = sawaInfo.planet || 'Universal';
-    if (sawaGem) sawaGem.innerText = sawaInfo.gem || 'All Gemstones';
+    if (sawaDesc) sawaDesc.innerText = isHi ? sawaInfo.hindiDescription : sawaInfo.description;
+    if (sawaPlanet) sawaPlanet.innerText = isHi ? (sawaInfo.hindiPlanet || 'सामान्य') : (sawaInfo.planet || 'Universal');
+    if (sawaGem) sawaGem.innerText = isHi ? (sawaInfo.hindiGemstone || 'समस्त रत्न') : (sawaInfo.gemstone || 'All Gemstones');
   }
 
   primaryInput?.addEventListener('input', () => updateCalculations('primary'));
@@ -320,8 +323,9 @@ const initialSawa = getSawaInfo(initialConversion.rattiPakka);
 
   btnSwap?.addEventListener('click', () => {
     currentUnit = currentUnit === 'ratti' ? 'carat' : 'ratti';
-    if (inputLabel) inputLabel.innerText = currentUnit === 'ratti' ? 'Ratti (रत्ती)' : 'Carats (कैरेट)';
-    if (outputLabel) outputLabel.innerText = currentUnit === 'ratti' ? 'Carats (कैरेट)' : 'Ratti (रत्ती)';
+    const isHi = getStoredLanguage() === 'hi';
+    if (inputLabel) inputLabel.innerText = currentUnit === 'ratti' ? (isHi ? 'रत्ती' : 'Ratti (रत्ती)') : (isHi ? 'कैरेट' : 'Carats (कैरेट)');
+    if (outputLabel) outputLabel.innerText = currentUnit === 'ratti' ? (isHi ? 'कैरेट' : 'Carats (कैरेट)') : (isHi ? 'रत्ती' : 'Ratti (रत्ती)');
     if (primaryUnitSymbol) primaryUnitSymbol.innerText = currentUnit === 'ratti' ? 'Rt' : 'Ct';
     if (secondaryUnitSymbol) secondaryUnitSymbol.innerText = currentUnit === 'ratti' ? 'Ct' : 'Rt';
     updateCalculations('primary');
@@ -350,8 +354,10 @@ const initialSawa = getSawaInfo(initialConversion.rattiPakka);
     navigator.clipboard.writeText(summary).then(() => {
       const copyText = document.getElementById('copy-text');
       if (copyText) {
-        copyText.innerText = 'Copied!';
-        setTimeout(() => { copyText.innerText = 'Copy'; }, 2000);
+        copyText.innerText = getStoredLanguage() === 'hi' ? 'कॉपी हो गया!' : 'Copied!';
+        setTimeout(() => { 
+          copyText.innerText = getStoredLanguage() === 'hi' ? 'परिणाम कॉपी करें' : 'Copy Result'; 
+        }, 2000);
       }
     });
   });
@@ -375,5 +381,9 @@ const initialSawa = getSawaInfo(initialConversion.rattiPakka);
       updateCalculations('primary');
       primaryInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
+  });
+
+  window.addEventListener('language-changed', () => {
+    updateCalculations('primary');
   });
 </script>

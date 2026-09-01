@@ -146,5 +146,10 @@ const breadcrumbSchema = {
   </head>
   <body class="selection:bg-amber-500 selection:text-black">
     <slot />
+
+    <script>
+      import { initLanguageSystem } from '../utils/i18n';
+      initLanguageSystem();
+    </script>
   </body>
 </html>

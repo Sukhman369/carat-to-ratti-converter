@@ -9,10 +9,10 @@
         <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-800 text-[11px] font-semibold uppercase tracking-wider border border-amber-200">
           <span>🧘 Vedic Jyotish Dosage Rule</span>
         </div>
-        <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 font-display">
+        <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 font-display" data-i18n="bodyWeightTitle">
           Calculate Gemstone Weight by Body Weight
         </h2>
-        <p class="text-xs sm:text-sm text-slate-600">
+        <p class="text-xs sm:text-sm text-slate-600" data-i18n="bodyWeightSubtitle">
           Ancient Vedic formula: 1 Ratti per 10 to 12 kg of body mass with nearest auspicious Sawa target.
         </p>
       </div>
@@ -116,6 +116,7 @@
 
 <script>
   import { calculateBodyWeightDosage } from '../utils/converter';
+  import { getStoredLanguage } from '../utils/i18n';
 
   const slider = document.getElementById('weight-range-slider') as HTMLInputElement;
   const numInput = document.getElementById('weight-number-input') as HTMLInputElement;
@@ -132,10 +133,12 @@
     const res = calculateBodyWeightDosage(weightKg);
     currentSawaWeight = res.recommendedSawaRatti;
 
+    const isHi = getStoredLanguage() === 'hi';
+
     if (dosageMin) dosageMin.innerText = `${res.minRatti.toFixed(2)} Rt`;
     if (dosageMax) dosageMax.innerText = `${res.maxRatti.toFixed(2)} Rt`;
     if (dosageSawa) dosageSawa.innerText = `${res.recommendedSawaRatti.toFixed(2)} Rt (${res.recommendedCarats.toFixed(2)} Ct)`;
-    if (dosageSawaName) dosageSawaName.innerText = `${res.sawaInfo.name} (${res.sawaInfo.hindiName})`;
+    if (dosageSawaName) dosageSawaName.innerText = isHi ? res.sawaInfo.hindiName : `${res.sawaInfo.name} (${res.sawaInfo.hindiName})`;
   }
 
   slider?.addEventListener('input', (e) => {
@@ -154,5 +157,10 @@
     window.dispatchEvent(new CustomEvent('load-gemstone-preset', {
       detail: { ratti: currentSawaWeight }
     }));
+  });
+
+  window.addEventListener('language-changed', () => {
+    const val = parseFloat(numInput?.value || '65');
+    updateWeight(val);
   });
 </script>
