@@ -1,0 +1,105 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="500 Internal Error · Calculation Interrupted | Ratti to Carat"
+  description="A temporary calculation or server interruption occurred. Reload the page or return to rattitocarat.com to continue converting gemstone weights."
+  canonicalUrl="https://rattitocarat.com/500"
+>
+  <Navbar />
+
+  <main class="relative min-h-[75vh] flex items-center justify-center px-4 sm:px-6 py-12 sm:py-16">
+    <!-- Elevated Master Error Card -->
+    <div class="max-w-lg w-full rounded-3xl atelier-card-elevated p-8 sm:p-10 border border-slate-200/90 shadow-lg text-center space-y-7 glow-gold-sm">
+      
+      <!-- Icon & Status Pill -->
+      <div class="flex flex-col items-center gap-3">
+        <div class="w-16 h-16 rounded-2xl bg-amber-500/10 border border-amber-300/60 flex items-center justify-center text-amber-700 shadow-inner">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-amber-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v4"/>
+            <path d="m16.2 7.8 2.9-2.9"/>
+            <path d="M18 12h4"/>
+            <path d="m16.2 16.2 2.9 2.9"/>
+            <path d="M12 18v4"/>
+            <path d="m4.9 19.1 2.9-2.9"/>
+            <path d="M2 12h4"/>
+            <path d="m4.9 4.9 2.9 2.9"/>
+          </svg>
+        </div>
+        <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-mono font-semibold border border-slate-200 tracking-wide">
+          HTTP 500 · System Interruption
+        </span>
+      </div>
+
+      <!-- Main Headline & Description -->
+      <div class="space-y-2.5">
+        <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 font-display">
+          Calculation Engine Interrupted
+        </h1>
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-sm mx-auto">
+          An unexpected interruption occurred while loading scripts or executing calculation modules. Reloading the page usually resolves this instantly.
+        </p>
+      </div>
+
+      <!-- Substantial Action Buttons -->
+      <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 pt-1">
+        <button
+          type="button"
+          id="btn-reload-page"
+          class="h-12 px-6 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm shadow-sm flex items-center justify-center gap-2.5 transition-all hover:scale-[1.02] active:scale-95 cursor-pointer"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
+            <path d="M21 3v5h-5"/>
+            <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/>
+            <path d="M8 16H3v5"/>
+          </svg>
+          <span>Reload Page</span>
+        </button>
+
+        <a
+          href="/"
+          class="h-12 px-5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold text-sm border border-slate-200 flex items-center justify-center gap-2 transition-all hover:scale-[1.02] active:scale-95"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-slate-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+          <span>Return Home</span>
+        </a>
+      </div>
+
+      <!-- Static Fail-Safe Reference Matrix -->
+      <div class="pt-5 border-t border-slate-100 text-left">
+        <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2">
+          <div class="flex items-center justify-between text-xs font-bold text-slate-700">
+            <span>⚡ Fail-Safe Standard Standards</span>
+            <span class="text-[10px] font-mono text-emerald-800 bg-emerald-100/70 px-2 py-0.5 rounded-full font-semibold">Always Available</span>
+          </div>
+          <div class="grid grid-cols-2 gap-2 text-xs font-mono">
+            <div class="p-2 rounded-xl bg-white border border-slate-200">
+              <span class="text-slate-400 block text-[10px]">1 Pakka Ratti</span>
+              <span class="font-bold text-slate-900">0.9100 Ct (182 mg)</span>
+            </div>
+            <div class="p-2 rounded-xl bg-white border border-slate-200">
+              <span class="text-slate-400 block text-[10px]">1 Metric Carat</span>
+              <span class="font-bold text-slate-900">1.0989 Rt (200 mg)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<script>
+  document.getElementById('btn-reload-page')?.addEventListener('click', () => {
+    window.location.reload();
+  });
+</script>
