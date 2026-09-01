@@ -1,0 +1,51 @@
+---
+import '../css/app.css';
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Carat to Ratti Converter | Free Vedic Gemstone Calculator</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet" />
+	</head>
+	<body class="bg-[#090d16] text-slate-100 min-h-screen flex flex-col items-center justify-center p-6 selection:bg-amber-500 selection:text-black">
+		<main class="w-full max-w-xl mx-auto space-y-6 text-center">
+			<!-- Header Badge -->
+			<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-semibold tracking-wide uppercase">
+				<span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+				Astro 5 + Tailwind CSS v4 Ready
+			</div>
+
+			<!-- Title -->
+			<h1 class="text-4xl md:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-amber-200 via-amber-400 to-amber-100 bg-clip-text text-transparent">
+				Carat ↔ Ratti Converter
+			</h1>
+
+			<p class="text-slate-400 text-base max-w-md mx-auto">
+				Instant astrological & gemological weight calculation with Pakka Ratti precision.
+			</p>
+
+			<!-- Test Status Card -->
+			<div class="glass-card rounded-2xl p-6 glow-gold text-left space-y-4">
+				<div class="flex items-center justify-between border-b border-white/5 pb-3">
+					<span class="text-sm font-medium text-slate-300">Astro Framework</span>
+					<span class="text-xs px-2.5 py-1 rounded-md bg-emerald-500/20 text-emerald-300 font-semibold">Active & Configured</span>
+				</div>
+				<div class="flex items-center justify-between border-b border-white/5 pb-3">
+					<span class="text-sm font-medium text-slate-300">Tailwind Engine</span>
+					<span class="text-xs px-2.5 py-1 rounded-md bg-emerald-500/20 text-emerald-300 font-semibold">v4 (Vite Plugin)</span>
+				</div>
+				<div class="flex items-center justify-between">
+					<span class="text-sm font-medium text-slate-300">Design Tokens</span>
+					<span class="text-xs px-2.5 py-1 rounded-md bg-emerald-500/20 text-emerald-300 font-semibold">@theme CSS-First</span>
+				</div>
+			</div>
+		</main>
+	</body>
+</html>

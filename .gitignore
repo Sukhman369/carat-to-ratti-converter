@@ -8,19 +8,12 @@ _agents/
 .agent/
 _agent/
 
-# Generated docs / data vault (not for VCS)
-docs/
-
-# ──────────────────────────────────────────────
-# Node / JavaScript / TypeScript
-# ──────────────────────────────────────────────
-node_modules/
+# Build outputs & Astro cache
+.astro/
 dist/
+node_modules/
 build/
 out/
-.next/
-.nuxt/
-.svelte-kit/
 .cache/
 *.tsbuildinfo
 
