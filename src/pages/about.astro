@@ -1,0 +1,145 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Why We Built This | The Story Behind Ratti to Carat"
+  description="The story of why rattitocarat.com was built: A quest for transparency, certified 0.91 Pakka Ratti precision, and a distraction-free tool for gemstone buyers and Vedic seekers."
+  canonicalUrl="https://rattitocarat.com/about"
+>
+  <Navbar />
+
+  <main class="relative max-w-4xl mx-auto px-4 sm:px-6 py-10 space-y-12">
+    <!-- Breadcrumbs -->
+    <nav class="flex items-center gap-2 text-xs text-slate-500 font-mono">
+      <a href="/" class="hover:text-amber-700 transition-colors">Home</a>
+      <span>/</span>
+      <span class="text-slate-800 font-semibold">Our Story</span>
+    </nav>
+
+    <!-- Hero Header -->
+    <section class="space-y-4 text-center max-w-2xl mx-auto">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 text-amber-800 text-xs font-semibold uppercase tracking-wider border border-amber-200 shadow-xs">
+        <span>🌱 The Origin Story</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 font-display">
+        Why We Built Ratti to Carat
+      </h1>
+      <p class="text-slate-600 text-base sm:text-lg leading-relaxed">
+        A quest for mathematical honesty, gemstone buying transparency, and a distraction-free calculator that respects ancient Vedic tradition.
+      </p>
+    </section>
+
+    <!-- Narrative Section: The Core Story -->
+    <article class="rounded-3xl atelier-card p-6 sm:p-10 space-y-8 border border-slate-200 shadow-sm text-slate-700 leading-relaxed text-sm sm:text-base">
+      
+      <!-- Chapter 1: The Frustration in the Jewelry Bazaar -->
+      <div class="space-y-3">
+        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 font-display flex items-center gap-2.5">
+          <span>🔍</span> The Frustration in the Jewelry Market
+        </h2>
+        <p>
+          If you have ever bought a natural astrological gemstone in India, the Middle East, or South Asia, you have likely encountered this exact scenario:
+        </p>
+        <div class="p-4 rounded-2xl bg-amber-50/70 border border-amber-200 text-slate-800 text-sm font-medium italic">
+          "Your astrologer prescribes a 5.25 Ratti Yellow Sapphire (Pukhraj). You visit the jeweler, who quotes you ₹12,000 per Ratti. But when you inspect the official lab certificate (GIA, IGI, or IIGJ), the weight is written as 4.78 Carats. Suddenly, you are trying to calculate milligrams, pakka vs sunee ratios, and effective price per carat on a sluggish phone calculator while the jeweler watches."
+        </div>
+        <p>
+          When you try searching online for a quick converter, virtually every existing website is an e-commerce storefront loaded with intrusive popups, aggressive sales reps, hidden conversion formulas, or rounded calculations that quietly shortchange buyers.
+        </p>
+      </div>
+
+      <!-- Chapter 2: The Two Incompatible Worlds -->
+      <div class="space-y-3 pt-4 border-t border-slate-100">
+        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 font-display flex items-center gap-2.5">
+          <span>⚖️</span> Bridging Modern Labs and Vedic Shastra
+        </h2>
+        <p>
+          Gemology operates in two distinct worlds that rarely communicate clearly:
+        </p>
+        <ul class="space-y-2 list-disc list-inside text-slate-600">
+          <li>
+            <strong>The Scientific World (Laboratories):</strong> Measures strictly in Metric Carats (1 Carat = 200 milligrams) and milligrams (mg) on electronic balances. Labs never issue certificates in Ratti.
+          </li>
+          <li>
+            <strong>The Vedic World (Astrology & Jyotish):</strong> Prescribes in Ratti based on the ancient Gunja seed (1 Pakka Ratti = 182 milligrams = 0.91 Carats) and strictly emphasizes auspicious fractions like <em>Sawa (+0.25)</em> while avoiding <em>Paune (-0.25)</em>.
+          </li>
+        </ul>
+        <p>
+          We created <strong>rattitocarat.com</strong> to unite these two worlds with complete transparency. No sales agendas, no affiliate popups, no hidden rounding tricks — just pure, certified mathematical precision.
+        </p>
+      </div>
+
+      <!-- Chapter 3: Our Core Commitments -->
+      <div class="space-y-4 pt-4 border-t border-slate-100">
+        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 font-display flex items-center gap-2.5">
+          <span>🛡️</span> What We Stand For
+        </h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+            <div class="font-bold text-slate-900 text-sm flex items-center gap-2">
+              <span class="text-emerald-600">✓</span> Certified Pakka Precision
+            </div>
+            <p class="text-xs text-slate-600">
+              We default to the scientific 0.9100 ratio (182 mg) recognized by national testing laboratories, while allowing you to toggle the 0.9000 trade ratio with a single click.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+            <div class="font-bold text-slate-900 text-sm flex items-center gap-2">
+              <span class="text-emerald-600">✓</span> 100% Independent & Ad-Free
+            </div>
+            <p class="text-xs text-slate-600">
+              We do not sell gemstones, take commissions from jewelers, or push sponsored recommendations. This tool belongs entirely to you.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+            <div class="font-bold text-slate-900 text-sm flex items-center gap-2">
+              <span class="text-emerald-600">✓</span> Astrological Sanctity
+            </div>
+            <p class="text-xs text-slate-600">
+              We integrate ancient Vedic numerology directly into keystroke calculations: decoding Sawa Ratti, warning against Paune weights, and calibrating body weight dosage rules.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+            <div class="font-bold text-slate-900 text-sm flex items-center gap-2">
+              <span class="text-emerald-600">✓</span> Instant & Private
+            </div>
+            <p class="text-xs text-slate-600">
+              100% client-side computing. Your calculations happen instantly in your browser with zero data harvesting and zero latency.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </article>
+
+    <!-- Bottom Action Card -->
+    <section class="p-8 rounded-3xl bg-slate-900 text-white text-center space-y-4 shadow-sm">
+      <h3 class="text-xl sm:text-2xl font-bold font-display text-white">
+        Experience Honest Gemstone Conversion
+      </h3>
+      <p class="text-xs sm:text-sm text-slate-300 max-w-md mx-auto leading-relaxed">
+        Whether you are a buyer verifying a laboratory certificate, a jeweler quoting a client, or an astrologer prescribing a sacred gem.
+      </p>
+      <div class="pt-2 flex justify-center gap-3">
+        <a
+          href="/"
+          class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs shadow-xs transition-all hover:scale-105 active:scale-95"
+        >
+          <span>Open the Calculator</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m9 18 6-6-6-6"/>
+          </svg>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
