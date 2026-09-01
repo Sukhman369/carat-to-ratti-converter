@@ -1,53 +1,123 @@
 ---
 ---
 
-<footer class="w-full border-t border-slate-200 bg-slate-50 text-slate-600 text-sm mt-24">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-14 space-y-10">
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-      <!-- Brand & Mission -->
-      <div class="space-y-3 md:col-span-2">
-        <div class="flex items-center gap-2.5">
-          <div class="w-7 h-7 rounded-lg bg-amber-500 flex items-center justify-center text-white font-bold text-sm shadow-xs">
-            💎
+<footer class="w-full border-t border-slate-200/80 bg-slate-50 text-slate-600 text-sm mt-20">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 space-y-10">
+    <!-- Top Grid: 4 Structured Columns -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10">
+      
+      <!-- Col 1: Brand & Purpose (4 cols) -->
+      <div class="lg:col-span-4 space-y-3.5">
+        <a href="/" class="inline-flex items-center gap-2.5 group">
+          <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-white shadow-xs group-hover:scale-105 transition-transform">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 3h12l4 6-10 12L2 9z"></path>
+              <path d="M11 3 8 9l4 12 4-12-3-6"></path>
+              <path d="M2 9h20"></path>
+            </svg>
           </div>
           <span class="font-bold text-slate-900 text-base font-display tracking-tight">Ratti to Carat</span>
-        </div>
-        <p class="text-xs text-slate-600 leading-relaxed max-w-md">
-          A dedicated, distraction-free gemstone weight computation tool. Calibrated with certified laboratory conversion constants (0.9100 Pakka Ratti / 182 mg) and ancient Vedic astrological Sawa weight standards.
+        </a>
+        <p class="text-xs text-slate-600 leading-relaxed max-w-sm">
+          Independent gemstone weight conversion and astrological calculation engine. Built for buyers, jewelers, and astrologers seeking certified 0.91 Pakka Ratti precision.
         </p>
+        <div class="pt-1">
+          <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white border border-slate-200 text-[11px] font-mono text-slate-700 font-semibold shadow-xs">
+            <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+            <span>GIA / IGI & Vedic Jyotish Calibrated</span>
+          </span>
+        </div>
       </div>
 
-      <!-- Core Formula Standards -->
-      <div class="space-y-2">
-        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900">Certified Standards</h4>
-        <ul class="space-y-1.5 text-xs font-mono text-slate-600">
-          <li>• 1 Pakka Ratti = 0.9100 Carats</li>
-          <li>• 1 Carat = 1.0989 Pakka Ratti</li>
-          <li>• 1 Carat = 200.0 Milligrams</li>
-          <li>• 1 Pakka Ratti = 182.0 Milligrams</li>
-          <li>• 1 Sunee Ratti = 0.9000 Carats</li>
-          <li>• 1 Carat = 100 Cents / Points</li>
+      <!-- Col 2: Standalone Calculators (3 cols) -->
+      <div class="lg:col-span-3 space-y-3">
+        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900">Conversion Tools</h4>
+        <ul class="space-y-2 text-xs font-medium">
+          <li>
+            <a href="/" class="hover:text-amber-700 transition-colors flex items-center gap-1.5">
+              <span>•</span> Master Bidirectional Tool
+            </a>
+          </li>
+          <li>
+            <a href="/carat-to-ratti" class="hover:text-amber-700 transition-colors flex items-center gap-1.5">
+              <span>•</span> Carat to Ratti Calculator
+            </a>
+          </li>
+          <li>
+            <a href="/ratti-to-carat" class="hover:text-amber-700 transition-colors flex items-center gap-1.5">
+              <span>•</span> Ratti to Carat Calculator
+            </a>
+          </li>
+          <li>
+            <a href="/body-weight-calculator" class="hover:text-amber-700 transition-colors flex items-center gap-1.5">
+              <span>•</span> Body Weight Dosage Tool
+            </a>
+          </li>
         </ul>
       </div>
 
-      <!-- Dedicated 5-Page Navigation -->
-      <div class="space-y-2">
-        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900">Tools & Charts</h4>
-        <ul class="space-y-1.5 text-xs font-medium">
-          <li><a href="/" class="hover:text-amber-700 transition-colors">Master Converter Hub</a></li>
-          <li><a href="/carat-to-ratti" class="hover:text-amber-700 transition-colors">Carat to Ratti Calculator</a></li>
-          <li><a href="/ratti-to-carat" class="hover:text-amber-700 transition-colors">Ratti to Carat Calculator</a></li>
-          <li><a href="/body-weight-calculator" class="hover:text-amber-700 transition-colors">Body Weight Dosage Tool</a></li>
-          <li><a href="/sawa-ratti-chart" class="hover:text-amber-700 transition-colors">Sawa Ratti Astrological Scale</a></li>
+      <!-- Col 3: Reference & Guides (2 cols) -->
+      <div class="lg:col-span-2 space-y-3">
+        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900">Reference</h4>
+        <ul class="space-y-2 text-xs font-medium">
+          <li>
+            <a href="/sawa-ratti-chart" class="hover:text-amber-700 transition-colors flex items-center gap-1.5">
+              <span>•</span> Sawa Ratti Scale
+            </a>
+          </li>
+          <li>
+            <a href="/#conversion-tables-section" class="hover:text-amber-700 transition-colors flex items-center gap-1.5">
+              <span>•</span> Conversion Tables
+            </a>
+          </li>
+          <li>
+            <a href="/#body-weight-section" class="hover:text-amber-700 transition-colors flex items-center gap-1.5">
+              <span>•</span> Navratna Presets
+            </a>
+          </li>
+          <li>
+            <a href="/#faq-section" class="hover:text-amber-700 transition-colors flex items-center gap-1.5">
+              <span>•</span> Questions & Answers
+            </a>
+          </li>
         </ul>
       </div>
+
+      <!-- Col 4: Quick Ratio Reference Micro-Card (3 cols) -->
+      <div class="lg:col-span-3 space-y-2.5">
+        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900">Standard Ratios</h4>
+        <div class="p-3.5 rounded-2xl bg-white border border-slate-200 shadow-xs space-y-2 font-mono text-[11px]">
+          <div class="flex items-center justify-between pb-1.5 border-b border-slate-100">
+            <span class="text-slate-500">1 Pakka Ratti</span>
+            <span class="font-bold text-slate-900">0.9100 Ct (182 mg)</span>
+          </div>
+          <div class="flex items-center justify-between pb-1.5 border-b border-slate-100">
+            <span class="text-slate-500">1 Metric Carat</span>
+            <span class="font-bold text-slate-900">200.0 mg (100 Cts)</span>
+          </div>
+          <div class="flex items-center justify-between pb-1.5 border-b border-slate-100">
+            <span class="text-slate-500">1 Sunee Ratti</span>
+            <span class="font-bold text-slate-900">0.9000 Ct (180 mg)</span>
+          </div>
+          <div class="flex items-center justify-between pt-0.5">
+            <span class="text-slate-500">Vedic Dosage</span>
+            <span class="font-bold text-amber-800">1 Rt / 10–12 kg</span>
+          </div>
+        </div>
+      </div>
+
     </div>
 
-    <!-- Legal & Disclaimer -->
-    <div class="border-t border-slate-200 pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-      <p>
-        © {new Date().getFullYear()} Ratti to Carat. All rights reserved. Gemological data calibrated for educational and calculation utility.
-      </p>
+    <!-- Bottom Bar: Disclaimer & Copyright -->
+    <div class="pt-6 border-t border-slate-200/80 space-y-3 text-xs text-slate-500">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-slate-500 text-[11px] leading-relaxed">
+        <p>
+          © {new Date().getFullYear()} Ratti to Carat. All calculations are mathematical conversions based on certified gemological and Vedic Jyotish standards.
+        </p>
+        <p class="shrink-0 text-slate-400">
+          Educational & Calculation Utility
+        </p>
+      </div>
     </div>
   </div>
 </footer>
