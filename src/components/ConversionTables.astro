@@ -15,31 +15,31 @@ import { STATIC_CARAT_TO_RATTI, STATIC_RATTI_TO_CARAT, SAWA_RATTI_TABLE } from '
         </p>
       </div>
 
-      <!-- Tab Buttons -->
-      <div class="flex items-center gap-1.5 p-1 rounded-xl bg-slate-100 border border-slate-200 text-xs font-semibold self-start sm:self-auto overflow-x-auto max-w-full">
+      <!-- Tab Buttons (3 equal, stacked 2-line tabs for zero horizontal scroll) -->
+      <div class="grid grid-cols-3 gap-1 p-1 rounded-2xl bg-slate-100 border border-slate-200 text-xs font-semibold w-full sm:w-auto shrink-0 select-none">
         <button
           type="button"
           id="tab-btn-carat-first"
-          class="px-3.5 py-1.5 rounded-lg bg-white text-slate-900 shadow-xs font-bold transition-all shrink-0 whitespace-nowrap cursor-pointer"
-          data-i18n="tabCaratToRatti"
+          class="px-2.5 py-1.5 rounded-xl bg-white text-slate-900 shadow-xs font-bold transition-all text-center leading-tight cursor-pointer"
         >
-          Carat to Ratti
+          <span class="block text-[11px] font-medium text-slate-600">Carat to</span>
+          <span class="block text-xs font-bold text-slate-900">Ratti</span>
         </button>
         <button
           type="button"
           id="tab-btn-ratti-first"
-          class="px-3.5 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 transition-all shrink-0 whitespace-nowrap cursor-pointer"
-          data-i18n="tabRattiToCarat"
+          class="px-2.5 py-1.5 rounded-xl text-slate-600 hover:text-slate-900 transition-all text-center leading-tight cursor-pointer"
         >
-          Ratti to Carat
+          <span class="block text-[11px] font-medium text-slate-500">Ratti to</span>
+          <span class="block text-xs font-bold text-slate-700">Carat</span>
         </button>
         <button
           type="button"
           id="tab-btn-sawa-scale"
-          class="px-3.5 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 transition-all shrink-0 whitespace-nowrap cursor-pointer"
-          data-i18n="tabSawaScale"
+          class="px-2.5 py-1.5 rounded-xl text-slate-600 hover:text-slate-900 transition-all text-center leading-tight cursor-pointer"
         >
-          Sawa Scale
+          <span class="block text-[11px] font-medium text-slate-500">Sawa</span>
+          <span class="block text-xs font-bold text-slate-700">Scale</span>
         </button>
       </div>
     </div>
@@ -153,8 +153,8 @@ import { STATIC_CARAT_TO_RATTI, STATIC_RATTI_TO_CARAT, SAWA_RATTI_TABLE } from '
   const searchInput = document.getElementById('table-search-input') as HTMLInputElement;
 
   function switchTab(activeTab: 'carat' | 'ratti' | 'sawa') {
-    const activeClass = 'px-3 py-1.5 rounded-lg bg-white text-slate-900 shadow-xs font-bold transition-all';
-    const inactiveClass = 'px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 transition-all';
+    const activeClass = 'px-2.5 py-1.5 rounded-xl bg-white text-slate-900 shadow-xs font-bold transition-all text-center leading-tight cursor-pointer';
+    const inactiveClass = 'px-2.5 py-1.5 rounded-xl text-slate-600 hover:text-slate-900 transition-all text-center leading-tight cursor-pointer';
 
     tabBtnCarat!.className = activeTab === 'carat' ? activeClass : inactiveClass;
     tabBtnRatti!.className = activeTab === 'ratti' ? activeClass : inactiveClass;
@@ -171,7 +171,6 @@ import { STATIC_CARAT_TO_RATTI, STATIC_RATTI_TO_CARAT, SAWA_RATTI_TABLE } from '
 
   searchInput?.addEventListener('input', (e) => {
     const query = (e.target as HTMLInputElement).value.toLowerCase().trim();
-    const activeTable = document.querySelector('#conversion-tables-section table:not(.hidden) tbody') || document.querySelector('#carat-table-body');
     const rows = document.querySelectorAll('#conversion-tables-section tbody tr');
     
     rows.forEach(row => {
